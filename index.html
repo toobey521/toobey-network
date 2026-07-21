@@ -1,0 +1,2233 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Toobey Network Technology Co., Ltd.</title>
+
+<style>
+
+:root{
+
+  --primary:#2563eb; --primary-light:#3b82f6; --primary-dark:#1d4ed8;
+
+  --accent:#06b6d4; --accent-light:#22d3ee;
+
+  --bg:#f8fafc; --bg-alt:#f1f5f9;
+
+  --text:#0f172a; --text-dim:#64748b; --text-light:#94a3b8;
+
+  --card-bg:rgba(255,255,255,.72); --card-border:rgba(255,255,255,.25);
+
+  --glass-blur:12px; --ease-out:cubic-bezier(.22,1,.36,1);
+
+  --ease-in-out:cubic-bezier(.45,0,.55,1);
+
+  --shadow-sm:0 1px 3px rgba(0,0,0,.04); --shadow-md:0 4px 20px rgba(0,0,0,.05);
+
+  --shadow-lg:0 12px 40px rgba(0,0,0,.06);
+
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* 全局防白边：所有块级容器之间不留缝隙 */
+
+section,footer,header,div[class*="section"],div[class*="cta"]{margin:0}
+
+
+
+/* ── SPLASH 快速扫光 ── */
+
+.splash{position:fixed;inset:0;z-index:9999;background:#0b1120;display:flex;align-items:center;justify-content:center;transition:opacity .3s ease,transform .3s ease}
+
+.splash.hide{opacity:0;transform:scale(1.01);pointer-events:none}
+
+.splash-scan{position:absolute;inset:0;overflow:hidden}
+
+.splash-scan::after{content:'';position:absolute;top:0;left:-30%;width:20%;height:100%;background:linear-gradient(90deg,transparent,rgba(59,130,246,.05),rgba(6,182,212,.03),transparent);animation:scanSweep .8s ease forwards}
+
+@keyframes scanSweep{0%{left:-30%}100%{left:130%}}
+
+.splash-inner{text-align:center;opacity:0;animation:splashFadeIn .3s ease forwards;animation-delay:.15s}
+
+@keyframes splashFadeIn{to{opacity:1}}
+
+.splash-title{font-size:32px;font-weight:700;letter-spacing:3px;color:#fff;margin-bottom:4px}
+
+.splash-sub{font-size:11px;color:rgba(255,255,255,.2);letter-spacing:1px}
+
+
+
+/* ── Floating Decor Elements ── */
+
+.hero-decor{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+
+.hero-decor .shape{position:absolute;border-radius:50%;opacity:.06}
+
+.hero-decor .s1{width:300px;height:300px;background:radial-gradient(circle,#2d8a4e,transparent);top:-80px;left:-80px;animation:floatShape 8s ease-in-out infinite}
+
+.hero-decor .s2{width:200px;height:200px;background:radial-gradient(circle,#3cb371,transparent);bottom:10%;right:-40px;animation:floatShape 10s ease-in-out infinite reverse}
+
+.hero-decor .s3{width:150px;height:150px;background:radial-gradient(circle,#2196f3,transparent);top:40%;right:15%;animation:floatShape 7s ease-in-out infinite 2s}
+
+.hero-decor .s4{width:100px;height:100px;background:radial-gradient(circle,#7c3aed,transparent);bottom:20%;left:20%;animation:floatShape 9s ease-in-out infinite 1s}
+
+@keyframes floatShape{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.05)}}
+
+
+
+.hero-dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(45,138,78,.08) 1px,transparent 1px);background-size:40px 40px}
+
+.hero-line{position:absolute;width:1px;height:200px;background:linear-gradient(to bottom,transparent,rgba(45,138,78,.1),transparent);left:15%;top:20%;animation:heroLineMove 6s linear infinite}
+
+.hero-line2{left:85%;top:60%;animation-delay:-3s}
+
+@keyframes heroLineMove{0%{transform:translateY(-100%);opacity:0}50%{opacity:1}100%{transform:translateY(200%);opacity:0}}
+
+
+
+.hero .hero-bg-img{position:absolute;inset:0;opacity:0;animation:heroBgFadeIn 15s ease-out forwards;background-image:url(/toobey-network/images/deco/1693467604003919.png);background-size:cover;background-position:98% center}
+
+@keyframes heroBgFadeIn{0%{opacity:0}100%{opacity:.75}}
+
+
+
+@keyframes heroFadeIn{from{opacity:0}to{opacity:1}}
+
+
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+
+
+@keyframes floatBg{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+
+
+
+/* ── Card Hover Animations ── */
+
+div[onclick*="detail-cloud"],div[onclick*="detail-data"],div[onclick*="detail-secure"],div[onclick*="detail-ai"],div[onclick*="detail-dev"],div[onclick*="detail-iot"]{transition:all .4s cubic-bezier(.22,1,.36,1)!important}
+
+div[onclick*="detail-cloud"]:hover,div[onclick*="detail-data"]:hover,div[onclick*="detail-secure"]:hover,div[onclick*="detail-ai"]:hover,div[onclick*="detail-dev"]:hover,div[onclick*="detail-iot"]:hover{transform:translateY(-8px)!important;box-shadow:0 24px 60px rgba(0,0,0,.08)!important}
+
+div[onclick*="detail-svc"]{transition:all .4s cubic-bezier(.22,1,.36,1)!important}
+
+div[onclick*="detail-svc"]:hover{transform:translateY(-8px)!important;box-shadow:0 20px 50px rgba(0,0,0,.06)!important}
+
+div[onclick*="detail-svc"]:hover div:first-child{transform:scale(1.12);box-shadow:0 6px 20px rgba(0,0,0,.15)!important}
+
+div[onclick*="detail-sol"]{transition:all .4s cubic-bezier(.22,1,.36,1)!important}
+
+div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow:0 20px 50px rgba(0,0,0,.06)!important}
+
+
+
+/* ── Decorative Image Layouts ── */
+
+.deco{position:absolute;pointer-events:none;z-index:0;border-radius:12px;overflow:hidden;opacity:0;transition:opacity 1s ease}
+
+.deco.loaded{opacity:1}
+
+.deco img{width:100%;height:100%;object-fit:cover}
+
+/* Floating images */
+
+.deco-float{animation:decoFloat 6s ease-in-out infinite}
+
+.deco-float2{animation:decoFloat2 8s ease-in-out infinite}
+
+.deco-float3{animation:decoFloat3 7s ease-in-out infinite reverse}
+
+@keyframes decoFloat{0%,100%{transform:translateY(0) rotate(0deg)}33%{transform:translateY(-12px) rotate(1deg)}66%{transform:translateY(6px) rotate(-.5deg)}}
+
+@keyframes decoFloat2{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-18px) rotate(2deg)}}
+
+@keyframes decoFloat3{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-10px) scale(1.02)}}
+
+/* Blurred background decor */
+
+.deco-blur{filter:blur(40px);opacity:.06;border-radius:50%}
+
+.deco-blur2{filter:blur(30px);opacity:.04}
+
+.g-rotate{width:100%;max-width:100%;height:300px;margin:14px 0;overflow-x:auto;overflow-y:hidden;position:relative;cursor:grab;-webkit-overflow-scrolling:touch}
+
+.g-rotate::-webkit-scrollbar{display:none}
+
+.g-rotate .track{display:flex;align-items:center;gap:24px;width:max-content;padding:0 12px;height:100%}
+
+.g-rotate .g-item{flex-shrink:0;width:240px;height:270px;border-radius:12px;overflow:hidden;cursor:pointer;transition:box-shadow .3s,filter .3s;box-shadow:0 4px 16px rgba(0,0,0,.08)}
+
+.g-rotate .g-item:hover{box-shadow:0 8px 28px rgba(0,0,0,.15);filter:brightness(1.1)}
+
+.g-rotate .g-item img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+
+.g-rotate .g-item:hover img{transform:scale(1.08)}
+
+/* Image card decor */
+
+.img-card-deco{position:relative;overflow:hidden}
+
+.img-card-deco::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.04),transparent 50%);pointer-events:none}
+
+
+
+/* Image spotlight for sections */
+
+.spotlight{position:absolute;pointer-events:none;border-radius:50%;opacity:.04;width:400px;height:400px;filter:blur(60px)}
+
+.spotlight-blue{background:radial-gradient(circle,rgba(59,130,246,.3),transparent);top:-100px;right:-80px}
+
+.spotlight-teal{background:radial-gradient(circle,rgba(6,182,212,.25),transparent);bottom:-120px;left:-100px}
+
+.spotlight-purple{background:radial-gradient(circle,rgba(139,92,246,.2),transparent);top:40%;left:60%}
+
+
+
+/* Section hero images */
+
+.section-visual{height:200px;margin:20px 0 28px;border-radius:14px;overflow:hidden;position:relative;background:linear-gradient(135deg,rgba(37,99,235,.03),rgba(6,182,212,.03))}
+
+.section-visual img{width:100%;height:100%;object-fit:cover;opacity:.08;transition:opacity .5s}
+
+.section-visual:hover img{opacity:.15}
+
+.section-visual .v-content{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:1}
+
+.section-visual .v-icon{font-size:48px;opacity:.15}
+
+
+
+/* Detail modal tech backgrounds */
+
+.detail-section{background:rgba(248,250,252,.97)}
+
+.detail-inner .detail-visual-bg{position:absolute;inset:0;pointer-events:none;opacity:.03;background-size:cover;background-position:center}
+
+
+
+/* ── Scroll Reveal ── */
+
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
+
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+.reveal-left{opacity:0;transform:translateX(-40px);transition:opacity .6s ease,transform .6s ease}
+
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+
+.reveal-right{opacity:0;transform:translateX(40px);transition:opacity .6s ease,transform .6s ease}
+
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+
+.reveal-scale{opacity:0;transform:scale(.9);transition:opacity .6s ease,transform .6s ease}
+
+.reveal-scale.visible{opacity:1;transform:scale(1)}
+
+.reveal-stagger>*{opacity:0;transform:translateY(30px);transition:opacity .5s ease,transform .5s ease}
+
+.reveal-stagger.visible>*{opacity:1;transform:translateY(0)}
+
+.reveal-stagger.visible>*:nth-child(1){transition-delay:.05s}
+
+.reveal-stagger.visible>*:nth-child(2){transition-delay:.12s}
+
+.reveal-stagger.visible>*:nth-child(3){transition-delay:.19s}
+
+.reveal-stagger.visible>*:nth-child(4){transition-delay:.26s}
+
+.reveal-stagger.visible>*:nth-child(5){transition-delay:.33s}
+
+.reveal-stagger.visible>*:nth-child(6){transition-delay:.4s}
+
+
+
+/* ── Glow / Hover Enhancements ── */
+
+.card,.service-card,.solution-card{position:relative;overflow:hidden}
+
+.card::before,.service-card::before,.solution-card::before{content:'';position:absolute;inset:0;border-radius:16px;opacity:0;transition:opacity .4s;background:linear-gradient(135deg,rgba(45,138,78,.03),rgba(60,179,113,.06))}
+
+.card:hover::before,.service-card:hover::before,.solution-card:hover::before{opacity:1}
+
+.card::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:2px;background:linear-gradient(90deg,transparent,rgba(45,138,78,.3),transparent);transition:left .6s ease}
+
+.card:hover::after{left:200%}
+
+.card-icon{position:relative;z-index:1}
+
+
+
+/* ── Section Divider Waves ── */
+
+.section-divider{height:60px;position:relative;overflow:hidden;margin-top:-1px;line-height:0;font-size:0}
+
+.section-divider svg{display:block;width:100%;height:60px}
+
+
+
+/* ── NAV SCROLL ── */
+
+.nav.scrolled{box-shadow:0 4px 30px rgba(0,0,0,.08)}
+
+.nav.scrolled .nav-inner{height:56px}
+
+
+
+/* ── Hero Carousel ── */
+
+.hero-carousel{position:absolute;inset:0;overflow:hidden}
+
+.hero-carousel .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease,transform 8s ease;transform:scale(1.05)}
+
+.hero-carousel .slide.active{opacity:1;transform:scale(1)}
+
+.hero-carousel .slide::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,10,26,.75) 0%,rgba(10,10,26,.5) 50%,rgba(10,10,26,.3) 100%)}
+
+.hero-carousel .slide.s1{background-image:url(/toobey-network/images/hero_tech.jpg)}
+
+.hero-carousel .slide.s2{background-image:url(/toobey-network/images/server_room.jpg)}
+
+.hero-carousel .slide.s3{background-image:url(/toobey-network/images/ai_brain.jpg)}
+
+.hero-carousel .slide.s4{background-image:url(/toobey-network/images/data_center.jpg)}
+
+.carousel-dots{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:10px}
+
+.carousel-dots .dot{width:10px;height:10px;border-radius:50%;border:2px solid rgba(255,255,255,.5);cursor:pointer;transition:all .3s;background:transparent}
+
+.carousel-dots .dot.active{background:#fff;border-color:#fff;transform:scale(1.2)}
+
+.carousel-dots .dot:hover{background:rgba(255,255,255,.3)}
+
+
+
+/* ── Section Image Decor ── */
+
+.section-img-bg{position:relative;overflow:hidden;width:100%;max-width:100%}
+
+.section-img-bg::before{content:'';position:absolute;inset:0;background-size:33.33% 100%;background-position:0 0;background-repeat:repeat;opacity:.04;pointer-events:none}
+
+.section-img-products::before{background-image:url(/toobey-network/images/v2/coding.jpg)}
+
+.section-img-services::before{background-image:url(/toobey-network/images/v2/team.jpg)}
+
+.section-img-solutions::before{background-image:url(/toobey-network/images/v2/cyber.jpg)}
+
+
+
+/* ── NAV 全透明 → 磨砂玻璃 ── */
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all .4s var(--ease-out);background:transparent;border-bottom:1px solid transparent}
+
+.nav.scrolled{background:rgba(255,255,255,.85);backdrop-filter:blur(var(--glass-blur));-webkit-backdrop-filter:blur(var(--glass-blur));border-bottom-color:rgba(59,130,246,.08)}
+
+.nav.scrolled .nav-inner{height:56px}
+
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 28px;display:flex;align-items:center;height:68px;gap:40px;transition:height .4s var(--ease-out)}
+
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0}
+
+.logo-text{font-size:15px;font-weight:600;color:#fff;letter-spacing:1px;transition:color .3s}
+
+.nav.scrolled .logo-text{color:var(--text)}
+
+.nav-links{display:flex;gap:32px;margin-right:auto}
+
+.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:13px;font-weight:500;transition:color .25s var(--ease-in-out);position:relative;padding:4px 0}
+
+.nav.scrolled .nav-links a{color:var(--text-dim)}
+
+.nav-links a:hover{color:#fff}
+
+.nav.scrolled .nav-links a:hover{color:var(--text)}
+
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:50%;width:0;height:1.5px;background:var(--primary-light);transition:all .3s var(--ease-in-out);transform:translateX(-50%)}
+
+.nav-links a:hover::after{width:70%}
+
+.nav .btn-primary{display:inline-flex;padding:7px 20px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.85);text-decoration:none;font-size:12px;font-weight:600;transition:all .3s var(--ease-in-out);white-space:nowrap}
+
+.nav.scrolled .btn-primary{border-color:var(--primary);color:var(--primary)}
+
+.nav .btn-primary:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.5)}
+
+.nav.scrolled .btn-primary:hover{background:rgba(59,130,246,.06);box-shadow:0 0 12px rgba(59,130,246,.12)}
+
+
+
+/* ── HERO 全屏轮播 ── */
+
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:80px 28px 60px;background:#0b1120}
+
+/* 纯CSS渐变动态背景，替代外链图片 */
+
+.hero-bg-anim{position:absolute;inset:0;pointer-events:none}
+
+.hero-bg-anim .layer{position:absolute;inset:-80px;opacity:0;transition:opacity 2s ease;background-size:cover;background-position:center}
+
+.hero-bg-anim .layer.active{opacity:1}
+
+.hero-bg-anim .l1{background:radial-gradient(ellipse at 20% 30%,rgba(59,130,246,.12) 0%,transparent 50%),radial-gradient(ellipse at 80% 70%,rgba(6,182,212,.08) 0%,transparent 40%)}
+
+.hero-bg-anim .l2{background:radial-gradient(ellipse at 70% 20%,rgba(99,102,241,.1) 0%,transparent 50%),radial-gradient(ellipse at 30% 80%,rgba(59,130,246,.08) 0%,transparent 40%)}
+
+.hero-bg-anim .l3{background:radial-gradient(ellipse at 50% 50%,rgba(6,182,212,.1) 0%,transparent 50%),radial-gradient(circle at 30% 30%,rgba(139,92,246,.06) 0%,transparent 40%)}
+
+.hero-bg-anim .l4{background:radial-gradient(ellipse at 60% 40%,rgba(37,99,235,.1) 0%,transparent 50%),radial-gradient(circle at 20% 60%,rgba(6,182,212,.06) 0%,transparent 40%)}
+
+/* 科技感网格线 */
+
+.hero-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:60px 60px}
+
+.hero-content{position:relative;z-index:2;text-align:left;max-width:800px;margin-left:0;padding:0 28px;transform:translateX(-95%)}
+
+.hero-content h1{text-align:left;font-size:clamp(30px,4.5vw,50px);font-weight:700;line-height:1.12;color:#fff;margin-bottom:12px;letter-spacing:-.5px;text-shadow:0 2px 40px rgba(0,0,0,.3)}
+
+.hero-content h1 .gradient-text{background:linear-gradient(135deg,#60a5fa,#22d3ee);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+.hero-content p{color:rgba(255,255,255,.65);font-size:clamp(13px,1.1vw,16px);max-width:480px;margin:0 0 32px;text-shadow:0 1px 20px rgba(0,0,0,.2)}
+
+.hero-actions{display:flex;gap:12px;justify-content:flex-start;flex-wrap:wrap;margin-bottom:48px}
+
+.btn-hero,.btn-hero-outline{display:inline-flex;padding:12px 28px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;transition:all .3s}
+
+.btn-hero{background:var(--primary);color:#fff;box-shadow:0 4px 20px rgba(37,99,235,.25)}
+
+.btn-hero:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,99,235,.35)}
+
+.btn-hero-outline{border:1px solid rgba(255,255,255,.25);color:#fff;background:rgba(255,255,255,.05);backdrop-filter:blur(4px)}
+
+.btn-hero-outline:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.1)}
+
+.hero-stats{display:flex;gap:48px;justify-content:flex-start;flex-wrap:wrap}
+
+.stat{text-align:center}
+
+.stat-num{display:block;font-size:24px;font-weight:600;color:#fff;margin-bottom:2px;text-shadow:0 1px 20px rgba(0,0,0,.3)}
+
+.stat-label{font-size:11px;color:rgba(255,255,255,.4);letter-spacing:1px}
+
+
+
+/* Carousel indicators */
+
+.hero-indicators{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:8px}
+
+.hero-indicators .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);cursor:pointer;transition:all .4s}
+
+.hero-indicators .dot.active{width:24px;border-radius:4px;background:var(--primary-light);box-shadow:0 0 12px rgba(59,130,246,.3)}
+
+
+
+/* ── SECTIONS ── */
+
+.section{padding:96px 28px;max-width:1200px;margin:0 auto}
+
+.section-alt{background:var(--bg-alt);width:100%;max-width:100%;padding:96px 28px}
+
+.section-alt>.section-header,.section-alt>.service-grid,.section-alt>.solution-grid{max-width:1200px;margin-left:auto;margin-right:auto}
+
+.section-header{text-align:center;margin-bottom:48px}
+
+.section-tag{display:inline-block;padding:4px 14px;border-radius:6px;font-size:10px;font-weight:600;letter-spacing:2px;background:rgba(37,99,235,.06);color:var(--primary);margin-bottom:12px}
+
+.section-header h2{font-size:clamp(22px,2.8vw,32px);font-weight:600;color:var(--text);margin-bottom:10px;letter-spacing:-.3px}
+
+.section-header p{color:var(--text-dim);font-size:14px}
+
+
+
+/* ── Glass Cards ── */
+
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:20px}
+
+.card,.service-card,.solution-card{
+
+  background:var(--card-bg);backdrop-filter:blur(var(--glass-blur));-webkit-backdrop-filter:blur(var(--glass-blur));
+
+  border:1px solid var(--card-border);border-radius:14px;padding:32px;
+
+  transition:all .35s var(--ease-out);cursor:pointer;
+
+  box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
+
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(59,130,246,.15),transparent);opacity:0;transition:opacity .4s}
+
+.card:hover::before,.service-card:hover::before,.solution-card:hover::before{opacity:1}
+
+.card:hover,.service-card:hover,.solution-card:hover{
+
+  box-shadow:var(--shadow-lg);border-color:rgba(59,130,246,.15);transform:translateY(-3px)}
+
+.card-icon{font-size:24px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:10px;margin-bottom:16px;position:relative}
+
+.icon-cloud{background:rgba(59,130,246,.08);color:var(--primary)}
+
+.icon-data{background:rgba(139,92,246,.08);color:#7c3aed}
+
+.icon-security{background:rgba(239,68,68,.08);color:#dc2626}
+
+.icon-ai{background:rgba(16,185,129,.08);color:#059669}
+
+.icon-dev{background:rgba(245,158,11,.08);color:#d97706}
+
+.icon-iot{background:rgba(6,182,212,.08);color:var(--accent)}
+
+.card h3{font-size:16px;font-weight:600;color:var(--text);margin-bottom:6px}
+
+.card p,.service-card p,.solution-card p{color:var(--text-dim);font-size:13px;line-height:1.7}
+
+.card-link{display:inline-block;margin-top:12px;font-size:12px;font-weight:600;color:var(--primary);text-decoration:none;transition:all .25s var(--ease-out)}
+
+.card-link:hover{color:var(--primary-dark);transform:translateX(3px)}
+
+
+
+.service-grid,.solution-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+
+.service-card,.solution-card{border-radius:14px;padding:28px}
+
+.service-card:hover,.solution-card:hover{transform:translateY(-3px)}
+
+.service-num{font-size:28px;font-weight:700;color:rgba(37,99,235,.1);margin-bottom:12px;line-height:1}
+
+.service-card h3,.solution-card h3{font-size:15px;font-weight:600;color:var(--text);margin-bottom:6px}
+
+.service-card p,.solution-card p{color:var(--text-dim);font-size:13px;line-height:1.7}
+
+
+
+/* ── DETAIL MODAL ── */
+
+.detail-section{display:none;position:fixed;inset:0;z-index:2000;overflow-y:auto;background:rgba(244,246,250,.96);backdrop-filter:blur(30px)}
+
+.detail-close{position:fixed;top:20px;right:24px;z-index:2001;width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(0,0,0,.04);color:#999;font-size:17px;cursor:pointer;transition:all .25s;border:none;line-height:1}
+
+.detail-close:hover{background:rgba(0,0,0,.08);color:#333;transform:rotate(90deg)}
+
+.detail-inner{max-width:780px;margin:0 auto;padding:72px 28px 60px}
+
+.detail-tag{display:inline-block;padding:3px 14px;border-radius:12px;font-size:10px;font-weight:600;letter-spacing:2px;background:rgba(60,179,113,.08);color:#2d8a4e;margin-bottom:10px}
+
+.detail-inner h2{font-size:26px;font-weight:700;color:#1a1a2e;margin-bottom:2px}
+
+.detail-version{font-size:13px;font-weight:500;color:#999;margin-left:6px}
+
+.detail-hero-visual,.solution-hero-visual{height:180px;margin:20px 0 28px;border-radius:16px;background:#fff;border:1px solid rgba(0,0,0,.04);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+
+.solution-hero-visual{height:200px}
+
+.detail-desc p{font-size:14px;color:#555;line-height:1.9;margin-bottom:28px}
+
+.detail-features{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:32px}
+
+.feature-item{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid rgba(0,0,0,.04);border-radius:12px;padding:16px;transition:all .25s}
+
+.feature-item:hover{border-color:rgba(60,179,113,.12);box-shadow:0 4px 16px rgba(0,0,0,.04)}
+
+.feature-icon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(60,179,113,.08);color:#2d8a4e;font-size:15px;flex-shrink:0}
+
+.feature-item strong{display:block;font-size:13px;font-weight:600;color:#1a1a2e;margin-bottom:3px}
+
+.feature-item p{font-size:12px;color:#666;line-height:1.6}
+
+.detail-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:20px;border-radius:12px;background:#f8f9fb;margin-top:8px}
+
+.d-stat{text-align:center}
+
+.d-num{display:block;font-size:20px;font-weight:700;color:#1a1a2e;margin-bottom:2px}
+
+.d-label{font-size:11px;color:#888}
+
+
+
+/* ── Animations ── */
+
+.detail-grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(45,138,78,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(45,138,78,.04) 1px,transparent 1px);background-size:28px 28px}
+
+.detail-orbit{position:absolute;width:140px;height:140px;border-radius:50%;border:1px solid rgba(45,138,78,.1);animation:orbitSpin 8s linear infinite}
+
+@keyframes orbitSpin{to{transform:rotate(360deg)}}
+
+.orbit-node{position:absolute;width:8px;height:8px;border-radius:50%;background:#2d8a4e;box-shadow:0 0 14px rgba(45,138,78,.3)}
+
+.n1{top:-4px;left:50%;margin-left:-4px}.n2{bottom:-4px;left:50%;margin-left:-4px}.n3{left:-4px;top:50%;margin-top:-4px}.n4{right:-4px;top:50%;margin-top:-4px}
+
+.bar{width:20px;border-radius:4px 4px 0 0;background:linear-gradient(to top,#2d8a4e,rgba(45,138,78,.3));animation:barRise .6s ease forwards;opacity:0}
+
+.b1{height:40%;animation-delay:.05s}.b2{height:65%;animation-delay:.1s}.b3{height:50%;animation-delay:.15s}.b4{height:85%;animation-delay:.2s}.b5{height:60%;animation-delay:.25s}.b6{height:75%;animation-delay:.3s}.b7{height:45%;animation-delay:.35s}.b8{height:90%;animation-delay:.4s}
+
+@keyframes barRise{from{opacity:0;transform:scaleY(0)}to{opacity:1;transform:scaleY(1)}}
+
+.shield-ring{position:absolute;border-radius:50%;border:1px solid rgba(229,57,53,.12);animation:shieldPulse 2s ease-in-out infinite}
+
+.r1{width:80px;height:80px;animation-delay:0s}.r2{width:110px;height:110px;animation-delay:.3s}.r3{width:140px;height:140px;animation-delay:.6s}
+
+@keyframes shieldPulse{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.1);opacity:.8}}
+
+.brain-nodes{position:absolute;width:140px;height:100px}
+
+.bn{position:absolute;width:6px;height:6px;border-radius:50%;background:rgba(67,160,71,.5);animation:bnPulse 1.5s ease-in-out infinite}
+
+.bn1{top:10%;left:20%;animation-delay:0s}.bn2{top:30%;right:15%;animation-delay:.2s}.bn3{top:60%;left:10%;animation-delay:.4s}.bn4{top:50%;right:25%;animation-delay:.6s}.bn5{bottom:15%;left:35%;animation-delay:.8s}.bn6{bottom:20%;right:40%;animation-delay:1s}
+
+@keyframes bnPulse{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:1;transform:scale(2)}}
+
+.detail-terminal{background:#1a1a2e;border-radius:10px;overflow:hidden;width:280px;z-index:1;position:relative}
+
+.term-dots{display:flex;gap:6px;padding:10px 14px;background:rgba(255,255,255,.04)}
+
+.term-dots span{width:8px;height:8px;border-radius:50%}
+
+.term-dots span:nth-child(1){background:#ff5f57}.term-dots span:nth-child(2){background:#ffbd2e}.term-dots span:nth-child(3){background:#28c840}
+
+.term-lines{padding:10px 16px 14px;font-family:'Courier New',monospace;font-size:12px;color:rgba(102,187,106,.8);text-align:left}
+
+.tl{display:block;opacity:0;animation:tlType .3s ease forwards}
+
+.tl1{animation-delay:.1s}.tl2{animation-delay:.4s}.tl3{animation-delay:.7s}
+
+@keyframes tlType{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:translateX(0)}}
+
+.iot-ring{position:absolute;border-radius:50%;border:1px dashed rgba(0,172,193,.15);animation:iotPulse 3s ease-in-out infinite}
+
+.ir1{width:70px;height:70px;animation-delay:0s}.ir2{width:110px;height:110px;animation-delay:.4s}.ir3{width:150px;height:150px;animation-delay:.8s}
+
+@keyframes iotPulse{0%,100%{transform:scale(1);opacity:.3}50%{transform:scale(1.15);opacity:.7}}
+
+.iodev{position:absolute;font-size:18px;animation:iodevFloat 2.5s ease-in-out infinite}
+
+.i1{top:0;left:10%;animation-delay:0s}.i2{top:20%;right:0;animation-delay:.5s}.i3{bottom:5%;left:5%;animation-delay:1s}.i4{bottom:15%;right:15%;animation-delay:1.5s}
+
+@keyframes iodevFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+
+
+/* ── Service Detail ── */
+
+.net-node{position:absolute;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;background:rgba(60,179,113,.06);z-index:1;animation:netNodePulse 2.5s ease-in-out infinite}
+
+.net-center{top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;font-size:20px;background:rgba(60,179,113,.1)}
+
+.net-a1{top:0;left:10%;animation-delay:0s}.net-a2{top:10%;right:5%;animation-delay:.4s}.net-a3{bottom:5%;left:5%;animation-delay:.8s}.net-a4{bottom:10%;right:10%;animation-delay:1.2s}
+
+@keyframes netNodePulse{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+.agile-step{padding:8px 16px;border-radius:8px;background:rgba(60,179,113,.06);font-size:11px;font-weight:600;color:#555;white-space:nowrap}
+
+.agile-arrow{font-size:14px;color:rgba(60,179,113,.3)}
+
+.mg-item{padding:8px 16px;border-radius:8px;background:#f0f2f5;font-size:12px;color:#555;display:flex;align-items:center;gap:8px}
+
+.mg-dot{width:6px;height:6px;border-radius:50%;display:inline-block;animation:mgDotPulse 1.2s ease-in-out infinite}
+
+.mgdot1{background:#2196f3}.mgdot2{background:#ff9800}.mgdot3{background:#43a047}.mgdot4{background:#2d8a4e}
+
+@keyframes mgDotPulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+.grad-cap{font-size:36px;margin-bottom:4px;animation:gradCapFloat 2.5s ease-in-out infinite}
+
+@keyframes gradCapFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+.gs{font-size:16px;animation:gsPop .5s ease forwards;opacity:0}
+
+.gs1{animation-delay:.1s}.gs2{animation-delay:.3s}.gs3{animation-delay:.5s}.gs4{animation-delay:.7s}
+
+@keyframes gsPop{from{opacity:0;transform:scale(0) rotate(-20deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+
+
+
+/* ── Solution Visuals ── */
+
+.sol-particle-bg{position:absolute;inset:0;background:radial-gradient(circle at 30% 40%,rgba(60,179,113,.04) 0%,transparent 50%),radial-gradient(circle at 70% 60%,rgba(60,179,113,.03) 0%,transparent 50%)}
+
+.sol-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(45,138,78,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(45,138,78,.03) 1px,transparent 1px);background-size:24px 24px}
+
+.sol-particle{position:absolute;width:3px;height:3px;border-radius:50%;background:#2d8a4e;animation:solFloat linear infinite;opacity:.3}
+
+.sol-p1{top:20%;left:15%;animation-duration:3s}.sol-p2{top:40%;left:60%;animation-duration:4s;animation-delay:.5s}
+
+.sol-p3{top:60%;left:30%;animation-duration:3.5s;animation-delay:1s}.sol-p4{top:75%;left:70%;animation-duration:4.5s;animation-delay:1.5s}
+
+.sol-p5{top:15%;left:80%;animation-duration:3.2s;animation-delay:.3s}.sol-p6{top:80%;left:20%;animation-duration:3.8s;animation-delay:.8s}
+
+@keyframes solFloat{0%{transform:translateY(0);opacity:.15}50%{transform:translateY(-20px);opacity:.4}100%{transform:translateY(0);opacity:.15}}
+
+.sol-center-icon{font-size:52px;z-index:1;position:relative;animation:solIconPulse 2s ease-in-out infinite}
+
+@keyframes solIconPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+
+.sol-ring{position:absolute;border-radius:50%;border:1px solid rgba(45,138,78,.08);animation:solRingSpin linear infinite}
+
+.sol-r1{width:100px;height:100px;animation-duration:6s}.sol-r2{width:150px;height:150px;animation-duration:8s;animation-direction:reverse}
+
+@keyframes solRingSpin{to{transform:rotate(360deg)}}
+
+.sol-dot{position:absolute;width:5px;height:5px;border-radius:50%;background:#2d8a4e}
+
+.sol-d1{top:-3px;left:50%;margin-left:-3px}.sol-d2{right:-3px;top:50%;margin-top:-3px}.sol-d3{bottom:-3px;left:50%;margin-left:-3px}.sol-d4{left:-3px;top:50%;margin-top:-3px}
+
+
+
+.detail-center-icon,.detail-shield,.detail-brain{font-size:52px;z-index:1;position:relative}.detail-brain{font-size:40px}
+
+.detail-network{position:relative;width:220px;height:140px}
+
+.detail-agile-cycle{display:flex;align-items:center;gap:8px;z-index:1;position:relative}
+
+.detail-monitor-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;z-index:1;position:relative}
+
+.detail-graduation{text-align:center;z-index:1;position:relative}
+
+.grad-students{display:flex;gap:14px;justify-content:center}
+
+
+
+/* ── CTA ── */
+
+.cta-section{background:linear-gradient(135deg,rgba(37,99,235,.04),rgba(6,182,212,.02));padding:80px 28px;text-align:center}
+
+.cta-content h2{font-size:clamp(20px,2.5vw,28px);font-weight:600;color:var(--text);margin-bottom:10px}
+
+.cta-content p{color:var(--text-dim);font-size:14px;margin-bottom:28px}
+
+.cta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+
+
+/* ── FOOTER ── */
+
+.footer-inner{max-width:1200px;margin:0 auto;padding:60px 28px 40px;display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:24px}
+
+.footer-logo{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+
+.footer-logo .logo-icon{font-size:18px}
+
+.footer-logo span{font-size:14px;font-weight:600;color:#1a1a2e}
+
+.footer-desc{font-size:12px;color:#888}
+
+.footer-col h4{font-size:12px;font-weight:600;color:#555;margin-bottom:14px;letter-spacing:1px}
+
+.footer-col a{display:block;font-size:12px;color:#999;text-decoration:none;margin-bottom:8px;transition:color .2s}
+
+.footer-col a:hover{color:#333}
+
+.footer-bottom{max-width:1200px;margin:0 auto;padding:24px 28px 32px;border-top:1px solid rgba(0,0,0,.04);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px}
+
+.footer-links{display:flex;gap:20px}
+
+.footer-links a{font-size:11px;color:#bbb;text-decoration:none}
+
+.footer-links a:hover{color:#666}
+
+.beian{display:flex;align-items:center;gap:4px;font-size:10px;color:#bbb}
+
+.copyright{font-size:10px;color:#bbb;text-align:center;width:100%;margin-top:8px}
+
+.copyright span{display:inline-block;margin:0 8px}
+
+
+
+@media(max-width:768px){
+.nav-links{display:none}
+.hero{min-height:80vh;padding:100px 16px 40px;display:flex;align-items:center;justify-content:center}
+.hero-content{transform:none!important;text-align:center!important;padding:0!important;margin:0 auto!important;max-width:100%!important;width:100%!important;position:relative;left:0;right:0}
+.hero-content h1{text-align:center!important;font-size:clamp(24px,7vw,34px)!important;margin-left:0!important}
+.hero-content p{text-align:center!important;margin:0 auto 24px!important;max-width:100%!important}
+.hero-actions{justify-content:center!important;display:flex;gap:10px}
+.hero-stats{grid-template-columns:repeat(2,1fr)!important;gap:12px!important;max-width:300px!important;margin:16px auto 0!important}
+.hero-stats .stat{text-align:center;padding:8px}
+.fullstack-cards,.card-grid,.service-grid,.solution-grid,.detail-features,.eco-grid,.stack-grid{grid-template-columns:1fr!important}
+.section{padding:30px 16px!important}
+.section-tag{text-align:center!important}
+.section-title{text-align:center!important}
+.footer-inner{grid-template-columns:1fr 1fr;gap:16px}
+.nav-links{display:none}
+.beian{flex-direction:column;gap:4px}
+}
+
+
+.project-card:hover{border-color:#3b82f6;background:#1e2a45;transform:translateY(-1px)}
+.project-card .ico{font-size:16px;flex-shrink:0}
+.project-card .nm{flex:1}
+.project-card .arr{color:#8b949e;font-size:12px}
+
+
+.pcard{display:flex;align-items:center;gap:12px;padding:14px 16px;background:#ffffff;border:1px solid #e4e8ed;border-radius:10px;color:#1f2328;text-decoration:none;font-size:14px;transition:.25s;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+.pcard:hover{background:#f7f9fc;transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.08);border-color:#c9d1d9}
+.pico{font-size:20px;flex-shrink:0;width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:9px;transition:.25s}
+.pbody{flex:1;display:flex;flex-direction:column;gap:3px;min-width:0}
+.pnm{font-weight:500;color:#1f2328;font-size:14px;letter-spacing:.3px}
+.pdesc{font-size:11.5px;color:#6e7781;line-height:1.35}
+.parr{color:#b0b8c4;font-size:13px;flex-shrink:0;opacity:.3;transition:.25s}
+.pico-gm{background:#e8f5e9;color:#2e7d32}
+.pico-to{background:#fff3e0;color:#e65100}
+.pico-md{background:#e3f2fd;color:#1565c0}
+.pico-fi{background:#fce4ec;color:#c62828}
+.pico-he{background:#f3e5f5;color:#7b1fa2}
+.pico-df{background:#e0f2f1;color:#00695c}
+.pcard:hover .pico{transform:scale(1.08)}
+.pcard:hover .parr{opacity:1;color:#3b82f6;transform:translateX(4px)}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px}
+.pcard:hover .parr{color:#b0b8c4;font-size:13px;flex-shrink:0;opacity:.3;transition:.25s}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px}
+
+</style>
+
+</head>
+
+<body>
+
+
+
+<div class="splash" id="splash"><div class="splash-scan"></div><div class="splash-inner">
+
+  <div class="splash-title">TOOBEY</div>
+
+  <div class="splash-sub">Network Technology Co., Ltd.</div>
+
+</div></div>
+
+
+
+<nav class="nav" id="nav"><div class="nav-inner">
+
+  <a href="#" class="logo"><span class="logo-text">TOOBEY</span></a>
+
+  <div class="nav-links"><a href="#products">产品</a><a href="#services">服务</a><a href="#solutions">解决方案</a><a href="#contact">关于我们</a></div>
+
+  <a href="javascript:void(0)" class="btn-primary" onclick="showEmail()">联系我们</a>
+
+</div></nav>
+
+
+
+<section class="hero" id="hero">
+
+<div class="hero-bg-anim">
+
+<div class="layer l1 active"></div>
+
+<div class="layer l2"></div>
+
+<div class="layer l3"></div>
+
+<div class="layer l4"></div>
+
+</div>
+
+<div class="hero-bg-img"></div>
+
+<div class="hero-grid"></div>
+
+<div class="hero-content" style="opacity:0;animation:heroFadeIn .8s ease forwards;animation-delay:.5s">
+
+  <h1>驱动数字世界的<br><span class="gradient-text">创新力量</span></h1>
+
+  <p>Toobey Network Technology — 全方位软件与技术服务</p>
+
+  <div class="hero-actions"><a href="javascript:void(0)" class="btn-hero" onclick="showDemo()">预约演示</a><a href="#services" class="btn-hero-outline">了解服务</a></div>
+
+  <div class="hero-stats"><div class="stat"><span class="stat-num count-up" data-target="99">0</span><span class="stat-label">企业客户</span></div><div class="stat"><span class="stat-num count-up" data-target="60">0</span><span class="stat-label">软件产品</span></div><div class="stat"><span class="stat-num count-up" data-target="99.9" data-suffix="%">0</span><span class="stat-label">服务可用性</span></div><div class="stat"><span class="stat-num count-up" data-target="15" data-suffix="+">0</span><span class="stat-label">行业覆盖</span></div></div>
+
+</div>
+
+</section>
+
+
+
+<!-- ===== IMAGE GALLERY ===== -->
+
+<div class="section section-alt" style="padding:40px 28px;position:relative;overflow:hidden;background:linear-gradient(135deg,#f8faff 0%,#eef2ff 40%,#f0f7fe 70%,#e8f4f8 100%)">
+
+<div style="position:absolute;inset:0;pointer-events:none;opacity:.04;background-image:radial-gradient(circle at 20% 30%,rgba(59,130,246,.3) 0%,transparent 50%),radial-gradient(circle at 80% 70%,rgba(6,182,212,.2) 0%,transparent 50%)"></div>
+
+<div style="position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(59,130,246,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.03) 1px,transparent 1px);background-size:50px 50px"></div>
+
+<div class="section-header" style="position:relative;z-index:1"><span class="section-tag">DESIGN SHOWCASE</span><h2>视觉展示</h2><p>科技与艺术的融合</p></div>
+
+<div class="g-rotate">
+
+<div class="track">
+
+<div class="g-item" onclick="showFullImg('/toobey-network/images/deco/1687678760645846.png')"><img src="/toobey-network/images/deco/1687678760645846.png" alt=""></div>
+
+<div class="g-item" onclick="showFullImg('/toobey-network/images/deco/1688723246997789.png')"><img src="/toobey-network/images/deco/1688723246997789.png" alt=""></div>
+
+<div class="g-item" onclick="showFullImg('/toobey-network/images/deco/1689302080501441.png')"><img src="/toobey-network/images/deco/1689302080501441.png" alt=""></div>
+
+<div class="g-item" onclick="showFullImg('/toobey-network/images/deco/1689302083474726.png')"><img src="/toobey-network/images/deco/1689302083474726.png" alt=""></div>
+
+<div class="g-item" onclick="showFullImg('/toobey-network/images/deco/c79a-1cb91c0e710a6aad55e52ff9fb777739.jpg')"><img src="/toobey-network/images/deco/c79a-1cb91c0e710a6aad55e52ff9fb777739.jpg" alt=""></div>
+
+<div class="g-item" onclick="showFullImg('/toobey-network/images/deco/3373-8f3412f0258d4e76a7b39f171e73e44a.jpg')"><img src="/toobey-network/images/deco/3373-8f3412f0258d4e76a7b39f171e73e44a.jpg" alt=""></div>
+
+<div class="g-item" onclick="showFullImg('/toobey-network/images/deco/1686643099760171.png')"><img src="/toobey-network/images/deco/1686643099760171.png" alt=""></div>
+
+<div class="g-item" onclick="showFullImg('/toobey-network/images/deco/1687678759422461.png')"><img src="/toobey-network/images/deco/1687678759422461.png" alt=""></div>
+
+<div class="g-item" onclick="showFullImg('/toobey-network/images/deco/f11d15e5d454398d96c47cc45987cc4f.jpg')"><img src="/toobey-network/images/deco/f11d15e5d454398d96c47cc45987cc4f.jpg" alt=""></div>
+
+<!-- duplicate for seamless loop -->
+
+<div class="g-item" onclick="showFullImg('/toobey-network/images/deco/1687678760645846.png')"><img src="/toobey-network/images/deco/1687678760645846.png" alt=""></div>
+
+<div class="g-item" onclick="showFullImg('/toobey-network/images/deco/1688723246997789.png')"><img src="/toobey-network/images/deco/1688723246997789.png" alt=""></div>
+
+<div class="g-item" onclick="showFullImg('/toobey-network/images/deco/1689302080501441.png')"><img src="/toobey-network/images/deco/1689302080501441.png" alt=""></div>
+
+<div class="g-item" onclick="showFullImg('/toobey-network/images/deco/1689302083474726.png')"><img src="/toobey-network/images/deco/1689302083474726.png" alt=""></div>
+
+<div class="g-item" onclick="showFullImg('/toobey-network/images/deco/3373-8f3412f0258d4e76a7b39f171e73e44a.jpg')"><img src="/toobey-network/images/deco/3373-8f3412f0258d4e76a7b39f171e73e44a.jpg" alt=""></div>
+
+<div class="g-item" onclick="showFullImg('/toobey-network/images/deco/1686643099760171.png')"><img src="/toobey-network/images/deco/1686643099760171.png" alt=""></div>
+
+<div class="g-item" onclick="showFullImg('/toobey-network/images/deco/1687678759422461.png')"><img src="/toobey-network/images/deco/1687678759422461.png" alt=""></div>
+
+<div class="g-item" onclick="showFullImg('/toobey-network/images/deco/f11d15e5d454398d96c47cc45987cc4f.jpg')"><img src="/toobey-network/images/deco/f11d15e5d454398d96c47cc45987cc4f.jpg" alt=""></div>
+
+</div>
+
+</div>
+
+
+
+<script>
+
+(function(){
+
+  var g=document.querySelector('.g-rotate'),t=document.querySelector('.g-rotate .track');
+
+  if(!g||!t)return;
+
+  var d=false,sx=0,ss=0,ti=null,w=g.offsetWidth;
+
+  // auto scroll left to right
+
+  function go(){g.scrollLeft-=2;if(g.scrollLeft<=0)g.scrollLeft=t.scrollWidth-w;ti=setTimeout(go,30)}
+
+  // wait until images loaded
+
+  setTimeout(go,500);
+
+  // drag
+
+  g.addEventListener('mousedown',function(e){d=true;sx=e.clientX;ss=g.scrollLeft;clearTimeout(ti);e.preventDefault()});
+
+  document.addEventListener('mousemove',function(e){if(!d)return;g.scrollLeft=ss+(sx-e.clientX)});
+
+  document.addEventListener('mouseup',function(){if(!d)return;d=false;go()});
+
+  // wheel
+
+  // g.addEventListener('wheel',function(e){g.scrollLeft+=e.deltaY;e.preventDefault()},{passive:false});
+
+})();
+
+</script>
+
+
+
+</div>
+
+
+
+<!-- ===== PRODUCTS ===== -->
+
+<section class="section section-img-bg section-img-products" id="products" style="position:relative;overflow:hidden">
+
+<div class="spotlight spotlight-blue"></div><div class="spotlight spotlight-teal"></div>
+
+<div class="section-header reveal" style="position:relative;z-index:1"><span class="section-tag">PRODUCTS</span><h2>核心产品</h2><p>覆盖企业管理、数据分析、智能协同等多个领域</p></div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;position:relative;z-index:1;margin-top:32px">
+
+
+
+<div onclick="openDetail('detail-cloud')" style="background:#fff;border-radius:14px;padding:20px;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.03);display:flex;gap:16px;align-items:center;transition:all .35s;border:1px solid rgba(59,130,246,.06)" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(59,130,246,.08)';this.style.borderColor='rgba(59,130,246,.15)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,.03)';this.style.borderColor='rgba(59,130,246,.06)'">
+
+<div style="width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#3b82f6,#60a5fa);display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;flex-shrink:0;box-shadow:0 4px 12px rgba(59,130,246,.2)">☁</div>
+
+<div style="flex:1;min-width:0">
+
+<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><h3 style="font-size:15px;font-weight:600;color:var(--text)">Toobey Cloud</h3><span style="font-size:9px;color:rgba(59,130,246,.4);border:1px solid rgba(59,130,246,.1);border-radius:4px;padding:1px 5px">v3.2</span></div>
+
+<p style="font-size:12px;line-height:1.6;color:var(--text-dim);margin-top:4px">弹性计算 · 对象存储 · CDN加速</p>
+
+<div style="font-size:11px;color:#3b82f6;font-weight:500;margin-top:6px">了解更多 →</div>
+
+</div>
+
+</div>
+
+
+
+<div onclick="openDetail('detail-data')" style="background:#fff;border-radius:14px;padding:20px;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.03);display:flex;gap:16px;align-items:center;transition:all .35s;border:1px solid rgba(6,182,212,.06)" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(6,182,212,.08)';this.style.borderColor='rgba(6,182,212,.15)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,.03)';this.style.borderColor='rgba(6,182,212,.06)'">
+
+<div style="width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#06b6d4,#22d3ee);display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;flex-shrink:0;box-shadow:0 4px 12px rgba(6,182,212,.2)">◈</div>
+
+<div style="flex:1;min-width:0">
+
+<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><h3 style="font-size:15px;font-weight:600;color:var(--text)">DataLens</h3><span style="font-size:9px;color:rgba(6,182,212,.4);border:1px solid rgba(6,182,212,.1);border-radius:4px;padding:1px 5px">v2.1</span></div>
+
+<p style="font-size:12px;line-height:1.6;color:var(--text-dim);margin-top:4px">可视化报表 · 实时BI · AI洞察</p>
+
+<div style="font-size:11px;color:#06b6d4;font-weight:500;margin-top:6px">了解更多 →</div>
+
+</div>
+
+</div>
+
+
+
+<div onclick="openDetail('detail-secure')" style="background:#fff;border-radius:14px;padding:20px;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.03);display:flex;gap:16px;align-items:center;transition:all .35s;border:1px solid rgba(239,68,68,.06)" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(239,68,68,.08)';this.style.borderColor='rgba(239,68,68,.15)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,.03)';this.style.borderColor='rgba(239,68,68,.06)'">
+
+<div style="width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#ef4444,#f87171);display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;flex-shrink:0;box-shadow:0 4px 12px rgba(239,68,68,.2)">🛡</div>
+
+<div style="flex:1;min-width:0">
+
+<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><h3 style="font-size:15px;font-weight:600;color:var(--text)">SecureGate</h3><span style="font-size:9px;color:rgba(239,68,68,.4);border:1px solid rgba(239,68,68,.1);border-radius:4px;padding:1px 5px">v4.0</span></div>
+
+<p style="font-size:12px;line-height:1.6;color:var(--text-dim);margin-top:4px">DDoS防护 · WAF · 漏洞扫描</p>
+
+<div style="font-size:11px;color:#ef4444;font-weight:500;margin-top:6px">了解更多 →</div>
+
+</div>
+
+</div>
+
+
+
+<div onclick="openDetail('detail-ai')" style="background:#fff;border-radius:14px;padding:20px;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.03);display:flex;gap:16px;align-items:center;transition:all .35s;border:1px solid rgba(139,92,246,.06)" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(139,92,246,.08)';this.style.borderColor='rgba(139,92,246,.15)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,.03)';this.style.borderColor='rgba(139,92,246,.06)'">
+
+<div style="width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#8b5cf6,#a78bfa);display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;flex-shrink:0;box-shadow:0 4px 12px rgba(139,92,246,.2)">✦</div>
+
+<div style="flex:1;min-width:0">
+
+<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><h3 style="font-size:15px;font-weight:600;color:var(--text)">AI Copilot</h3><span style="font-size:9px;color:rgba(139,92,246,.4);border:1px solid rgba(139,92,246,.1);border-radius:4px;padding:1px 5px">v1.5</span></div>
+
+<p style="font-size:12px;line-height:1.6;color:var(--text-dim);margin-top:4px">智能助手 · 流程自动化 · 知识库</p>
+
+<div style="font-size:11px;color:#8b5cf6;font-weight:500;margin-top:6px">了解更多 →</div>
+
+</div>
+
+</div>
+
+
+
+<div onclick="openDetail('detail-dev')" style="background:#fff;border-radius:14px;padding:20px;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.03);display:flex;gap:16px;align-items:center;transition:all .35s;border:1px solid rgba(245,158,11,.06)" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(245,158,11,.08)';this.style.borderColor='rgba(245,158,11,.15)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,.03)';this.style.borderColor='rgba(245,158,11,.06)'">
+
+<div style="width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#f59e0b,#fbbf24);display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;flex-shrink:0;box-shadow:0 4px 12px rgba(245,158,11,.2)">⟨/⟩</div>
+
+<div style="flex:1;min-width:0">
+
+<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><h3 style="font-size:15px;font-weight:600;color:var(--text)">DevStudio</h3><span style="font-size:9px;color:rgba(245,158,11,.4);border:1px solid rgba(245,158,11,.1);border-radius:4px;padding:1px 5px">v2.3</span></div>
+
+<p style="font-size:12px;line-height:1.6;color:var(--text-dim);margin-top:4px">云端开发 · CI/CD · 容器部署</p>
+
+<div style="font-size:11px;color:#f59e0b;font-weight:500;margin-top:6px">了解更多 →</div>
+
+</div>
+
+</div>
+
+
+
+<div onclick="openDetail('detail-iot')" style="background:#fff;border-radius:14px;padding:20px;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.03);display:flex;gap:16px;align-items:center;transition:all .35s;border:1px solid rgba(16,185,129,.06)" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(16,185,129,.08)';this.style.borderColor='rgba(16,185,129,.15)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,.03)';this.style.borderColor='rgba(16,185,129,.06)'">
+
+<div style="width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#10b981,#34d399);display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;flex-shrink:0;box-shadow:0 4px 12px rgba(16,185,129,.2)">◎</div>
+
+<div style="flex:1;min-width:0">
+
+<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><h3 style="font-size:15px;font-weight:600;color:var(--text)">IoT Hub</h3><span style="font-size:9px;color:rgba(16,185,129,.4);border:1px solid rgba(16,185,129,.1);border-radius:4px;padding:1px 5px">v1.8</span></div>
+
+<p style="font-size:12px;line-height:1.6;color:var(--text-dim);margin-top:4px">设备管理 · 实时监控 · 边缘计算</p>
+
+<div style="font-size:11px;color:#10b981;font-weight:500;margin-top:6px">了解更多 →</div>
+
+</div>
+
+</div>
+
+
+
+</div></section>
+
+
+
+
+
+
+
+<!-- ===== SERVICES ===== -->
+
+<section class="section section-alt section-img-bg section-img-services" id="services" style="position:relative;overflow:hidden">
+
+<div class="spotlight spotlight-teal" style="top:10%;left:-60px"></div><div class="spotlight spotlight-purple"></div>
+
+<div class="section-header reveal" style="position:relative;z-index:1"><span class="section-tag">SERVICES</span><h2>专业服务</h2><p>从咨询到交付，全程陪伴式技术服务</p></div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;position:relative;z-index:1;margin-top:32px">
+
+
+
+<div onclick="openDetail('detail-svc-consult')" style="background:#fff;border-radius:16px;padding:0;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.03);display:flex;flex-direction:column;transition:all .35s;border:1px solid rgba(59,130,246,.06)" onmouseover="this.style.boxShadow='0 0 0 2px rgba(59,130,246,.12)';this.style.background='rgba(59,130,246,.02)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(0,0,0,.03)';this.style.background='#fff'">
+
+<div style="display:flex;align-items:center;gap:12px;padding:20px 20px 12px">
+
+<div style="width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#3b82f6,#60a5fa);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;transition:transform .35s" onmouseover="this.style.transform='rotate(10deg)'" onmouseout="this.style.transform=''">01</div>
+
+<h3 style="font-size:15px;font-weight:600;color:var(--text)">技术咨询</h3>
+
+</div>
+
+<div style="padding:0 20px 16px">
+
+<p style="font-size:12px;line-height:1.65;color:var(--text-dim)">架构设计评审、技术选型建议、数字化转型规划</p>
+
+</div>
+
+<div style="padding:12px 20px;border-top:1px solid rgba(0,0,0,.02);display:flex;align-items:center;gap:4px;font-size:11px;color:#3b82f6;font-weight:500;transition:all .35s" onmouseover="this.style.paddingLeft='24px'" onmouseout="this.style.paddingLeft='20px'">了解详情 →</div>
+
+</div>
+
+
+
+<div onclick="openDetail('detail-svc-custom')" style="background:#fff;border-radius:16px;padding:0;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.03);display:flex;flex-direction:column;transition:all .35s;border:1px solid rgba(6,182,212,.06)" onmouseover="this.style.boxShadow='0 0 0 2px rgba(6,182,212,.12)';this.style.background='rgba(6,182,212,.02)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(0,0,0,.03)';this.style.background='#fff'">
+
+<div style="display:flex;align-items:center;gap:12px;padding:20px 20px 12px">
+
+<div style="width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#06b6d4,#22d3ee);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;transition:transform .35s" onmouseover="this.style.transform='rotate(10deg)'" onmouseout="this.style.transform=''">02</div>
+
+<h3 style="font-size:15px;font-weight:600;color:var(--text)">定制开发</h3>
+
+</div>
+
+<div style="padding:0 20px 16px">
+
+<p style="font-size:12px;line-height:1.65;color:var(--text-dim)">根据业务需求量身定制，敏捷开发快速迭代上线</p>
+
+</div>
+
+<div style="padding:12px 20px;border-top:1px solid rgba(0,0,0,.02);display:flex;align-items:center;gap:4px;font-size:11px;color:#06b6d4;font-weight:500;transition:all .35s" onmouseover="this.style.paddingLeft='24px'" onmouseout="this.style.paddingLeft='20px'">了解详情 →</div>
+
+</div>
+
+
+
+<div onclick="openDetail('detail-svc-ops')" style="background:#fff;border-radius:16px;padding:0;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.03);display:flex;flex-direction:column;transition:all .35s;border:1px solid rgba(139,92,246,.06)" onmouseover="this.style.boxShadow='0 0 0 2px rgba(139,92,246,.12)';this.style.background='rgba(139,92,246,.02)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(0,0,0,.03)';this.style.background='#fff'">
+
+<div style="display:flex;align-items:center;gap:12px;padding:20px 20px 12px">
+
+<div style="width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#8b5cf6,#a78bfa);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;transition:transform .35s" onmouseover="this.style.transform='rotate(10deg)'" onmouseout="this.style.transform=''">03</div>
+
+<h3 style="font-size:15px;font-weight:600;color:var(--text)">运维托管</h3>
+
+</div>
+
+<div style="padding:0 20px 16px">
+
+<p style="font-size:12px;line-height:1.65;color:var(--text-dim)">7×24小时监控，自动化运维平台，SLA保障</p>
+
+</div>
+
+<div style="padding:12px 20px;border-top:1px solid rgba(0,0,0,.02);display:flex;align-items:center;gap:4px;font-size:11px;color:#8b5cf6;font-weight:500;transition:all .35s" onmouseover="this.style.paddingLeft='24px'" onmouseout="this.style.paddingLeft='20px'">了解详情 →</div>
+
+</div>
+
+
+
+<div onclick="openDetail('detail-svc-training')" style="background:#fff;border-radius:16px;padding:0;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.03);display:flex;flex-direction:column;transition:all .35s;border:1px solid rgba(244,114,182,.06)" onmouseover="this.style.boxShadow='0 0 0 2px rgba(244,114,182,.12)';this.style.background='rgba(244,114,182,.02)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(0,0,0,.03)';this.style.background='#fff'">
+
+<div style="display:flex;align-items:center;gap:12px;padding:20px 20px 12px">
+
+<div style="width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#f472b6,#f9a8d4);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;transition:transform .35s" onmouseover="this.style.transform='rotate(10deg)'" onmouseout="this.style.transform=''">04</div>
+
+<h3 style="font-size:15px;font-weight:600;color:var(--text)">培训赋能</h3>
+
+</div>
+
+<div style="padding:0 20px 16px">
+
+<p style="font-size:12px;line-height:1.65;color:var(--text-dim)">技术培训、认证体系、最佳实践，企业快速成长</p>
+
+</div>
+
+<div style="padding:12px 20px;border-top:1px solid rgba(0,0,0,.02);display:flex;align-items:center;gap:4px;font-size:11px;color:#f472b6;font-weight:500;transition:all .35s" onmouseover="this.style.paddingLeft='24px'" onmouseout="this.style.paddingLeft='20px'">了解详情 →</div>
+
+</div>
+
+
+
+</div></section>
+
+
+
+<!-- ===== SOLUTIONS ===== -->
+
+<section class="section section-img-bg section-img-solutions" id="solutions" style="position:relative;overflow:hidden">
+
+<div class="spotlight spotlight-purple" style="top:5%;right:-80px"></div><div class="spotlight spotlight-blue" style="bottom:-60px;left:30%"></div>
+
+<div class="section-header reveal" style="position:relative;z-index:1"><span class="section-tag">SOLUTIONS</span><h2>行业解决方案</h2><p>深耕多个垂直领域，提供端到端的数字化方案</p></div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;position:relative;z-index:1;margin-top:32px">
+
+<div onclick="openDetail('detail-sol-enterprise')" style="background:linear-gradient(135deg,rgba(99,102,241,.04),transparent);border:1px solid rgba(99,102,241,.08);border-radius:20px;padding:32px 24px;cursor:pointer;transition:all .4s;position:relative;overflow:hidden">
+
+<div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#6366f1,#818cf8)"></div>
+
+<div style="font-size:36px;margin-bottom:12px">🏢</div>
+
+<h3 style="font-size:17px;font-weight:600;color:var(--text);margin-bottom:8px">智慧企业</h3>
+
+<p style="font-size:13px;line-height:1.7;color:var(--text-dim);margin-bottom:16px">OA协同、ERP集成、CRM客户管理，打造高效运营体系</p>
+
+<div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#6366f1;font-weight:500">了解更多 <span style="font-size:14px">→</span></div>
+
+</div>
+
+<div onclick="openDetail('detail-sol-health')" style="background:linear-gradient(135deg,rgba(6,182,212,.04),transparent);border:1px solid rgba(6,182,212,.08);border-radius:20px;padding:32px 24px;cursor:pointer;transition:all .4s;position:relative;overflow:hidden">
+
+<div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#06b6d4,#22d3ee)"></div>
+
+<div style="font-size:36px;margin-bottom:12px">🏥</div>
+
+<h3 style="font-size:17px;font-weight:600;color:var(--text);margin-bottom:8px">医疗健康</h3>
+
+<p style="font-size:13px;line-height:1.7;color:var(--text-dim);margin-bottom:16px">HIS系统、远程会诊、健康档案，助力医疗数字化升级</p>
+
+<div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#06b6d4;font-weight:500">了解更多 <span style="font-size:14px">→</span></div>
+
+</div>
+
+<div onclick="openDetail('detail-sol-edu')" style="background:linear-gradient(135deg,rgba(139,92,246,.04),transparent);border:1px solid rgba(139,92,246,.08);border-radius:20px;padding:32px 24px;cursor:pointer;transition:all .4s;position:relative;overflow:hidden">
+
+<div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#8b5cf6,#a78bfa)"></div>
+
+<div style="font-size:36px;margin-bottom:12px">🎓</div>
+
+<h3 style="font-size:17px;font-weight:600;color:var(--text);margin-bottom:8px">教育科技</h3>
+
+<p style="font-size:13px;line-height:1.7;color:var(--text-dim);margin-bottom:16px">在线课堂、智能测评、校园管理，构建智慧教育生态</p>
+
+<div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#8b5cf6;font-weight:500">了解更多 <span style="font-size:14px">→</span></div>
+
+</div>
+
+<div onclick="openDetail('detail-sol-retail')" style="background:linear-gradient(135deg,rgba(244,114,182,.04),transparent);border:1px solid rgba(244,114,182,.08);border-radius:20px;padding:32px 24px;cursor:pointer;transition:all .4s;position:relative;overflow:hidden">
+
+<div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#f472b6,#f9a8d4)"></div>
+
+<div style="font-size:36px;margin-bottom:12px">🛒</div>
+
+<h3 style="font-size:17px;font-weight:600;color:var(--text);margin-bottom:8px">新零售</h3>
+
+<p style="font-size:13px;line-height:1.7;color:var(--text-dim);margin-bottom:16px">全渠道营销、供应链优化、会员运营，驱动零售增长</p>
+
+<div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#f472b6;font-weight:500">了解更多 <span style="font-size:14px">→</span></div>
+
+</div>
+
+</div>
+
+<style>
+
+.solution-card-new:hover{transform:translateY(-6px)!important;box-shadow:0 16px 48px rgba(0,0,0,.08)!important}
+
+</style></section>
+
+
+
+<!-- ===== TOOBEY ECOSYSTEM INFOGRAPHIC ===== -->
+
+<div class="section section-alt" style="padding:80px 28px 60px;background:linear-gradient(135deg,#f8faff 0%,#eef2ff 40%,#f0f7fe 70%,#e8f4f8 100%);position:relative;overflow:hidden">
+
+<div style="position:absolute;inset:0;pointer-events:none;opacity:.06;background:radial-gradient(ellipse at 50% 30%,rgba(59,130,246,.3),transparent 60%),radial-gradient(ellipse at 30% 70%,rgba(6,182,212,.15),transparent 50%)"></div>
+
+<div class="section-header" style="text-align:center;margin-bottom:40px;position:relative;z-index:1"><span class="section-tag">TOOBEY ECOSYSTEM</span><h2>全栈技术生态</h2><p style="font-size:13px;margin-top:6px">从底层基础设施到行业应用，构建完整数字化闭环</p></div>
+
+
+
+<div style="max-width:1000px;margin:0 auto;position:relative;z-index:1">
+
+
+
+<!-- TOP LAYER -->
+
+<div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:start;gap:0;animation:fadeUp 1s ease">
+
+
+
+<div style="background:#fff;border:1px solid rgba(96,165,250,.12);border-radius:16px;padding:24px 20px;position:relative;transition:all .4s" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 12px 40px rgba(59,130,246,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+
+<div style="position:absolute;top:-10px;left:20px;background:#f8faff;padding:0 8px;font-size:10px;color:rgba(59,130,246,.4);letter-spacing:1px">LAYER 01</div>
+
+<h3 style="font-size:15px;color:#3b82f6;font-weight:600;margin-bottom:16px">🏭 行业应用</h3>
+
+<div style="display:flex;flex-direction:column;gap:10px">
+
+<div style="display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:#3b82f6"></span><span style="font-size:12px;color:var(--text-dim)">智慧企业 · OA/ERP/CRM</span></div>
+
+<div style="display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:#06b6d4"></span><span style="font-size:12px;color:var(--text-dim)">医疗健康 · HIS/远程会诊</span></div>
+
+<div style="display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:#8b5cf6"></span><span style="font-size:12px;color:var(--text-dim)">教育科技 · 在线课堂/测评</span></div>
+
+<div style="display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:#f472b6"></span><span style="font-size:12px;color:var(--text-dim)">新零售 · 全渠道营销/供应链</span></div>
+
+</div>
+
+</div>
+
+
+
+<div style="padding:0 12px;align-self:center;font-size:18px;color:rgba(59,130,246,.15)">▸</div>
+
+
+
+<div style="background:#fff;border:1px solid rgba(6,182,212,.12);border-radius:16px;padding:24px 20px;position:relative;transition:all .4s" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 12px 40px rgba(6,182,212,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+
+<div style="position:absolute;top:-10px;left:20px;background:#f8faff;padding:0 8px;font-size:10px;color:rgba(6,182,212,.4);letter-spacing:1px">LAYER 02</div>
+
+<h3 style="font-size:15px;color:#06b6d4;font-weight:600;margin-bottom:16px">⚙️ 技术底座</h3>
+
+<div style="display:flex;flex-direction:column;gap:10px">
+
+<div style="display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:#3b82f6"></span><span style="font-size:12px;color:var(--text-dim)">Toobey Cloud · 弹性云基础设施</span></div>
+
+<div style="display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:#06b6d4"></span><span style="font-size:12px;color:var(--text-dim)">DataLens · 智能数据分析引擎</span></div>
+
+<div style="display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:#8b5cf6"></span><span style="font-size:12px;color:var(--text-dim)">SecureGate · 企业安全防护体系</span></div>
+
+<div style="display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:#f472b6"></span><span style="font-size:12px;color:var(--text-dim)">AI Copilot · 智能助手与自动化</span></div>
+
+</div>
+
+</div>
+
+
+
+<div style="padding:0 12px;align-self:center;font-size:18px;color:rgba(6,182,212,.15)">▸</div>
+
+
+
+<div style="background:#fff;border:1px solid rgba(139,92,246,.12);border-radius:16px;padding:24px 20px;position:relative;transition:all .4s" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 12px 40px rgba(139,92,246,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+
+<div style="position:absolute;top:-10px;left:20px;background:#f8faff;padding:0 8px;font-size:10px;color:rgba(139,92,246,.4);letter-spacing:1px">LAYER 03</div>
+
+<h3 style="font-size:15px;color:#8b5cf6;font-weight:600;margin-bottom:16px">📊 发展规模</h3>
+
+<div style="display:flex;flex-direction:column;gap:10px">
+
+<div style="display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:#3b82f6"></span><span style="font-size:12px;color:var(--text-dim)"><strong style="color:#3b82f6">99+</strong> 企业客户覆盖</span></div>
+
+<div style="display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:#06b6d4"></span><span style="font-size:12px;color:var(--text-dim)"><strong style="color:#06b6d4">60+</strong> 软件产品矩阵</span></div>
+
+<div style="display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:#8b5cf6"></span><span style="font-size:12px;color:var(--text-dim)"><strong style="color:#8b5cf6">99.9%</strong> SLA 服务保障</span></div>
+
+<div style="display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:#f472b6"></span><span style="font-size:12px;color:var(--text-dim)"><strong style="color:#f472b6">15+</strong> 垂直行业覆盖</span></div>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+<!-- divider -->
+
+<div style="text-align:center;height:40px;margin:4px 0;display:flex;align-items:center;justify-content:center">
+
+<div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(59,130,246,.1),transparent)"></div>
+
+</div>
+
+
+
+<!-- MIDDLE LAYER - Stats -->
+
+<div style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin:0 0 30px;animation:fadeUp 1s ease .2s both">
+
+<div style="background:linear-gradient(135deg,rgba(59,130,246,.04),rgba(96,165,250,.02));border:1px solid rgba(59,130,246,.08);border-radius:20px;padding:20px 30px;text-align:center;min-width:140px;transition:all .4s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(59,130,246,.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+
+<div style="font-size:28px;font-weight:700;background:linear-gradient(135deg,#3b82f6,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">99+</div>
+
+<div style="font-size:11px;color:var(--text-dim);margin-top:4px;letter-spacing:1px">企业客户</div>
+
+</div>
+
+<div style="background:linear-gradient(135deg,rgba(6,182,212,.04),rgba(34,211,238,.02));border:1px solid rgba(6,182,212,.08);border-radius:20px;padding:20px 30px;text-align:center;min-width:140px;transition:all .4s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(6,182,212,.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+
+<div style="font-size:28px;font-weight:700;background:linear-gradient(135deg,#06b6d4,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">4,500+</div>
+
+<div style="font-size:11px;color:var(--text-dim);margin-top:4px;letter-spacing:1px">开发者生态</div>
+
+</div>
+
+<div style="background:linear-gradient(135deg,rgba(139,92,246,.04),rgba(167,139,250,.02));border:1px solid rgba(139,92,246,.08);border-radius:20px;padding:20px 30px;text-align:center;min-width:140px;transition:all .4s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(139,92,246,.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+
+<div style="font-size:28px;font-weight:700;background:linear-gradient(135deg,#8b5cf6,#f472b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">60+</div>
+
+<div style="font-size:11px;color:var(--text-dim);margin-top:4px;letter-spacing:1px">软件产品</div>
+
+</div>
+
+</div>
+
+
+
+<!-- BOTTOM LAYER -->
+
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:10px;animation:fadeUp 1s ease .4s both">
+
+<div style="background:#fff;border:1px solid rgba(0,0,0,.04);border-radius:12px;padding:18px 16px;text-align:center;transition:all .4s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,.04)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+
+<div style="font-size:11px;color:rgba(59,130,246,.5);letter-spacing:1px">INFRA</div>
+
+<div style="font-size:13px;color:var(--text);margin-top:4px;font-weight:500">算力生态</div>
+
+<div style="font-size:11px;color:var(--text-dim)">Cloud Center · 弹性计算</div>
+
+</div>
+
+<div style="background:#fff;border:1px solid rgba(0,0,0,.04);border-radius:12px;padding:18px 16px;text-align:center;transition:all .4s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,.04)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+
+<div style="font-size:11px;color:rgba(6,182,212,.5);letter-spacing:1px">PLATFORM</div>
+
+<div style="font-size:13px;color:var(--text);margin-top:4px;font-weight:500">基础设施</div>
+
+<div style="font-size:11px;color:var(--text-dim)">数据中台 · 微服务架构</div>
+
+</div>
+
+<div style="background:#fff;border:1px solid rgba(0,0,0,.04);border-radius:12px;padding:18px 16px;text-align:center;transition:all .4s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,.04)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+
+<div style="font-size:11px;color:rgba(139,92,246,.5);letter-spacing:1px">CHIP</div>
+
+<div style="font-size:13px;color:var(--text);margin-top:4px;font-weight:500">芯片生态</div>
+
+<div style="font-size:11px;color:var(--text-dim)">跨平台兼容 · 协同设计</div>
+
+</div>
+
+</div>
+
+
+
+<div style="text-align:center;margin-top:36px;padding-top:20px;border-top:1px solid rgba(0,0,0,.04)">
+
+<span style="font-size:11px;color:var(--text-dim);letter-spacing:2px">从咨询到交付 · 全程陪伴式技术服务 · 驱动数字世界的创新力量</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- ===== ALL DETAIL SECTIONS (compact) ===== -->
+
+<div class="detail-section" id="detail-cloud"><div class="detail-close" onclick="closeDetail('detail-cloud')">✕</div><div class="detail-inner">
+
+<div class="detail-tag">CLOUD INFRASTRUCTURE</div><h2>Toobey Cloud <span class="detail-version">v3.2</span></h2>
+
+<div class="detail-hero-visual"><div class="detail-grid-lines"></div><div class="detail-orbit"><div class="orbit-node n1"></div><div class="orbit-node n2"></div><div class="orbit-node n3"></div><div class="orbit-node n4"></div></div><div class="detail-center-icon">☁</div></div>
+
+<div class="detail-desc"><p>Toobey Cloud 是基于自研分布式架构的企业级云计算平台，提供从基础设施到应用托管的全栈云服务。</p></div>
+
+<div class="detail-features"><div class="feature-item"><div class="feature-icon">⚡</div><div><strong>弹性计算 ECS</strong><p>秒级启动虚拟机，支持自动扩缩容。</p></div></div><div class="feature-item"><div class="feature-icon">💾</div><div><strong>对象存储 OSS</strong><p>EB 级可扩展存储空间，99.999999999% 持久性。</p></div></div><div class="feature-item"><div class="feature-icon">🌐</div><div><strong>CDN 全球加速</strong><p>2800+ 节点，智能路由调度。</p></div></div><div class="feature-item"><div class="feature-icon">🔄</div><div><strong>容器服务 ACK</strong><p>Kubernetes 容器管理平台。</p></div></div></div>
+
+<div class="detail-stats"><div class="d-stat"><span class="d-num">2,800+</span><span class="d-label">全球节点</span></div><div class="d-stat"><span class="d-num">99.99%</span><span class="d-label">可用性</span></div><div class="d-stat"><span class="d-num">50PB+</span><span class="d-label">数据存储</span></div><div class="d-stat"><span class="d-num">&lt;50ms</span><span class="d-label">全球延迟</span></div></div>
+
+</div></div>
+
+<div class="detail-section" id="detail-data"><div class="detail-close" onclick="closeDetail('detail-data')">✕</div><div class="detail-inner">
+
+<div class="detail-tag">DATA INTELLIGENCE</div><h2>DataLens <span class="detail-version">v2.8</span></h2>
+
+<div class="detail-hero-visual"><div class="detail-chart-bars" style="display:flex;align-items:flex-end;gap:8px;height:100px;z-index:1;position:relative"><div class="bar b1"></div><div class="bar b2"></div><div class="bar b3"></div><div class="bar b4"></div><div class="bar b5"></div><div class="bar b6"></div><div class="bar b7"></div><div class="bar b8"></div></div></div>
+
+<div class="detail-desc"><p>DataLens 是新一代智能数据分析平台，融合 AI 驱动的自然语言查询与可视化 BI 能力。</p></div>
+
+<div class="detail-features"><div class="feature-item"><div class="feature-icon">📊</div><div><strong>智能报表</strong><p>50+ 图表类型，多维下钻分析。</p></div></div><div class="feature-item"><div class="feature-icon">🤖</div><div><strong>AI 洞察引擎</strong><p>自然语言生成数据看板。</p></div></div><div class="feature-item"><div class="feature-icon">⚡</div><div><strong>实时计算</strong><p>亿级数据秒级响应。</p></div></div><div class="feature-item"><div class="feature-icon">🔗</div><div><strong>数据治理</strong><p>元数据管理与血缘追踪。</p></div></div></div>
+
+<div class="detail-stats"><div class="d-stat"><span class="d-num">200+</span><span class="d-label">行业模板</span></div><div class="d-stat"><span class="d-num">PB级</span><span class="d-label">数据处理</span></div><div class="d-stat"><span class="d-num">秒级</span><span class="d-label">实时响应</span></div><div class="d-stat"><span class="d-num">96%</span><span class="d-label">洞察准确率</span></div></div>
+
+</div></div>
+
+<div class="detail-section" id="detail-secure"><div class="detail-close" onclick="closeDetail('detail-secure')">✕</div><div class="detail-inner">
+
+<div class="detail-tag">CYBER SECURITY</div><h2>SecureGate <span class="detail-version">v4.1</span></h2>
+
+<div class="detail-hero-visual"><div class="detail-shield">🛡</div><div class="shield-ring r1"></div><div class="shield-ring r2"></div><div class="shield-ring r3"></div></div>
+
+<div class="detail-desc"><p>SecureGate 是企业级一体化安全防护平台，整合 WAF、DDoS 防护、漏洞扫描等核心能力。</p></div>
+
+<div class="detail-features"><div class="feature-item"><div class="feature-icon">🚧</div><div><strong>智能 WAF</strong><p>深度学习驱动，误报率低于 0.1%。</p></div></div><div class="feature-item"><div class="feature-icon">🌊</div><div><strong>DDoS 清洗</strong><p>T 级抗 DDoS 防护能力。</p></div></div><div class="feature-item"><div class="feature-icon">🔍</div><div><strong>漏洞扫描</strong><p>覆盖 OWASP Top 10 及 CVE 库。</p></div></div><div class="feature-item"><div class="feature-icon">🔐</div><div><strong>零信任架构</strong><p>持续验证、最小权限。</p></div></div></div>
+
+<div class="detail-stats"><div class="d-stat"><span class="d-num">T级</span><span class="d-label">抗 DDoS</span></div><div class="d-stat"><span class="d-num">0.1%</span><span class="d-label">误报率</span></div><div class="d-stat"><span class="d-num">50万+</span><span class="d-label">CVE 库</span></div><div class="d-stat"><span class="d-num">7×24</span><span class="d-label">安全运营</span></div></div>
+
+</div></div>
+
+<div class="detail-section" id="detail-ai"><div class="detail-close" onclick="closeDetail('detail-ai')">✕</div><div class="detail-inner">
+
+<div class="detail-tag">ARTIFICIAL INTELLIGENCE</div><h2>AI Copilot <span class="detail-version">v1.5</span></h2>
+
+<div class="detail-hero-visual"><div class="detail-brain">✦</div><div class="brain-nodes"><div class="bn bn1"></div><div class="bn bn2"></div><div class="bn bn3"></div><div class="bn bn4"></div><div class="bn bn5"></div><div class="bn bn6"></div></div></div>
+
+<div class="detail-desc"><p>AI Copilot 是基于大语言模型的企业智能助手，深度集成企业知识库与工作流引擎。</p></div>
+
+<div class="detail-features"><div class="feature-item"><div class="feature-icon">💬</div><div><strong>自然语言交互</strong><p>回答准确率超过 95%。</p></div></div><div class="feature-item"><div class="feature-icon">⚙️</div><div><strong>流程自动化</strong><p>支持 50+ 自动化动作。</p></div></div><div class="feature-item"><div class="feature-icon">📄</div><div><strong>智能文档</strong><p>文档处理效率提升 10 倍。</p></div></div><div class="feature-item"><div class="feature-icon">🧠</div><div><strong>企业知识库</strong><p>RAG 架构知识引擎。</p></div></div></div>
+
+<div class="detail-stats"><div class="d-stat"><span class="d-num">95%+</span><span class="d-label">回答准确率</span></div><div class="d-stat"><span class="d-num">300%</span><span class="d-label">效率提升</span></div><div class="d-stat"><span class="d-num">50+</span><span class="d-label">流程动作</span></div><div class="d-stat"><span class="d-num">10×</span><span class="d-label">文档处理</span></div></div>
+
+</div></div>
+
+<div class="detail-section" id="detail-dev"><div class="detail-close" onclick="closeDetail('detail-dev')">✕</div><div class="detail-inner">
+
+<div class="detail-tag">DEVELOPMENT PLATFORM</div><h2>DevStudio <span class="detail-version">v5.0</span></h2>
+
+<div class="detail-hero-visual"><div class="detail-terminal"><div class="term-dots"><span></span><span></span><span></span></div><div class="term-lines"><span class="tl tl1">$ git clone toobey/dev</span><span class="tl tl2">$ docker compose up -d</span><span class="tl tl3">$ deploy --env production</span></div></div></div>
+
+<div class="detail-desc"><p>DevStudio 是面向现代软件团队的云端一体化开发平台。</p></div>
+
+<div class="detail-features"><div class="feature-item"><div class="feature-icon">🖥️</div><div><strong>云端 IDE</strong><p>预装 200+ 扩展。</p></div></div><div class="feature-item"><div class="feature-icon">🔄</div><div><strong>CI/CD 流水线</strong><p>发布周期缩短至 5 分钟。</p></div></div><div class="feature-item"><div class="feature-icon">🐳</div><div><strong>容器化部署</strong><p>内置 K8s 集群管理。</p></div></div><div class="feature-item"><div class="feature-icon">👁️</div><div><strong>代码审查</strong><p>AI 辅助，效率提升 5 倍。</p></div></div></div>
+
+<div class="detail-stats"><div class="d-stat"><span class="d-num">5min</span><span class="d-label">发布周期</span></div><div class="d-stat"><span class="d-num">200+</span><span class="d-label">预装扩展</span></div><div class="d-stat"><span class="d-num">5×</span><span class="d-label">审查效率</span></div><div class="d-stat"><span class="d-num">K8s</span><span class="d-label">原生支持</span></div></div>
+
+</div></div>
+
+<div class="detail-section" id="detail-iot"><div class="detail-close" onclick="closeDetail('detail-iot')">✕</div><div class="detail-inner">
+
+<div class="detail-tag">INTERNET OF THINGS</div><h2>IoT Hub <span class="detail-version">v2.3</span></h2>
+
+<div class="detail-hero-visual"><div style="font-size:44px;z-index:2;position:relative">◎</div><div class="iot-ring ir1"></div><div class="iot-ring ir2"></div><div class="iot-ring ir3"></div><div class="iot-devices"><div class="iodev i1">📡</div><div class="iodev i2">🏭</div><div class="iodev i3">🚗</div><div class="iodev i4">🏠</div></div></div>
+
+<div class="detail-desc"><p>IoT Hub 是企业级物联网设备管理平台，支持百万级设备并发接入。</p></div>
+
+<div class="detail-features"><div class="feature-item"><div class="feature-icon">📡</div><div><strong>海量接入</strong><p>支持 MQTT、CoAP、HTTP 等协议。</p></div></div><div class="feature-item"><div class="feature-icon">🔮</div><div><strong>实时监控</strong><p>异常 30 秒内告警触达。</p></div></div><div class="feature-item"><div class="feature-icon">🧩</div><div><strong>边缘计算</strong><p>响应延迟低至 10ms。</p></div></div><div class="feature-item"><div class="feature-icon">🔒</div><div><strong>设备安全</strong><p>X.509 双向认证加密。</p></div></div></div>
+
+<div class="detail-stats"><div class="d-stat"><span class="d-num">5000万+</span><span class="d-label">接入设备</span></div><div class="d-stat"><span class="d-num">10ms</span><span class="d-label">边缘延迟</span></div><div class="d-stat"><span class="d-num">千万级</span><span class="d-label">并发连接</span></div><div class="d-stat"><span class="d-num">30s</span><span class="d-label">告警触达</span></div></div>
+
+</div></div>
+
+<div class="detail-section" id="detail-svc-consult"><div class="detail-close" onclick="closeDetail('detail-svc-consult')">✕</div><div class="detail-inner">
+
+<div class="detail-tag">CONSULTING SERVICES</div><h2>技术咨询 <span class="detail-version">专业顾问</span></h2>
+
+<div class="detail-hero-visual"><div class="detail-network"><div class="net-node net-center">🧠</div><div class="net-node net-a1">🏗️</div><div class="net-node net-a2">📋</div><div class="net-node net-a3">🔍</div><div class="net-node net-a4">📊</div></div></div>
+
+<div class="detail-desc"><p>Toobey 技术咨询团队由来自头部科技企业的资深架构师与行业专家组成。</p></div>
+
+<div class="detail-features"><div class="feature-item"><div class="feature-icon">🏗️</div><div><strong>架构设计评审</strong><p>全面体检，输出优化路线图。</p></div></div><div class="feature-item"><div class="feature-icon">🎯</div><div><strong>技术选型建议</strong><p>对比主流技术栈。</p></div></div><div class="feature-item"><div class="feature-icon">🗺️</div><div><strong>数字化转型规划</strong><p>四维度制定转型蓝图。</p></div></div><div class="feature-item"><div class="feature-icon">👥</div><div><strong>一对一顾问</strong><p>7×12 小时响应。</p></div></div></div>
+
+<div class="detail-stats"><div class="d-stat"><span class="d-num">200+</span><span class="d-label">项目评审</span></div><div class="d-stat"><span class="d-num">15年+</span><span class="d-label">平均经验</span></div><div class="d-stat"><span class="d-num">98%</span><span class="d-label">客户满意度</span></div><div class="d-stat"><span class="d-num">7×12</span><span class="d-label">顾问响应</span></div></div>
+
+</div></div>
+
+<div class="detail-section" id="detail-svc-custom"><div class="detail-close" onclick="closeDetail('detail-svc-custom')">✕</div><div class="detail-inner">
+
+<div class="detail-tag">CUSTOM DEVELOPMENT</div><h2>定制开发 <span class="detail-version">敏捷交付</span></h2>
+
+<div class="detail-hero-visual"><div class="detail-agile-cycle"><div class="agile-step as1">需求</div><div class="agile-arrow aa1">→</div><div class="agile-step as2">设计</div><div class="agile-arrow aa2">→</div><div class="agile-step as3">开发</div><div class="agile-arrow aa3">→</div><div class="agile-step as4">测试</div><div class="agile-arrow aa4">→</div><div class="agile-step as5">上线</div></div></div>
+
+<div class="detail-desc"><p>Scrum 敏捷方法论，两周迭代周期。</p></div>
+
+<div class="detail-features"><div class="feature-item"><div class="feature-icon">📝</div><div><strong>需求调研分析</strong><p>精准提炼核心需求。</p></div></div><div class="feature-item"><div class="feature-icon">🎨</div><div><strong>原型与设计</strong><p>Axure/Figma 快速验证。</p></div></div><div class="feature-item"><div class="feature-icon">⚙️</div><div><strong>编码实现</strong><p>测试覆盖率 &gt; 80%。</p></div></div><div class="feature-item"><div class="feature-icon">🚀</div><div><strong>快速上线</strong><p>零停机可回滚。</p></div></div></div>
+
+<div class="detail-stats"><div class="d-stat"><span class="d-num">500+</span><span class="d-label">定制项目</span></div><div class="d-stat"><span class="d-num">2周</span><span class="d-label">迭代周期</span></div><div class="d-stat"><span class="d-num">80%+</span><span class="d-label">测试覆盖率</span></div><div class="d-stat"><span class="d-num">零停机</span><span class="d-label">发布策略</span></div></div>
+
+</div></div>
+
+<div class="detail-section" id="detail-svc-ops"><div class="detail-close" onclick="closeDetail('detail-svc-ops')">✕</div><div class="detail-inner">
+
+<div class="detail-tag">OPS & MAINTENANCE</div><h2>运维托管 <span class="detail-version">SLA保障</span></h2>
+
+<div class="detail-hero-visual"><div class="detail-monitor-grid"><div class="mg-item mg1"><span class="mg-dot mgdot1"></span> CPU 42%</div><div class="mg-item mg2"><span class="mg-dot mgdot2"></span> MEM 67%</div><div class="mg-item mg3"><span class="mg-dot mgdot3"></span> DISK 31%</div><div class="mg-item mg4"><span class="mg-dot mgdot4"></span> NET ✓</div></div></div>
+
+<div class="detail-desc"><p>7×24 小时全天候监控与运维保障。</p></div>
+
+<div class="detail-features"><div class="feature-item"><div class="feature-icon">👁️</div><div><strong>全栈监控</strong><p>五位一体监控，自定义告警。</p></div></div><div class="feature-item"><div class="feature-icon">🤖</div><div><strong>智能运维 AIOps</strong><p>减少 80% 无效告警。</p></div></div><div class="feature-item"><div class="feature-icon">📋</div><div><strong>SLA 保障</strong><p>99.95% 可用性承诺。</p></div></div><div class="feature-item"><div class="feature-icon">🔧</div><div><strong>自动化运维</strong><p>配置管理全自动。</p></div></div></div>
+
+<div class="detail-stats"><div class="d-stat"><span class="d-num">7×24</span><span class="d-label">全天候监控</span></div><div class="d-stat"><span class="d-num">30s</span><span class="d-label">故障发现</span></div><div class="d-stat"><span class="d-num">15min</span><span class="d-label">平均恢复</span></div><div class="d-stat"><span class="d-num">99.95%</span><span class="d-label">SLA 承诺</span></div></div>
+
+</div></div>
+
+<div class="detail-section" id="detail-svc-training"><div class="detail-close" onclick="closeDetail('detail-svc-training')">✕</div><div class="detail-inner">
+
+<div class="detail-tag">TRAINING & ENABLEMENT</div><h2>培训赋能 <span class="detail-version">人才孵化</span></h2>
+
+<div class="detail-hero-visual"><div class="detail-graduation"><div class="grad-cap">🎓</div><div class="grad-students"><span class="gs gs1">👨‍💻</span><span class="gs gs2">👩‍💻</span><span class="gs gs3">👨‍🔬</span><span class="gs gs4">👩‍🔬</span></div></div></div>
+
+<div class="detail-desc"><p>覆盖从入门到精通的全职业周期培训体系。</p></div>
+
+<div class="detail-features"><div class="feature-item"><div class="feature-icon">📚</div><div><strong>技术培训课程</strong><p>50+ 门系统化课程。</p></div></div><div class="feature-item"><div class="feature-icon">🏅</div><div><strong>认证体系</strong><p>三级认证，对标国际标准。</p></div></div><div class="feature-item"><div class="feature-icon">💡</div><div><strong>最佳实践分享</strong><p>技术沙龙与案例研讨。</p></div></div><div class="feature-item"><div class="feature-icon">🏢</div><div><strong>企业内训</strong><p>定制化方案，讲师驻场。</p></div></div></div>
+
+<div class="detail-stats"><div class="d-stat"><span class="d-num">50+</span><span class="d-label">专业课程</span></div><div class="d-stat"><span class="d-num">92%</span><span class="d-label">通过率</span></div><div class="d-stat"><span class="d-num">10000+</span><span class="d-label">培养人才</span></div><div class="d-stat"><span class="d-num">3级</span><span class="d-label">认证体系</span></div></div>
+
+</div></div>
+
+<div class="detail-section" id="detail-sol-enterprise"><div class="detail-close" onclick="closeDetail('detail-sol-enterprise')">✕</div><div class="detail-inner">
+
+<div class="detail-tag">SMART ENTERPRISE</div><h2>智慧企业解决方案 <span class="detail-version">v2.0</span></h2>
+
+<div class="solution-hero-visual"><div class="sol-particle-bg"></div><div class="sol-grid"></div><div class="sol-particle sol-p1"></div><div class="sol-particle sol-p2"></div><div class="sol-particle sol-p3"></div><div class="sol-particle sol-p4"></div><div class="sol-particle sol-p5"></div><div class="sol-particle sol-p6"></div><div class="sol-ring sol-r1"><div class="sol-dot sol-d1"></div><div class="sol-dot sol-d2"></div><div class="sol-dot sol-d3"></div><div class="sol-dot sol-d4"></div></div><div class="sol-ring sol-r2"><div class="sol-dot sol-d1"></div><div class="sol-dot sol-d2"></div><div class="sol-dot sol-d3"></div><div class="sol-dot sol-d4"></div></div><div class="sol-center-icon">🏢</div></div>
+
+<div class="detail-desc"><p>智慧企业解决方案以 Toobey Cloud 为底座，整合 OA 协同、ERP 集成、CRM 管理三大核心系统。</p></div>
+
+<div class="detail-features"><div class="feature-item"><div class="feature-icon">📋</div><div><strong>OA 智能协同</strong><p>审批自动化、文档协作，效率提升 60%。</p></div></div><div class="feature-item"><div class="feature-icon">🔗</div><div><strong>ERP 深度集成</strong><p>与 SAP、用友等系统无缝对接。</p></div></div><div class="feature-item"><div class="feature-icon">🤝</div><div><strong>CRM 客户管理</strong><p>AI 驱动客户评分，成单率提升 45%。</p></div></div><div class="feature-item"><div class="feature-icon">📊</div><div><strong>BI 决策看板</strong><p>CEO 驾驶舱，决策响应缩短 80%。</p></div></div></div>
+
+<div class="detail-stats"><div class="d-stat"><span class="d-num">60%</span><span class="d-label">效率提升</span></div><div class="d-stat"><span class="d-num">45%</span><span class="d-label">成单增长</span></div><div class="d-stat"><span class="d-num">80%</span><span class="d-label">决策提速</span></div><div class="d-stat"><span class="d-num">100+</span><span class="d-label">企业客户</span></div></div>
+
+</div></div>
+
+<div class="detail-section" id="detail-sol-health"><div class="detail-close" onclick="closeDetail('detail-sol-health')">✕</div><div class="detail-inner">
+
+<div class="detail-tag">HEALTHCARE</div><h2>医疗健康解决方案 <span class="detail-version">v3.1</span></h2>
+
+<div class="solution-hero-visual"><div class="sol-particle-bg"></div><div class="sol-grid"></div><div class="sol-particle sol-p1"></div><div class="sol-particle sol-p2"></div><div class="sol-particle sol-p3"></div><div class="sol-particle sol-p4"></div><div class="sol-particle sol-p5"></div><div class="sol-particle sol-p6"></div><div class="sol-ring sol-r1"><div class="sol-dot sol-d1"></div><div class="sol-dot sol-d2"></div><div class="sol-dot sol-d3"></div><div class="sol-dot sol-d4"></div></div><div class="sol-ring sol-r2"><div class="sol-dot sol-d1"></div><div class="sol-dot sol-d2"></div><div class="sol-dot sol-d3"></div><div class="sol-dot sol-d4"></div></div><div class="sol-center-icon">🏥</div></div>
+
+<div class="detail-desc"><p>依托 SecureGate 安全体系与 IoT Hub 物联能力，构建 HIS 系统、远程会诊、健康档案三大核心模块。</p></div>
+
+<div class="detail-features"><div class="feature-item"><div class="feature-icon">🏥</div><div><strong>HIS 智能系统</strong><p>日均处理 10000+ 患者数据。</p></div></div><div class="feature-item"><div class="feature-icon">📹</div><div><strong>远程会诊平台</strong><p>4K 视频会诊，连接 300+ 机构。</p></div></div><div class="feature-item"><div class="feature-icon">📁</div><div><strong>电子健康档案</strong><p>区块链技术，患者自主授权。</p></div></div><div class="feature-item"><div class="feature-icon">🛡</div><div><strong>医疗数据安全</strong><p>等保三级合规设计。</p></div></div></div>
+
+<div class="detail-stats"><div class="d-stat"><span class="d-num">300+</span><span class="d-label">合作机构</span></div><div class="d-stat"><span class="d-num">99.99%</span><span class="d-label">系统可用性</span></div><div class="d-stat"><span class="d-num">200ms</span><span class="d-label">影像延迟</span></div><div class="d-stat"><span class="d-num">等保3</span><span class="d-label">安全认证</span></div></div>
+
+</div></div>
+
+<div class="detail-section" id="detail-sol-edu"><div class="detail-close" onclick="closeDetail('detail-sol-edu')">✕</div><div class="detail-inner">
+
+<div class="detail-tag">EDUCATION TECHNOLOGY</div><h2>教育科技解决方案 <span class="detail-version">v2.5</span></h2>
+
+<div class="solution-hero-visual"><div class="sol-particle-bg"></div><div class="sol-grid"></div><div class="sol-particle sol-p1"></div><div class="sol-particle sol-p2"></div><div class="sol-particle sol-p3"></div><div class="sol-particle sol-p4"></div><div class="sol-particle sol-p5"></div><div class="sol-particle sol-p6"></div><div class="sol-ring sol-r1"><div class="sol-dot sol-d1"></div><div class="sol-dot sol-d2"></div><div class="sol-dot sol-d3"></div><div class="sol-dot sol-d4"></div></div><div class="sol-ring sol-r2"><div class="sol-dot sol-d1"></div><div class="sol-dot sol-d2"></div><div class="sol-dot sol-d3"></div><div class="sol-dot sol-d4"></div></div><div class="sol-center-icon">🎓</div></div>
+
+<div class="detail-desc"><p>基于 DevStudio 平台与 AI Copilot 引擎，打造在线课堂、智能测评、校园管理三大平台。</p></div>
+
+<div class="detail-features"><div class="feature-item"><div class="feature-icon">💻</div><div><strong>在线课堂平台</strong><p>万人并发直播，4K 超清画质。</p></div></div><div class="feature-item"><div class="feature-icon">🧪</div><div><strong>智能测评系统</strong><p>AI 自适应出题，提分率 35%。</p></div></div><div class="feature-item"><div class="feature-icon">🏫</div><div><strong>智慧校园管理</strong><p>一卡通，运营成本降低 40%。</p></div></div><div class="feature-item"><div class="feature-icon">📈</div><div><strong>教育大数据</strong><p>学情预警与师资评估。</p></div></div></div>
+
+<div class="detail-stats"><div class="d-stat"><span class="d-num">10000+</span><span class="d-label">并发直播</span></div><div class="d-stat"><span class="d-num">35%</span><span class="d-label">提分率</span></div><div class="d-stat"><span class="d-num">40%</span><span class="d-label">降本增效</span></div><div class="d-stat"><span class="d-num">500+</span><span class="d-label">合作院校</span></div></div>
+
+</div></div>
+
+<div class="detail-section" id="detail-sol-retail"><div class="detail-close" onclick="closeDetail('detail-sol-retail')">✕</div><div class="detail-inner">
+
+<div class="detail-tag">NEW RETAIL</div><h2>新零售解决方案 <span class="detail-version">v3.0</span></h2>
+
+<div class="solution-hero-visual"><div class="sol-particle-bg"></div><div class="sol-grid"></div><div class="sol-particle sol-p1"></div><div class="sol-particle sol-p2"></div><div class="sol-particle sol-p3"></div><div class="sol-particle sol-p4"></div><div class="sol-particle sol-p5"></div><div class="sol-particle sol-p6"></div><div class="sol-ring sol-r1"><div class="sol-dot sol-d1"></div><div class="sol-dot sol-d2"></div><div class="sol-dot sol-d3"></div><div class="sol-dot sol-d4"></div></div><div class="sol-ring sol-r2"><div class="sol-dot sol-d1"></div><div class="sol-dot sol-d2"></div><div class="sol-dot sol-d3"></div><div class="sol-dot sol-d4"></div></div><div class="sol-center-icon">🛒</div></div>
+
+<div class="detail-desc"><p>融合 IoT Hub、DataLens 与 AI Copilot，打通全渠道数据，实现精准营销与智能供应链。</p></div>
+
+<div class="detail-features"><div class="feature-item"><div class="feature-icon">📱</div><div><strong>全渠道营销</strong><p>AI 推荐引擎，转化率提升 50%。</p></div></div><div class="feature-item"><div class="feature-icon">📦</div><div><strong>智能供应链</strong><p>需求预测准确率 92%。</p></div></div><div class="feature-item"><div class="feature-icon">💎</div><div><strong>会员运营平台</strong><p>RFM 模型，复购率提升 40%。</p></div></div><div class="feature-item"><div class="feature-icon">🏪</div><div><strong>智慧门店</strong><p>AI 客流分析，运营效率提升 55%。</p></div></div></div>
+
+<div class="detail-stats"><div class="d-stat"><span class="d-num">50%</span><span class="d-label">转化提升</span></div><div class="d-stat"><span class="d-num">92%</span><span class="d-label">预测准确率</span></div><div class="d-stat"><span class="d-num">40%</span><span class="d-label">复购增长</span></div><div class="d-stat"><span class="d-num">55%</span><span class="d-label">门店提效</span></div></div>
+
+</div></div>
+
+
+
+<!-- CTA + FOOTER -->
+
+<section class="cta-section" id="contact" style="position:relative;overflow:hidden;background:linear-gradient(135deg,#f8faff 0%,#eef2ff 50%,#e0e7ff 100%)">
+
+<div style="position:absolute;inset:0;pointer-events:none">
+
+<div style="position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.06),transparent 70%);top:-100px;right:-80px;animation:floatBg 8s ease-in-out infinite"></div>
+
+<div style="position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(6,182,212,.04),transparent 70%);bottom:-60px;left:10%;animation:floatBg 10s ease-in-out infinite reverse"></div>
+
+<div style="position:absolute;inset:0;background-image:linear-gradient(rgba(59,130,246,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.02) 1px,transparent 1px);background-size:40px 40px"></div>
+
+</div>
+
+<div style="position:relative;z-index:1;max-width:680px;margin:0 auto;text-align:center;padding:20px 0">
+
+<div style="font-size:11px;color:rgba(59,130,246,.4);letter-spacing:3px;margin-bottom:12px;animation:fadeUp .6s ease">GET STARTED</div>
+
+<h2 style="font-size:clamp(22px,2.8vw,32px);font-weight:700;color:var(--text);line-height:1.3;margin-bottom:10px;animation:fadeUp .6s ease .1s both">准备好开启<span style="background:linear-gradient(135deg,#3b82f6,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">数字化转型</span>了吗？</h2>
+
+<p style="color:var(--text-dim);font-size:14px;max-width:440px;margin:0 auto 28px;line-height:1.6;animation:fadeUp .6s ease .2s both">联系我们的专家团队，获取专属解决方案</p>
+
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;animation:fadeUp .6s ease .3s both">
+
+<div onclick="showDemo()" style="display:inline-flex;padding:14px 32px;border-radius:10px;font-size:14px;font-weight:600;text-decoration:none;background:linear-gradient(135deg,#3b82f6,#2563eb);color:#fff;cursor:pointer;transition:all .35s;box-shadow:0 4px 16px rgba(59,130,246,.2);position:relative;overflow:hidden" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 28px rgba(59,130,246,.3)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 16px rgba(59,130,246,.2)'">
+
+<span style="position:relative;z-index:1">预约演示</span>
+
+</div>
+
+<div onclick="showEmail()" style="display:inline-flex;padding:14px 32px;border-radius:10px;font-size:14px;font-weight:500;text-decoration:none;border:1px solid rgba(59,130,246,.15);color:var(--text);cursor:pointer;transition:all .35s;background:#fff" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 28px rgba(0,0,0,.04)';this.style.borderColor='rgba(59,130,246,.3)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='rgba(59,130,246,.15)'">
+
+联系我们 →
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</section>
+
+
+
+<!-- ===== BRAND INFO ===== -->
+
+<section style="padding:60px 28px;background:#fff;border-bottom:1px solid rgba(0,0,0,.04)">
+
+<div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px">
+
+<div>
+
+<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+
+<span style="font-size:20px;color:#2563eb;font-weight:700">◆</span>
+
+<span style="font-size:16px;font-weight:600;color:var(--text)">Toobey Network Technology</span>
+
+</div>
+
+<p style="font-size:13px;color:var(--text-dim);line-height:1.6">驱动数字世界的创新力量</p>
+
+</div>
+
+<div>
+
+<h4 style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:14px;letter-spacing:1px">产品</h4>
+
+<div style="display:flex;flex-direction:column;gap:8px">
+
+<a href="javascript:void(0)" onclick="openDetail('detail-cloud')" style="font-size:12px;color:var(--text-dim);text-decoration:none;transition:color.2s">Toobey Cloud</a>
+
+<a href="javascript:void(0)" onclick="openDetail('detail-data')" style="font-size:12px;color:var(--text-dim);text-decoration:none;transition:color.2s">DataLens</a>
+
+<a href="javascript:void(0)" onclick="openDetail('detail-secure')" style="font-size:12px;color:var(--text-dim);text-decoration:none;transition:color.2s">SecureGate</a>
+
+<a href="javascript:void(0)" onclick="openDetail('detail-ai')" style="font-size:12px;color:var(--text-dim);text-decoration:none;transition:color.2s">AI Copilot</a>
+
+</div>
+
+</div>
+
+<div>
+
+<h4 style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:14px;letter-spacing:1px">服务</h4>
+
+<div style="display:flex;flex-direction:column;gap:8px">
+
+<a href="javascript:void(0)" onclick="openDetail('detail-svc-consult')" style="font-size:12px;color:var(--text-dim);text-decoration:none;transition:color.2s">技术咨询</a>
+
+<a href="javascript:void(0)" onclick="openDetail('detail-svc-custom')" style="font-size:12px;color:var(--text-dim);text-decoration:none;transition:color.2s">定制开发</a>
+
+<a href="javascript:void(0)" onclick="openDetail('detail-svc-ops')" style="font-size:12px;color:var(--text-dim);text-decoration:none;transition:color.2s">运维托管</a>
+
+<a href="javascript:void(0)" onclick="openDetail('detail-svc-training')" style="font-size:12px;color:var(--text-dim);text-decoration:none;transition:color.2s">培训赋能</a>
+
+</div>
+
+</div>
+
+<div>
+
+<h4 style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:14px;letter-spacing:1px">公司</h4>
+
+<div style="display:flex;flex-direction:column;gap:8px">
+
+<a href="#" style="font-size:12px;color:var(--text-dim);text-decoration:none">关于我们</a>
+
+<a href="#" style="font-size:12px;color:var(--text-dim);text-decoration:none">新闻动态</a>
+
+<a href="#" style="font-size:12px;color:var(--text-dim);text-decoration:none">加入我们</a>
+
+<a href="javascript:void(0)" onclick="showEmail()" style="font-size:12px;color:var(--text-dim);text-decoration:none">联系方式</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<div style="text-align:center;padding:30px 20px 12px">
+    <h2 style="font-size:22px;color:#1f2328;margin-bottom:4px"><span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:linear-gradient(135deg,#3b82f6,#8b5cf6);border-radius:8px;font-size:18px;margin-right:4px;vertical-align:middle">🆓</span> 免费开源项目</h2>
+    <p style="font-size:13px;color:#4b5563;margin:0">所有项目均可在线直接使用或下载使用，全部为开源免费工具</p>
+  </div>
+<footer class="footer"><div class="footer-inner">
+
+<div class="footer-cat"><h4 style="font-size:14px;color:#3b82f6;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #30363d">🎮 游戏娱乐</h4><div class="footer-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px">
+<a href="https://toobey521.github.io/star-wars-game/" target="_blank" class="pcard"><span class="pico pico-gm">🚀</span><span class="pbody"><span class="pnm">太空大战</span><span class="pdesc">射击躲避小游戏</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/car/" target="_blank" class="pcard"><span class="pico pico-gm">🏎️</span><span class="pbody"><span class="pnm">解压赛车</span><span class="pdesc">赛车竞速小游戏</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/tetris-game/" target="_blank" class="pcard"><span class="pico pico-gm">🧱</span><span class="pbody"><span class="pnm">俄罗斯方块</span><span class="pdesc">经典方块消除</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/maze-game/" target="_blank" class="pcard"><span class="pico pico-gm">🌀</span><span class="pbody"><span class="pnm">迷宫冒险</span><span class="pdesc">迷宫探索闯关</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/maze-adventure/" target="_blank" class="pcard"><span class="pico pico-gm">🌀</span><span class="pbody"><span class="pnm">迷宫冒险2</span><span class="pdesc">迷宫探索增强版</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/sokoban/" target="_blank" class="pcard"><span class="pico pico-gm">📦</span><span class="pbody"><span class="pnm">推箱子</span><span class="pdesc">经典益智推箱子</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/snake-game/" target="_blank" class="pcard"><span class="pico pico-gm">🐍</span><span class="pbody"><span class="pnm">贪吃蛇</span><span class="pdesc">经典贪吃蛇</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/international-chess/" target="_blank" class="pcard"><span class="pico pico-gm">♟️</span><span class="pbody"><span class="pnm">国际象棋</span><span class="pdesc">国际象棋AI对战</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/Five-in-a-row/" target="_blank" class="pcard"><span class="pico pico-gm">⚫</span><span class="pbody"><span class="pnm">五子棋</span><span class="pdesc">五子棋人机对战</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/chidouren/" target="_blank" class="pcard"><span class="pico pico-gm">👻</span><span class="pbody"><span class="pnm">吃豆人</span><span class="pdesc">经典吃豆小游戏</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/pacman_maze/" target="_blank" class="pcard"><span class="pico pico-gm">👻</span><span class="pbody"><span class="pnm">吃豆迷宫</span><span class="pdesc">吃豆迷宫版</span></span><span class="parr">→</span></a>
+
+<a href="https://toobey521.github.io/fireworks-show/" target="_blank" class="pcard"><span class="pico pico-to">🎆</span><span class="pbody"><span class="pnm">炫彩烟花</span><span class="pdesc">多彩几何烟花绽放</span></span><span class="parr">→</span></a></div></div>
+<div class="footer-cat"><h4 style="font-size:14px;color:#3b82f6;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #30363d">🛠 实用工具</h4><div class="footer-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px">
+<a href="https://toobey521.github.io/fun-english-paradise/" target="_blank" class="pcard"><span class="pico pico-to">📚</span><span class="pbody"><span class="pnm">趣味英语乐园</span><span class="pdesc">英语学习小游戏</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/math/" target="_blank" class="pcard"><span class="pico pico-to">✨</span><span class="pbody"><span class="pnm">星空数学大战</span><span class="pdesc">数学答题闯关</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/math_hero/" target="_blank" class="pcard"><span class="pico pico-to">🦸</span><span class="pbody"><span class="pnm">数学小英雄</span><span class="pdesc">儿童数学练习</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/scientific-calculator/" target="_blank" class="pcard"><span class="pico pico-to">🔢</span><span class="pbody"><span class="pnm">科学计算器</span><span class="pdesc">多功能科学计算</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/Star-Typing-War/" target="_blank" class="pcard"><span class="pico pico-to">⌨️</span><span class="pbody"><span class="pnm">打字战争</span><span class="pdesc">打字练习游戏</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/World-Clock/" target="_blank" class="pcard"><span class="pico pico-to">🕐</span><span class="pbody"><span class="pnm">世界时钟</span><span class="pdesc">多时区时钟查询</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/weather-dress-v8/" target="_blank" class="pcard"><span class="pico pico-to">🌤️</span><span class="pbody"><span class="pnm">天气穿搭助手</span><span class="pdesc">天气+穿搭建议</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/token-usage-assistant/" target="_blank" class="pcard"><span class="pico pico-to">🔖</span><span class="pbody"><span class="pnm">Token助手</span><span class="pdesc">Token用量计算</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/Fuel-Consumption-Manager/" target="_blank" class="pcard"><span class="pico pico-to">⛽</span><span class="pbody"><span class="pnm">油耗管家</span><span class="pdesc">车辆油耗记录</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/bank-cnaps-query/" target="_blank" class="pcard"><span class="pico pico-to">🏦</span><span class="pbody"><span class="pnm">银行行号查询</span><span class="pdesc">银行网点行号</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/toobey-network/gufeng-naming.html" target="_blank" class="pcard"><span class="pico pico-to">📜</span><span class="pbody"><span class="pnm">古风取名</span><span class="pdesc">古风风格起名</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/contract-eye/" target="_blank" class="pcard"><span class="pico pico-to">🔍</span><span class="pbody"><span class="pnm">
+法眼识契-测试版</span><span class="pdesc">合同智能审查</span></span><span class="parr">→</span></a>
+
+<a href="https://toobey521.github.io/website-tutorial/" target="_blank" class="pcard"><span class="pico pico-to">🕸️</span><span class="pbody"><span class="pnm">网站全链路</span><span class="pdesc">网站搭建运营全教程</span></span><span class="parr">→</span></a></div></div>
+<div class="footer-cat"><h4 style="font-size:14px;color:#3b82f6;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #30363d">📺 多媒体</h4><div class="footer-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px">
+<a href="https://toobey521.github.io/piano-music-visualizer/" target="_blank" class="pcard"><span class="pico pico-md">🎹</span><span class="pbody"><span class="pnm">钢琴音乐可视化</span><span class="pdesc">音乐频谱可视化</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/piano/" target="_blank" class="pcard"><span class="pico pico-md">🎹</span><span class="pbody"><span class="pnm">电钢琴</span><span class="pdesc">在线电钢琴弹奏</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/rhythm-waves/" target="_blank" class="pcard"><span class="pico pico-md">🌊</span><span class="pbody"><span class="pnm">韵律波动</span><span class="pdesc">音乐律动效果</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/toobey-audio-extractor/" target="_blank" class="pcard"><span class="pico pico-md">🎵</span><span class="pbody"><span class="pnm">音频提取器</span><span class="pdesc">视频转音频提取</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/toobey-lyrics-extractor/" target="_blank" class="pcard"><span class="pico pico-md">📝</span><span class="pbody"><span class="pnm">歌词提取器</span><span class="pdesc">音乐歌词提取</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/prompt-tool/" target="_blank" class="pcard"><span class="pico pico-md">💡</span><span class="pbody"><span class="pnm">提示词反推工具</span><span class="pdesc">AI提示词推导</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/video-deconstruction-analyzer/" target="_blank" class="pcard"><span class="pico pico-md">🎬</span><span class="pbody"><span class="pnm">视频解构分析器</span><span class="pdesc">视频逐帧分析</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/lie-detector/" target="_blank" class="pcard"><span class="pico pico-md">🕵️</span><span class="pbody"><span class="pnm">多维测谎分析仪</span><span class="pdesc">多维度测谎测试</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/hairstyle-tool/" target="_blank" class="pcard"><span class="pico pico-md">✂️</span><span class="pbody"><span class="pnm">发型设计助手</span><span class="pdesc">AI发型设计与生成</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/color-atlas/" target="_blank" class="pcard"><span class="pico pico-md">🌈</span><span class="pbody"><span class="pnm">颜色图谱</span><span class="pdesc">颜色科学·搭配·应用·300+色样</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/accounting-pain-points/" target="_blank" class="pcard"><span class="pico pico-fi">📋</span><span class="pbody"><span class="pnm">财会痛点100项</span><span class="pdesc">财会人员痛点深度解析</span></span><span class="parr">→</span></a>
+</div></div>
+<div class="footer-cat"><h4 style="font-size:14px;color:#3b82f6;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #30363d">📊 金融/财务</h4><div class="footer-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px">
+<a href="https://toobey521.github.io/A-share-Analysis-System/" target="_blank" class="pcard"><span class="pico pico-fi">📈</span><span class="pbody"><span class="pnm">A股分析系统</span><span class="pdesc">A股实时分析系统</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/stock-picker-v16/" target="_blank" class="pcard"><span class="pico pico-fi">🎯</span><span class="pbody"><span class="pnm">趋势选股工具</span><span class="pdesc">智能趋势选股</span></span><span class="parr">→</span></a>
+</div></div>
+<div class="footer-cat"><h4 style="font-size:14px;color:#3b82f6;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #30363d">🌿 养生</h4><div class="footer-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px">
+<a href="https://toobey521.github.io/toobey-food-app/" target="_blank" class="pcard"><span class="pico pico-he">🥗</span><span class="pbody"><span class="pnm">本草食蔬下载</span><span class="pdesc">本草食物查询</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/toobey-herbal-ebook/" target="_blank" class="pcard"><span class="pico pico-he">📖</span><span class="pbody"><span class="pnm">本草电子书</span><span class="pdesc">本草在线阅读</span></span><span class="parr">→</span></a>
+<a href="https://toobey521.github.io/palm-health-analyzer/" target="_blank" class="pcard"><span class="pico pico-he">🖐️</span><span class="pbody"><span class="pnm">掌上医观</span><span class="pdesc">掌纹健康分析</span></span><span class="parr">→</span></a>
+</div></div>
+<div style="text-align:center;margin-top:12px;padding-top:10px">
+<a href="https://github.com/toobey521?tab=repositories" target="_blank" style="color:#2d8a4e;font-weight:600;font-size:13px;text-decoration:none">📦 全部仓库 →</a>
+</div>
+</div>
+<div class="footer-bottom" style="flex-direction:column;align-items:center;text-align:center">
+<div style="display:flex;gap:24px;margin-bottom:10px;font-size:12px">
+<a href="#" style="color:#999;text-decoration:none">隐私政策</a>
+<a href="#" style="color:#999;text-decoration:none">服务条款</a>
+<a href="#" style="color:#999;text-decoration:none">Cookie设置</a>
+</div>
+<div class="beian" style="justify-content:center;margin-bottom:10px"><a href="http://www.beian.gov.cn/" target="_blank" rel="noopener"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24'%3E%3Cpath fill='%23888' d='M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z'/%3E%3C/svg%3E" alt=""></a><span>京公网安备 110XXXXXXXXXXX号</span></div>
+<div style="font-size:11px;color:#888">© 2025 Toobey Network Technology Co., Ltd.  京ICP备XXXXXXXXXX号-1</div>
+</div></footer>
+
+
+
+<script>
+
+// Splash — 立即开始，不等图片加载
+
+setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.add('hide')}},600);
+
+
+
+// Scroll reveal
+
+(function(){
+
+  var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.12});
+
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale,.reveal-stagger').forEach(function(el){obs.observe(el)});
+
+})();
+
+
+
+// Nav scroll  
+
+(function(){
+
+  var nav=document.getElementById('nav');
+
+  window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>80)});
+
+})();
+
+
+
+// Hero background gradient cycle (代替图片轮播)
+
+(function(){
+
+  var layers=document.querySelectorAll('.hero-bg-anim .layer');
+
+  if(!layers.length)return;
+
+  var cur=0;
+
+  setInterval(function(){
+
+    layers[cur].classList.remove('active');
+
+    cur=(cur+1)%layers.length;
+
+    layers[cur].classList.add('active');
+
+  },5000);
+
+})();
+
+
+
+// Number counting
+
+(function(){
+
+  var done=false;
+
+  var obs=new IntersectionObserver(function(es){
+
+    es.forEach(function(e){
+
+      if(e.isIntersecting&&!done){
+
+        done=true;
+
+        document.querySelectorAll('.count-up').forEach(function(el){
+
+          var target=parseFloat(el.getAttribute('data-target'))||0;
+
+          var suffix=el.getAttribute('data-suffix')||'+';
+
+          var isDecimal=target%1!==0;
+
+          var TOTAL_STEPS=40; // 统一步数，同时完成
+
+          var s=target/TOTAL_STEPS;
+
+          var i=0;
+
+          var iv=setInterval(function(){
+
+            i++;var c=s*i;
+
+            if(i>=TOTAL_STEPS){c=target;clearInterval(iv)}
+
+            el.textContent=isDecimal?c.toFixed(1):Math.floor(c);
+
+            el.textContent+=suffix;
+
+          },30);
+
+        });
+
+        obs.unobserve(e.target);
+
+      }
+
+    });
+
+  },{threshold:.5});
+
+  var st=document.querySelector('.hero-stats');
+
+  if(st)obs.observe(st);
+
+})();
+
+
+
+// Detail
+
+document.querySelectorAll('.card-link').forEach(function(l){l.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(this.getAttribute('href'));if(t){t.style.display='block';t.scrollTop=0}})});
+
+function openDetail(id){var e=document.getElementById(id);if(e){e.style.display='block';e.scrollTop=0}}
+
+function closeDetail(id){var e=document.getElementById(id);if(e)e.style.display='none'}
+
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.detail-section,.demoModal,.emailPopup').forEach(function(el){if(el.style.display==='block')el.style.display='none'})}});
+
+
+
+// Demo canvas particle animation
+
+function showDemo(){
+
+  var m=document.getElementById('demoModal');if(m){m.style.display='flex';startDemoCanvas()}
+
+}
+
+function hideDemo(){
+
+  var m=document.getElementById('demoModal');if(m)m.style.display='none'
+
+}
+
+// Full image viewer
+
+function showFullImg(src){
+
+  var m=document.getElementById('fullImgModal');
+
+  var img=document.getElementById('fullImgView');
+
+  if(m&&img){m.style.display='flex';img.src=src;img.style.opacity='0';setTimeout(function(){img.style.opacity='1'},50)}
+
+}
+
+function hideFullImg(){
+
+  var m=document.getElementById('fullImgModal');
+
+  if(m)m.style.display='none'
+
+}
+
+function startDemoCanvas(){
+
+  var c=document.getElementById('demoCanvas');if(!c)return;
+
+  var ctx=c.getContext('2d');
+
+  setTimeout(function(){
+
+  c.width=c.offsetWidth*2||800;c.height=c.offsetHeight*2||450;
+
+  var w=c.width,h=c.height;
+
+  var pts=[],colors=['#7dd3fc','#c4b5fd','#f9a8d4','#fde68a','#6ee7b7','#fdba74'];
+
+  for(var i=0;i<100;i++){
+
+    pts.push({
+
+      x:Math.random()*w,y:Math.random()*h,
+
+      vx:(Math.random()-.5)*.6,vy:(Math.random()-.5)*.6,
+
+      r:Math.random()*2.5+1,phase:Math.random()*Math.PI*2,
+
+      c:colors[Math.floor(Math.random()*colors.length)],bright:Math.random()
+
+    });
+
+  }
+
+  var maxConnDist=Math.min(w,h)*.25;
+
+  function anim(t){
+
+    t=t||0;
+
+    // background like hero section
+
+    ctx.fillStyle='#0b1120';ctx.fillRect(0,0,w,h);
+
+    // radial glow
+
+    var bg=ctx.createRadialGradient(w/2,h/2,0,w/2,h/2,Math.min(w,h)*.4);
+
+    bg.addColorStop(0,'rgba(59,130,246,.05)');bg.addColorStop(.5,'rgba(6,182,212,.025)');bg.addColorStop(1,'transparent');
+
+    ctx.fillStyle=bg;ctx.fillRect(0,0,w,h);
+
+    // grid
+
+    ctx.strokeStyle='rgba(255,255,255,.03)';ctx.lineWidth=.5;
+
+    var gs=Math.min(w,h)/12;
+
+    for(var x=0;x<w;x+=gs){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,h);ctx.stroke();}
+
+    for(var y=0;y<h;y+=gs){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();}
+
+    // update positions
+
+    for(var i=0;i<pts.length;i++){
+
+      var p=pts[i];p.x+=p.vx;p.y+=p.vy;
+
+      if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;
+
+    }
+
+    // draw connections (real-time, all pairs)
+
+    for(var i=0;i<pts.length;i++){
+
+      for(var j=i+1;j<pts.length;j++){
+
+        var a=pts[i],b=pts[j];
+
+        var dx=a.x-b.x,dy=a.y-b.y,dist=Math.sqrt(dx*dx+dy*dy);
+
+        if(dist<maxConnDist){
+
+          var alpha=(1-dist/maxConnDist);
+
+          var pulse=.6+Math.sin(t/1000+i+j)*.4;
+
+          ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);
+
+          ctx.strokeStyle='rgba(148,163,184,'+alpha*.35*pulse+')';
+
+          ctx.lineWidth=alpha*2;ctx.stroke();
+
+        }
+
+      }
+
+    }
+
+    // draw particles
+
+    for(var i=0;i<pts.length;i++){
+
+      var p=pts[i];
+
+      var glow=.4+.6*Math.sin(t/600+p.phase);
+
+      var sz=p.r*(.8+glow*.2);
+
+      var g=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,sz*6);
+
+      g.addColorStop(0,p.c+'40');g.addColorStop(1,'transparent');
+
+      ctx.fillStyle=g;ctx.fillRect(p.x-sz*6,p.y-sz*6,sz*12,sz*12);
+
+      ctx.beginPath();ctx.arc(p.x,p.y,sz,0,Math.PI*2);
+
+      ctx.fillStyle=p.c;ctx.fill();
+
+    }
+
+    // light sweep
+
+    var sw=((t/3000)%1)*w;
+
+    var sg=ctx.createLinearGradient(sw-80,0,sw+80,0);
+
+    sg.addColorStop(0,'transparent');sg.addColorStop(.5,'rgba(96,165,250,.02)');sg.addColorStop(1,'transparent');
+
+    ctx.fillStyle=sg;ctx.fillRect(sw-80,0,160,h);
+
+    if(document.getElementById('demoModal').style.display==='flex')
+
+      requestAnimationFrame(anim);
+
+  }
+
+  anim(0);
+
+  },100);
+
+}
+
+</script>
+
+<!-- ===== DEMO VIDEO MODAL ===== -->
+
+<div id="demoModal" style="display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.85);backdrop-filter:blur(20px);align-items:center;justify-content:center" onclick="if(event.target===this)hideDemo()">
+
+<div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:16px;overflow:hidden;max-width:800px;width:90%;position:relative">
+
+<div style="position:relative;width:100%;padding-top:56.25%">
+
+<canvas id="demoCanvas" style="position:absolute;inset:0;width:100%;height:100%"></canvas>
+
+<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;z-index:2;text-align:center;padding:20px">
+
+<div style="font-size:42px;margin-bottom:10px;opacity:.6">✦</div>
+
+<h3 style="color:#fff;font-size:20px;font-weight:600;margin-bottom:4px">Toobey 技术演示</h3>
+
+<p style="color:rgba(255,255,255,.4);font-size:13px">驱动数字世界的创新力量</p>
+
+</div>
+
+</div>
+
+<button onclick="hideDemo()" style="position:absolute;top:12px;right:14px;z-index:3;background:rgba(255,255,255,.06);border:none;color:rgba(255,255,255,.5);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center">✕</button>
+
+</div>
+
+</div>
+
+
+
+<!-- ===== FULL-IMAGE MODAL ===== -->
+
+<div id="fullImgModal" style="display:none;position:fixed;inset:0;z-index:4000;background:rgba(0,0,0,.92);backdrop-filter:blur(20px);align-items:center;justify-content:center;padding:20px" onclick="if(event.target===this)hideFullImg()">
+
+<button onclick="hideFullImg()" style="position:fixed;top:20px;right:24px;z-index:4001;background:rgba(255,255,255,.08);border:none;color:#fff;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;transition:all .3s">✕</button>
+
+<img id="fullImgView" src="" alt="" style="max-width:90vw;max-height:85vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.4);object-fit:contain;opacity:0;transition:opacity .4s">
+
+</div>
+
+
+
+<!-- ===== EMAIL POPUP ===== -->
+
+<div id="emailPopup" style="display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.3);backdrop-filter:blur(8px);align-items:center;justify-content:center" onclick="if(event.target===this)hideEmail()">
+
+<div style="background:#fff;border-radius:16px;padding:36px 40px;text-align:center;max-width:360px;width:90%;box-shadow:0 24px 80px rgba(0,0,0,.15)">
+
+<div style="font-size:36px;margin-bottom:12px">📧</div>
+
+<h3 style="font-size:16px;font-weight:600;color:#1a1a2e;margin-bottom:6px">联系邮箱</h3>
+
+<p style="font-size:13px;color:#666;margin-bottom:20px">点击下方按钮复制邮箱地址</p>
+
+<div id="emailDisplay" style="background:#f4f6fa;border-radius:10px;padding:14px 20px;font-size:15px;color:#2d8a4e;font-weight:600;margin-bottom:16px;word-break:break-all">guoyunning@qq.com</div>
+
+<button onclick="copyEmail()" id="copyBtn" style="width:100%;padding:12px;border:none;border-radius:10px;background:linear-gradient(135deg,#2d8a4e,#3cb371);color:#fff;font-size:14px;font-weight:600;cursor:pointer">📋 复制邮箱</button>
+
+<p style="font-size:11px;color:#bbb;margin-top:12px">或打开邮件客户端手动发送</p>
+
+</div>
+
+</div>
+
+<script>
+
+function showEmail(){document.getElementById('emailPopup').style.display='flex'}
+
+function hideEmail(){document.getElementById('emailPopup').style.display='none'}
+
+function copyEmail(){
+
+  navigator.clipboard.writeText('guoyunning@qq.com').then(function(){
+
+    var btn=document.getElementById('copyBtn');
+
+    btn.textContent='✅ 已复制！';btn.style.background='#43a047';
+
+    setTimeout(function(){btn.textContent='📋 复制邮箱';btn.style.background='linear-gradient(135deg,#2d8a4e,#3cb371)'},2000);
+
+  });
+
+}
+
+</script>
+
+</body>
+
+</html>
