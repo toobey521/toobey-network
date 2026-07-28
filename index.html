@@ -723,6 +723,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 .nav.scrolled .btn-primary:hover{background:rgba(59,130,246,.06);box-shadow:0 0 12px rgba(59,130,246,.12)}
+
+/* Hamburger menu */
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:1001}
+.hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,.8);border-radius:2px;transition:all .3s var(--ease-in-out)}
+.nav.scrolled .hamburger span{background:var(--text-dim)}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 /* ── 免费开源按钮 + 新标记 ── */
 .nav-links a.nav-btn-new{display:inline-flex;align-items:center;gap:6px;padding:6px 38px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.85);transition:all .3s var(--ease-in-out);position:relative;white-space:nowrap}.nav-links a.nav-btn-new::after{display:none!important}
 .nav.scrolled .nav-links a.nav-btn-new{border-color:#10b981;color:#10b981;background:rgba(16,185,129,.06)}
@@ -1489,7 +1497,12 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 @media(max-width:768px){
 
-.nav-links{display:none}
+.hamburger{display:flex}
+.nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(15,23,42,.97);backdrop-filter:blur(12px);flex-direction:column;align-items:center;justify-content:center;gap:24px;z-index:1000}
+.nav-links.mobile-open{display:flex}
+.nav-links a{font-size:16px!important;color:rgba(255,255,255,.85)!important}
+.nav-links a.nav-btn-new{padding:10px 40px!important;border-color:rgba(255,255,255,.3)!important}
+.btn-primary{display:none!important}
 
 .hero{min-height:80vh;padding:100px 16px 40px;display:flex;align-items:center;justify-content:center}
 
@@ -1515,7 +1528,6 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 .footer-inner{grid-template-columns:1fr 1fr;gap:16px}
 
-.nav-links{display:none}
 
 .beian{flex-direction:column;gap:4px}
 
@@ -1632,6 +1644,10 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
   <a href="javascript:void(0)" class="btn-primary" onclick="showEmail()">联系我们</a>
 
 
+
+  <button class="hamburger" id="hamburger" aria-label="菜单">
+    <span></span><span></span><span></span>
+  </button>
 
 </div></nav>
 
@@ -4532,6 +4548,26 @@ function copyEmail(){
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
 <script>
 (function(){var b=document.getElementById('backToTop');if(!b)return;window.addEventListener('scroll',function(){b.classList.toggle('show',window.scrollY>300)});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
+
+
+// Mobile hamburger menu toggle
+(function(){
+  var hamburger = document.getElementById('hamburger');
+  var navLinks = document.querySelector('.nav-links');
+  if(!hamburger || !navLinks) return;
+  hamburger.addEventListener('click', function(){
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('mobile-open');
+  });
+  // Close menu when clicking a link
+  navLinks.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('mobile-open');
+    });
+  });
+})();
+
 </script>
 </body>
 
