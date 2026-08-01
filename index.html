@@ -1489,9 +1489,18 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 @media(max-width:768px){
 
-.nav-links{display:none}
+/* 移动端导航：显示完整链接，自动换行 */
+.nav-links{display:flex;flex-wrap:wrap;width:100%;gap:8px 16px;margin-right:0;padding:4px 0 10px;order:3}
+.nav-inner{flex-wrap:wrap;height:auto;padding:10px 16px;gap:10px}
+.nav.scrolled .nav-inner{height:auto}
+.nav-links a{font-size:12px}
+.nav-links a.nav-btn-new{padding:4px 14px;font-size:12px}
+.nav .btn-primary{margin-left:auto;font-size:11px;padding:6px 14px}
 
-.hero{min-height:80vh;padding:100px 16px 40px;display:flex;align-items:center;justify-content:center}
+.hero{min-height:80vh;padding:130px 16px 40px;display:flex;align-items:center;justify-content:center}
+
+/* 移动端背景图：居中显示图片中间部分 */
+.hero .hero-bg-img{background-position:center}
 
 .hero-content{transform:none!important;text-align:center!important;padding:0!important;margin:0 auto!important;max-width:100%!important;width:100%!important;position:relative;left:0;right:0}
 
@@ -1514,8 +1523,6 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 .section-title{text-align:center!important}
 
 .footer-inner{grid-template-columns:1fr 1fr;gap:16px}
-
-.nav-links{display:none}
 
 .beian{flex-direction:column;gap:4px}
 
