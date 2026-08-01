@@ -1489,15 +1489,16 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 @media(max-width:768px){
 
-/* 移动端导航：显示完整链接，自动换行 */
-.nav-links{display:flex;flex-wrap:wrap;width:100%;gap:8px 16px;margin-right:0;padding:4px 0 10px;order:3}
-.nav-inner{flex-wrap:wrap;height:auto;padding:10px 16px;gap:10px}
-.nav.scrolled .nav-inner{height:auto}
-.nav-links a{font-size:12px}
-.nav-links a.nav-btn-new{padding:4px 14px;font-size:12px}
-.nav .btn-primary{margin-left:auto;font-size:11px;padding:6px 14px}
+/* 移动端导航：单行排布，链接与logo同排 */
+.nav-links{display:flex;flex-wrap:nowrap;gap:4px 6px;margin-right:0;padding:0;order:0}
+.nav-inner{flex-wrap:nowrap;height:52px;padding:0 8px;gap:6px}
+.nav.scrolled .nav-inner{height:52px}
+.nav-links a{font-size:10.5px;white-space:nowrap;padding:2px 0}
+.nav-links a.nav-btn-new{padding:2px 6px;font-size:10.5px;white-space:nowrap}
+.nav .btn-primary{margin-left:auto;font-size:10.5px;padding:4px 8px;white-space:nowrap}
+.logo-text{font-size:12px}
 
-.hero{min-height:80vh;padding:130px 16px 40px;display:flex;align-items:center;justify-content:center}
+.hero{min-height:80vh;padding:90px 16px 40px;display:flex;align-items:center;justify-content:center}
 
 /* 移动端背景图：居中显示图片中间部分 */
 .hero .hero-bg-img{background-position:center}
