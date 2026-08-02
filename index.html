@@ -6,7 +6,23 @@
 
 
 
+
+
+
+
+
+
+
+
 <html lang="zh-CN">
+
+
+
+
+
+
+
+
 
 
 
@@ -22,7 +38,23 @@
 
 
 
+
+
+
+
+
+
+
+
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+
+
+
+
 
 
 
@@ -38,7 +70,23 @@
 
 
 
+
+
+
+
+
+
+
+
 <style>
+
+
+
+
+
+
+
+
 
 
 
@@ -54,7 +102,23 @@
 
 
 
+
+
+
+
+
+
+
+
   --primary:#2563eb; --primary-light:#3b82f6; --primary-dark:#1d4ed8;
+
+
+
+
+
+
+
+
 
 
 
@@ -70,7 +134,23 @@
 
 
 
+
+
+
+
+
+
+
+
   --bg:#f8fafc; --bg-alt:#f1f5f9;
+
+
+
+
+
+
+
+
 
 
 
@@ -86,7 +166,23 @@
 
 
 
+
+
+
+
+
+
+
+
   --card-bg:rgba(255,255,255,.72); --card-border:rgba(255,255,255,.25);
+
+
+
+
+
+
+
+
 
 
 
@@ -102,7 +198,23 @@
 
 
 
+
+
+
+
+
+
+
+
   --ease-in-out:cubic-bezier(.45,0,.55,1);
+
+
+
+
+
+
+
+
 
 
 
@@ -118,7 +230,23 @@
 
 
 
+
+
+
+
+
+
+
+
   --shadow-lg:0 12px 40px rgba(0,0,0,.06);
+
+
+
+
+
+
+
+
 
 
 
@@ -134,7 +262,23 @@
 
 
 
+
+
+
+
+
+
+
+
 *{margin:0;padding:0;box-sizing:border-box}
+
+
+
+
+
+
+
+
 
 
 
@@ -150,6 +294,14 @@ html{scroll-behavior:smooth}
 
 
 
+
+
+
+
+
+
+
+
 body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased}
 
 
@@ -158,7 +310,23 @@ body{font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;backgroun
 
 
 
+
+
+
+
+
+
+
+
 /* 全局防白边：所有块级容器之间不留缝隙 */
+
+
+
+
+
+
+
+
 
 
 
@@ -182,7 +350,31 @@ section,footer,header,div[class*="section"],div[class*="cta"]{margin:0}
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ── SPLASH 快速扫光 ── */
+
+
+
+
+
+
+
+
 
 
 
@@ -198,7 +390,23 @@ section,footer,header,div[class*="section"],div[class*="cta"]{margin:0}
 
 
 
+
+
+
+
+
+
+
+
 .splash.hide{opacity:0;transform:scale(1.01);pointer-events:none}
+
+
+
+
+
+
+
+
 
 
 
@@ -214,7 +422,23 @@ section,footer,header,div[class*="section"],div[class*="cta"]{margin:0}
 
 
 
+
+
+
+
+
+
+
+
 .splash-scan::after{content:'';position:absolute;top:0;left:-30%;width:20%;height:100%;background:linear-gradient(90deg,transparent,rgba(59,130,246,.05),rgba(6,182,212,.03),transparent);animation:scanSweep .8s ease forwards}
+
+
+
+
+
+
+
+
 
 
 
@@ -230,7 +454,23 @@ section,footer,header,div[class*="section"],div[class*="cta"]{margin:0}
 
 
 
+
+
+
+
+
+
+
+
 .splash-inner{text-align:center;opacity:0;animation:splashFadeIn .3s ease forwards;animation-delay:.15s}
+
+
+
+
+
+
+
+
 
 
 
@@ -246,7 +486,23 @@ section,footer,header,div[class*="section"],div[class*="cta"]{margin:0}
 
 
 
+
+
+
+
+
+
+
+
 .splash-title{font-size:32px;font-weight:700;letter-spacing:3px;color:#fff;margin-bottom:4px}
+
+
+
+
+
+
+
+
 
 
 
@@ -270,7 +526,31 @@ section,footer,header,div[class*="section"],div[class*="cta"]{margin:0}
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ── Floating Decor Elements ── */
+
+
+
+
+
+
+
+
 
 
 
@@ -286,7 +566,23 @@ section,footer,header,div[class*="section"],div[class*="cta"]{margin:0}
 
 
 
+
+
+
+
+
+
+
+
 .hero-decor .shape{position:absolute;border-radius:50%;opacity:.06}
+
+
+
+
+
+
+
+
 
 
 
@@ -302,7 +598,23 @@ section,footer,header,div[class*="section"],div[class*="cta"]{margin:0}
 
 
 
+
+
+
+
+
+
+
+
 .hero-decor .s2{width:200px;height:200px;background:radial-gradient(circle,#3cb371,transparent);bottom:10%;right:-40px;animation:floatShape 10s ease-in-out infinite reverse}
+
+
+
+
+
+
+
+
 
 
 
@@ -318,7 +630,23 @@ section,footer,header,div[class*="section"],div[class*="cta"]{margin:0}
 
 
 
+
+
+
+
+
+
+
+
 .hero-decor .s4{width:100px;height:100px;background:radial-gradient(circle,#7c3aed,transparent);bottom:20%;left:20%;animation:floatShape 9s ease-in-out infinite 1s}
+
+
+
+
+
+
+
+
 
 
 
@@ -342,7 +670,31 @@ section,footer,header,div[class*="section"],div[class*="cta"]{margin:0}
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .hero-dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(45,138,78,.08) 1px,transparent 1px);background-size:40px 40px}
+
+
+
+
+
+
+
+
 
 
 
@@ -358,7 +710,23 @@ section,footer,header,div[class*="section"],div[class*="cta"]{margin:0}
 
 
 
+
+
+
+
+
+
+
+
 .hero-line2{left:85%;top:60%;animation-delay:-3s}
+
+
+
+
+
+
+
+
 
 
 
@@ -382,6 +750,22 @@ section,footer,header,div[class*="section"],div[class*="cta"]{margin:0}
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .hero .hero-bg-img{position:absolute;inset:0;opacity:0;animation:heroBgFadeIn 15s ease-out forwards;background-image:url(/toobey-network/images/deco/1693467604003919.png);background-size:cover;background-position:98% center}
 
 
@@ -390,7 +774,31 @@ section,footer,header,div[class*="section"],div[class*="cta"]{margin:0}
 
 
 
+
+
+
+
+
+
+
+
 @keyframes heroBgFadeIn{0%{opacity:0}100%{opacity:.75}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -422,7 +830,39 @@ section,footer,header,div[class*="section"],div[class*="cta"]{margin:0}
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -454,7 +894,31 @@ section,footer,header,div[class*="section"],div[class*="cta"]{margin:0}
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ── Card Hover Animations ── */
+
+
+
+
+
+
+
+
 
 
 
@@ -470,7 +934,23 @@ div[onclick*="detail-cloud"],div[onclick*="detail-data"],div[onclick*="detail-se
 
 
 
+
+
+
+
+
+
+
+
 div[onclick*="detail-cloud"]:hover,div[onclick*="detail-data"]:hover,div[onclick*="detail-secure"]:hover,div[onclick*="detail-ai"]:hover,div[onclick*="detail-dev"]:hover,div[onclick*="detail-iot"]:hover{transform:translateY(-8px)!important;box-shadow:0 24px 60px rgba(0,0,0,.08)!important}
+
+
+
+
+
+
+
+
 
 
 
@@ -486,7 +966,23 @@ div[onclick*="detail-svc"]{transition:all .4s cubic-bezier(.22,1,.36,1)!importan
 
 
 
+
+
+
+
+
+
+
+
 div[onclick*="detail-svc"]:hover{transform:translateY(-8px)!important;box-shadow:0 20px 50px rgba(0,0,0,.06)!important}
+
+
+
+
+
+
+
+
 
 
 
@@ -502,7 +998,23 @@ div[onclick*="detail-svc"]:hover div:first-child{transform:scale(1.12);box-shado
 
 
 
+
+
+
+
+
+
+
+
 div[onclick*="detail-sol"]{transition:all .4s cubic-bezier(.22,1,.36,1)!important}
+
+
+
+
+
+
+
+
 
 
 
@@ -526,7 +1038,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ── Decorative Image Layouts ── */
+
+
+
+
+
+
+
+
 
 
 
@@ -542,7 +1078,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .deco.loaded{opacity:1}
+
+
+
+
+
+
+
+
 
 
 
@@ -558,7 +1110,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 /* Floating images */
+
+
+
+
+
+
+
+
 
 
 
@@ -574,7 +1142,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .deco-float2{animation:decoFloat2 8s ease-in-out infinite}
+
+
+
+
+
+
+
+
 
 
 
@@ -590,7 +1174,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 @keyframes decoFloat{0%,100%{transform:translateY(0) rotate(0deg)}33%{transform:translateY(-12px) rotate(1deg)}66%{transform:translateY(6px) rotate(-.5deg)}}
+
+
+
+
+
+
+
+
 
 
 
@@ -606,7 +1206,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 @keyframes decoFloat3{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-10px) scale(1.02)}}
+
+
+
+
+
+
+
+
 
 
 
@@ -622,7 +1238,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .deco-blur{filter:blur(40px);opacity:.06;border-radius:50%}
+
+
+
+
+
+
+
+
 
 
 
@@ -638,7 +1270,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .g-rotate{width:100%;max-width:100%;height:300px;margin:14px 0;overflow-x:auto;overflow-y:hidden;position:relative;cursor:grab;-webkit-overflow-scrolling:touch}
+
+
+
+
+
+
+
+
 
 
 
@@ -654,7 +1302,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .g-rotate .track{display:flex;align-items:center;gap:24px;width:max-content;padding:0 12px;height:100%}
+
+
+
+
+
+
+
+
 
 
 
@@ -670,7 +1334,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .g-rotate .g-item:hover{box-shadow:0 8px 28px rgba(0,0,0,.15);filter:brightness(1.1)}
+
+
+
+
+
+
+
+
 
 
 
@@ -686,7 +1366,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .g-rotate .g-item:hover img{transform:scale(1.08)}
+
+
+
+
+
+
+
+
 
 
 
@@ -702,7 +1398,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .img-card-deco{position:relative;overflow:hidden}
+
+
+
+
+
+
+
+
 
 
 
@@ -726,7 +1438,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Image spotlight for sections */
+
+
+
+
+
+
+
+
 
 
 
@@ -742,6 +1478,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .spotlight-blue{background:radial-gradient(circle,rgba(59,130,246,.3),transparent);top:-100px;right:-80px}
 
 
@@ -750,7 +1494,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .spotlight-teal{background:radial-gradient(circle,rgba(6,182,212,.25),transparent);bottom:-120px;left:-100px}
+
+
+
+
+
+
+
+
 
 
 
@@ -774,7 +1534,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Section hero images */
+
+
+
+
+
+
+
+
 
 
 
@@ -790,7 +1574,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .section-visual img{width:100%;height:100%;object-fit:cover;opacity:.08;transition:opacity .5s}
+
+
+
+
+
+
+
+
 
 
 
@@ -806,7 +1606,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .section-visual .v-content{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:1}
+
+
+
+
+
+
+
+
 
 
 
@@ -830,6 +1646,22 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Detail modal tech backgrounds */
 
 
@@ -838,7 +1670,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .detail-section{background:rgba(248,250,252,.97)}
+
+
+
+
+
+
+
+
 
 
 
@@ -862,7 +1710,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ── Scroll Reveal ── */
+
+
+
+
+
+
+
+
 
 
 
@@ -878,7 +1750,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .reveal.visible{opacity:1;transform:translateY(0)}
+
+
+
+
+
+
+
+
 
 
 
@@ -894,7 +1782,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .reveal-left.visible{opacity:1;transform:translateX(0)}
+
+
+
+
+
+
+
+
 
 
 
@@ -910,7 +1814,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .reveal-right.visible{opacity:1;transform:translateX(0)}
+
+
+
+
+
+
+
+
 
 
 
@@ -926,7 +1846,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .reveal-scale.visible{opacity:1;transform:scale(1)}
+
+
+
+
+
+
+
+
 
 
 
@@ -942,7 +1878,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .reveal-stagger.visible>*{opacity:1;transform:translateY(0)}
+
+
+
+
+
+
+
+
 
 
 
@@ -958,7 +1910,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .reveal-stagger.visible>*:nth-child(2){transition-delay:.12s}
+
+
+
+
+
+
+
+
 
 
 
@@ -974,6 +1942,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .reveal-stagger.visible>*:nth-child(4){transition-delay:.26s}
 
 
@@ -982,7 +1958,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .reveal-stagger.visible>*:nth-child(5){transition-delay:.33s}
+
+
+
+
+
+
+
+
 
 
 
@@ -1006,7 +1998,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ── Glow / Hover Enhancements ── */
+
+
+
+
+
+
+
+
 
 
 
@@ -1022,7 +2038,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .card::before,.service-card::before,.solution-card::before{content:'';position:absolute;inset:0;border-radius:16px;opacity:0;transition:opacity .4s;background:linear-gradient(135deg,rgba(45,138,78,.03),rgba(60,179,113,.06))}
+
+
+
+
+
+
+
+
 
 
 
@@ -1038,6 +2070,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .card::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:2px;background:linear-gradient(90deg,transparent,rgba(45,138,78,.3),transparent);transition:left .6s ease}
 
 
@@ -1046,7 +2086,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .card:hover::after{left:200%}
+
+
+
+
+
+
+
+
 
 
 
@@ -1070,6 +2126,22 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ── Section Divider Waves ── */
 
 
@@ -1078,7 +2150,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .section-divider{height:60px;position:relative;overflow:hidden;margin-top:-1px;line-height:0;font-size:0}
+
+
+
+
+
+
+
+
 
 
 
@@ -1102,7 +2190,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ── NAV SCROLL ── */
+
+
+
+
+
+
+
+
 
 
 
@@ -1118,7 +2230,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .nav.scrolled .nav-inner{height:56px}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1142,7 +2278,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .hero-carousel{position:absolute;inset:0;overflow:hidden}
+
+
+
+
+
+
+
+
 
 
 
@@ -1158,7 +2310,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .hero-carousel .slide.active{opacity:1;transform:scale(1)}
+
+
+
+
+
+
+
+
 
 
 
@@ -1174,7 +2342,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .hero-carousel .slide.s1{background-image:url(/toobey-network/images/hero_tech.jpg)}
+
+
+
+
+
+
+
+
 
 
 
@@ -1190,7 +2374,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .hero-carousel .slide.s3{background-image:url(/toobey-network/images/ai_brain.jpg)}
+
+
+
+
+
+
+
+
 
 
 
@@ -1206,7 +2406,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .carousel-dots{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:10px}
+
+
+
+
+
+
+
+
 
 
 
@@ -1222,7 +2438,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .carousel-dots .dot.active{background:#fff;border-color:#fff;transform:scale(1.2)}
+
+
+
+
+
+
+
+
 
 
 
@@ -1246,7 +2478,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ── Section Image Decor ── */
+
+
+
+
+
+
+
+
 
 
 
@@ -1262,7 +2518,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .section-img-bg::before{content:'';position:absolute;inset:0;background-size:33.33% 100%;background-position:0 0;background-repeat:repeat;opacity:.04;pointer-events:none}
+
+
+
+
+
+
+
+
 
 
 
@@ -1278,7 +2550,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .section-img-services::before{background-image:url(/toobey-network/images/v2/team.jpg)}
+
+
+
+
+
+
+
+
 
 
 
@@ -1302,7 +2590,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ── NAV 全透明 → 磨砂玻璃 ── */
+
+
+
+
+
+
+
+
 
 
 
@@ -1318,7 +2630,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .nav.scrolled{background:rgba(255,255,255,.85);backdrop-filter:blur(var(--glass-blur));-webkit-backdrop-filter:blur(var(--glass-blur));border-bottom-color:rgba(59,130,246,.08)}
+
+
+
+
+
+
+
+
 
 
 
@@ -1334,7 +2662,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 28px;display:flex;align-items:center;height:68px;gap:40px;transition:height .4s var(--ease-out)}
+
+
+
+
+
+
+
+
 
 
 
@@ -1350,7 +2694,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .logo-text{font-size:15px;font-weight:600;color:#fff;letter-spacing:1px;transition:color .3s}
+
+
+
+
+
+
+
+
 
 
 
@@ -1366,7 +2726,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .nav-links{display:flex;gap:32px;margin-right:auto}
+
+
+
+
+
+
+
+
 
 
 
@@ -1382,7 +2758,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .nav.scrolled .nav-links a{color:var(--text-dim)}
+
+
+
+
+
+
+
+
 
 
 
@@ -1398,7 +2790,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .nav.scrolled .nav-links a:hover{color:var(--text)}
+
+
+
+
+
+
+
+
 
 
 
@@ -1414,7 +2822,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .nav-links a:hover::after{width:70%}
+
+
+
+
+
+
+
+
 
 
 
@@ -1430,7 +2854,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .nav.scrolled .btn-primary{border-color:var(--primary);color:var(--primary)}
+
+
+
+
+
+
+
+
 
 
 
@@ -1446,23 +2886,65 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .nav.scrolled .btn-primary:hover{background:rgba(59,130,246,.06);box-shadow:0 0 12px rgba(59,130,246,.12)}
+
+
 
 /* ── 免费开源按钮 + 新标记 ── */
 
+
+
 .nav-links a.nav-btn-new{display:inline-flex;align-items:center;gap:6px;padding:6px 38px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.85);transition:all .3s var(--ease-in-out);position:relative;white-space:nowrap}.nav-links a.nav-btn-new::after{display:none!important}
+
+
 
 .nav.scrolled .nav-links a.nav-btn-new{border-color:#10b981;color:#10b981;background:rgba(16,185,129,.06)}
 
+
+
 .nav-links a.nav-btn-new:hover{background:rgba(255,255,255,.1);border-color:#34d399;color:#fff}
+
+
 
 .nav.scrolled .nav-links a.nav-btn-new:hover{background:rgba(16,185,129,.1);box-shadow:0 0 14px rgba(16,185,129,.25)}
 
+
+
 .badge-new{position:absolute;top:-6px;right:-6px;display:inline-flex;align-items:center;padding:1px 5px;border-radius:8px;font-size:9px;font-weight:700;line-height:1.3;background:linear-gradient(135deg,#ff6b6b,#ee5a24);color:#fff;box-shadow:0 2px 6px rgba(238,90,36,.35);animation:badgePulse 2s ease-in-out infinite}
+
+
 
 @keyframes badgePulse{0%,100%{opacity:1}50%{opacity:.65}}
 
+
+
 .badge-jing{position:absolute;top:-6px;right:-6px;display:inline-flex;align-items:center;padding:1px 5px;border-radius:8px;font-size:9px;font-weight:700;line-height:1.3;background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;box-shadow:0 2px 6px rgba(217,119,6,.35)}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1488,7 +2970,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:80px 28px 60px;background:#0b1120}
+
+
+
+
+
+
+
+
 
 
 
@@ -1504,7 +3002,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .hero-bg-anim{position:absolute;inset:0;pointer-events:none}
+
+
+
+
+
+
+
+
 
 
 
@@ -1520,7 +3034,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .hero-bg-anim .layer.active{opacity:1}
+
+
+
+
+
+
+
+
 
 
 
@@ -1536,7 +3066,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .hero-bg-anim .l2{background:radial-gradient(ellipse at 70% 20%,rgba(99,102,241,.1) 0%,transparent 50%),radial-gradient(ellipse at 30% 80%,rgba(59,130,246,.08) 0%,transparent 40%)}
+
+
+
+
+
+
+
+
 
 
 
@@ -1552,7 +3098,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .hero-bg-anim .l4{background:radial-gradient(ellipse at 60% 40%,rgba(37,99,235,.1) 0%,transparent 50%),radial-gradient(circle at 20% 60%,rgba(6,182,212,.06) 0%,transparent 40%)}
+
+
+
+
+
+
+
+
 
 
 
@@ -1568,7 +3130,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .hero-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:60px 60px}
+
+
+
+
+
+
+
+
 
 
 
@@ -1584,7 +3162,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .hero-content h1{text-align:left;font-size:clamp(30px,4.5vw,50px);font-weight:700;line-height:1.12;color:#fff;margin-bottom:12px;letter-spacing:-.5px;text-shadow:0 2px 40px rgba(0,0,0,.3)}
+
+
+
+
+
+
+
+
 
 
 
@@ -1600,7 +3194,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .hero-content p{color:rgba(255,255,255,.65);font-size:clamp(13px,1.1vw,16px);max-width:480px;margin:0 0 32px;text-shadow:0 1px 20px rgba(0,0,0,.2)}
+
+
+
+
+
+
+
+
 
 
 
@@ -1616,7 +3226,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .btn-hero,.btn-hero-outline{display:inline-flex;padding:12px 28px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;transition:all .3s}
+
+
+
+
+
+
+
+
 
 
 
@@ -1632,7 +3258,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .btn-hero:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,99,235,.35)}
+
+
+
+
+
+
+
+
 
 
 
@@ -1648,7 +3290,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .btn-hero-outline:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.1)}
+
+
+
+
+
+
+
+
 
 
 
@@ -1664,6 +3322,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .stat{text-align:center}
 
 
@@ -1672,7 +3338,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .stat-num{display:block;font-size:24px;font-weight:600;color:#fff;margin-bottom:2px;text-shadow:0 1px 20px rgba(0,0,0,.3)}
+
+
+
+
+
+
+
+
 
 
 
@@ -1696,7 +3378,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Carousel indicators */
+
+
+
+
+
+
+
+
 
 
 
@@ -1712,7 +3418,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .hero-indicators .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);cursor:pointer;transition:all .4s}
+
+
+
+
+
+
+
+
 
 
 
@@ -1736,7 +3458,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ── SECTIONS ── */
+
+
+
+
+
+
+
+
 
 
 
@@ -1752,7 +3498,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .section-alt{background:var(--bg-alt);width:100%;max-width:100%;padding:96px 28px}
+
+
+
+
+
+
+
+
 
 
 
@@ -1768,7 +3530,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .section-header{text-align:center;margin-bottom:48px}
+
+
+
+
+
+
+
+
 
 
 
@@ -1784,7 +3562,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .section-header h2{font-size:clamp(22px,2.8vw,32px);font-weight:600;color:var(--text);margin-bottom:10px;letter-spacing:-.3px}
+
+
+
+
+
+
+
+
 
 
 
@@ -1808,7 +3602,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ── Glass Cards ── */
+
+
+
+
+
+
+
+
 
 
 
@@ -1824,7 +3642,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .card,.service-card,.solution-card{
+
+
+
+
+
+
+
+
 
 
 
@@ -1840,7 +3674,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
   border:1px solid var(--card-border);border-radius:14px;padding:32px;
+
+
+
+
+
+
+
+
 
 
 
@@ -1856,7 +3706,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
   box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
+
+
+
+
+
+
+
+
 
 
 
@@ -1872,7 +3738,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .card:hover::before,.service-card:hover::before,.solution-card:hover::before{opacity:1}
+
+
+
+
+
+
+
+
 
 
 
@@ -1888,7 +3770,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
   box-shadow:var(--shadow-lg);border-color:rgba(59,130,246,.15);transform:translateY(-3px)}
+
+
+
+
+
+
+
+
 
 
 
@@ -1904,7 +3802,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .icon-cloud{background:rgba(59,130,246,.08);color:var(--primary)}
+
+
+
+
+
+
+
+
 
 
 
@@ -1920,7 +3834,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .icon-security{background:rgba(239,68,68,.08);color:#dc2626}
+
+
+
+
+
+
+
+
 
 
 
@@ -1936,7 +3866,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .icon-dev{background:rgba(245,158,11,.08);color:#d97706}
+
+
+
+
+
+
+
+
 
 
 
@@ -1952,7 +3898,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .card h3{font-size:16px;font-weight:600;color:var(--text);margin-bottom:6px}
+
+
+
+
+
+
+
+
 
 
 
@@ -1968,7 +3930,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .card-link{display:inline-block;margin-top:12px;font-size:12px;font-weight:600;color:var(--primary);text-decoration:none;transition:all .25s var(--ease-out)}
+
+
+
+
+
+
+
+
 
 
 
@@ -1992,7 +3970,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .service-grid,.solution-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+
+
+
+
+
+
+
+
 
 
 
@@ -2008,7 +4010,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .service-card:hover,.solution-card:hover{transform:translateY(-3px)}
+
+
+
+
+
+
+
+
 
 
 
@@ -2024,7 +4042,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .service-card h3,.solution-card h3{font-size:15px;font-weight:600;color:var(--text);margin-bottom:6px}
+
+
+
+
+
+
+
+
 
 
 
@@ -2048,7 +4082,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ── DETAIL MODAL ── */
+
+
+
+
+
+
+
+
 
 
 
@@ -2064,7 +4122,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .detail-close{position:fixed;top:20px;right:24px;z-index:2001;width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(0,0,0,.04);color:#999;font-size:17px;cursor:pointer;transition:all .25s;border:none;line-height:1}
+
+
+
+
+
+
+
+
 
 
 
@@ -2080,7 +4154,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .detail-inner{max-width:780px;margin:0 auto;padding:72px 28px 60px}
+
+
+
+
+
+
+
+
 
 
 
@@ -2096,7 +4186,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .detail-inner h2{font-size:26px;font-weight:700;color:#1a1a2e;margin-bottom:2px}
+
+
+
+
+
+
+
+
 
 
 
@@ -2112,7 +4218,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .detail-hero-visual,.solution-hero-visual{height:180px;margin:20px 0 28px;border-radius:16px;background:#fff;border:1px solid rgba(0,0,0,.04);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+
+
+
+
+
+
+
+
 
 
 
@@ -2128,7 +4250,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .detail-desc p{font-size:14px;color:#555;line-height:1.9;margin-bottom:28px}
+
+
+
+
+
+
+
+
 
 
 
@@ -2144,7 +4282,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .feature-item{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid rgba(0,0,0,.04);border-radius:12px;padding:16px;transition:all .25s}
+
+
+
+
+
+
+
+
 
 
 
@@ -2160,7 +4314,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .feature-icon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(60,179,113,.08);color:#2d8a4e;font-size:15px;flex-shrink:0}
+
+
+
+
+
+
+
+
 
 
 
@@ -2176,7 +4346,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .feature-item p{font-size:12px;color:#666;line-height:1.6}
+
+
+
+
+
+
+
+
 
 
 
@@ -2192,6 +4378,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .d-stat{text-align:center}
 
 
@@ -2200,7 +4394,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .d-num{display:block;font-size:20px;font-weight:700;color:#1a1a2e;margin-bottom:2px}
+
+
+
+
+
+
+
+
 
 
 
@@ -2224,7 +4434,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ── Animations ── */
+
+
+
+
+
+
+
+
 
 
 
@@ -2240,7 +4474,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .detail-orbit{position:absolute;width:140px;height:140px;border-radius:50%;border:1px solid rgba(45,138,78,.1);animation:orbitSpin 8s linear infinite}
+
+
+
+
+
+
+
+
 
 
 
@@ -2256,7 +4506,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .orbit-node{position:absolute;width:8px;height:8px;border-radius:50%;background:#2d8a4e;box-shadow:0 0 14px rgba(45,138,78,.3)}
+
+
+
+
+
+
+
+
 
 
 
@@ -2272,7 +4538,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .bar{width:20px;border-radius:4px 4px 0 0;background:linear-gradient(to top,#2d8a4e,rgba(45,138,78,.3));animation:barRise .6s ease forwards;opacity:0}
+
+
+
+
+
+
+
+
 
 
 
@@ -2288,7 +4570,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 @keyframes barRise{from{opacity:0;transform:scaleY(0)}to{opacity:1;transform:scaleY(1)}}
+
+
+
+
+
+
+
+
 
 
 
@@ -2304,7 +4602,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .r1{width:80px;height:80px;animation-delay:0s}.r2{width:110px;height:110px;animation-delay:.3s}.r3{width:140px;height:140px;animation-delay:.6s}
+
+
+
+
+
+
+
+
 
 
 
@@ -2320,7 +4634,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .brain-nodes{position:absolute;width:140px;height:100px}
+
+
+
+
+
+
+
+
 
 
 
@@ -2336,7 +4666,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .bn1{top:10%;left:20%;animation-delay:0s}.bn2{top:30%;right:15%;animation-delay:.2s}.bn3{top:60%;left:10%;animation-delay:.4s}.bn4{top:50%;right:25%;animation-delay:.6s}.bn5{bottom:15%;left:35%;animation-delay:.8s}.bn6{bottom:20%;right:40%;animation-delay:1s}
+
+
+
+
+
+
+
+
 
 
 
@@ -2352,7 +4698,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .detail-terminal{background:#1a1a2e;border-radius:10px;overflow:hidden;width:280px;z-index:1;position:relative}
+
+
+
+
+
+
+
+
 
 
 
@@ -2368,7 +4730,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .term-dots span{width:8px;height:8px;border-radius:50%}
+
+
+
+
+
+
+
+
 
 
 
@@ -2384,7 +4762,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .term-lines{padding:10px 16px 14px;font-family:'Courier New',monospace;font-size:12px;color:rgba(102,187,106,.8);text-align:left}
+
+
+
+
+
+
+
+
 
 
 
@@ -2400,7 +4794,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .tl1{animation-delay:.1s}.tl2{animation-delay:.4s}.tl3{animation-delay:.7s}
+
+
+
+
+
+
+
+
 
 
 
@@ -2416,7 +4826,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .iot-ring{position:absolute;border-radius:50%;border:1px dashed rgba(0,172,193,.15);animation:iotPulse 3s ease-in-out infinite}
+
+
+
+
+
+
+
+
 
 
 
@@ -2432,7 +4858,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 @keyframes iotPulse{0%,100%{transform:scale(1);opacity:.3}50%{transform:scale(1.15);opacity:.7}}
+
+
+
+
+
+
+
+
 
 
 
@@ -2448,7 +4890,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .i1{top:0;left:10%;animation-delay:0s}.i2{top:20%;right:0;animation-delay:.5s}.i3{bottom:5%;left:5%;animation-delay:1s}.i4{bottom:15%;right:15%;animation-delay:1.5s}
+
+
+
+
+
+
+
+
 
 
 
@@ -2472,7 +4930,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ── Service Detail ── */
+
+
+
+
+
+
+
+
 
 
 
@@ -2488,7 +4970,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .net-center{top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;font-size:20px;background:rgba(60,179,113,.1)}
+
+
+
+
+
+
+
+
 
 
 
@@ -2504,7 +5002,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 @keyframes netNodePulse{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+
+
+
+
+
+
+
 
 
 
@@ -2520,7 +5034,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .agile-arrow{font-size:14px;color:rgba(60,179,113,.3)}
+
+
+
+
+
+
+
+
 
 
 
@@ -2536,7 +5066,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .mg-dot{width:6px;height:6px;border-radius:50%;display:inline-block;animation:mgDotPulse 1.2s ease-in-out infinite}
+
+
+
+
+
+
+
+
 
 
 
@@ -2552,7 +5098,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 @keyframes mgDotPulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+
+
+
+
+
+
+
 
 
 
@@ -2568,7 +5130,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 @keyframes gradCapFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+
+
+
+
+
+
+
 
 
 
@@ -2584,7 +5162,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .gs1{animation-delay:.1s}.gs2{animation-delay:.3s}.gs3{animation-delay:.5s}.gs4{animation-delay:.7s}
+
+
+
+
+
+
+
+
 
 
 
@@ -2608,7 +5202,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ── Solution Visuals ── */
+
+
+
+
+
+
+
+
 
 
 
@@ -2624,7 +5242,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .sol-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(45,138,78,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(45,138,78,.03) 1px,transparent 1px);background-size:24px 24px}
+
+
+
+
+
+
+
+
 
 
 
@@ -2640,7 +5274,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .sol-p1{top:20%;left:15%;animation-duration:3s}.sol-p2{top:40%;left:60%;animation-duration:4s;animation-delay:.5s}
+
+
+
+
+
+
+
+
 
 
 
@@ -2656,7 +5306,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .sol-p5{top:15%;left:80%;animation-duration:3.2s;animation-delay:.3s}.sol-p6{top:80%;left:20%;animation-duration:3.8s;animation-delay:.8s}
+
+
+
+
+
+
+
+
 
 
 
@@ -2672,7 +5338,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .sol-center-icon{font-size:52px;z-index:1;position:relative;animation:solIconPulse 2s ease-in-out infinite}
+
+
+
+
+
+
+
+
 
 
 
@@ -2688,7 +5370,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .sol-ring{position:absolute;border-radius:50%;border:1px solid rgba(45,138,78,.08);animation:solRingSpin linear infinite}
+
+
+
+
+
+
+
+
 
 
 
@@ -2704,6 +5402,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 @keyframes solRingSpin{to{transform:rotate(360deg)}}
 
 
@@ -2712,7 +5418,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .sol-dot{position:absolute;width:5px;height:5px;border-radius:50%;background:#2d8a4e}
+
+
+
+
+
+
+
+
 
 
 
@@ -2736,7 +5458,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .detail-center-icon,.detail-shield,.detail-brain{font-size:52px;z-index:1;position:relative}.detail-brain{font-size:40px}
+
+
+
+
+
+
+
+
 
 
 
@@ -2752,7 +5498,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .detail-agile-cycle{display:flex;align-items:center;gap:8px;z-index:1;position:relative}
+
+
+
+
+
+
+
+
 
 
 
@@ -2768,7 +5530,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .detail-graduation{text-align:center;z-index:1;position:relative}
+
+
+
+
+
+
+
+
 
 
 
@@ -2792,7 +5570,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ── CTA ── */
+
+
+
+
+
+
+
+
 
 
 
@@ -2808,6 +5610,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .cta-content h2{font-size:clamp(20px,2.5vw,28px);font-weight:600;color:var(--text);margin-bottom:10px}
 
 
@@ -2816,7 +5626,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .cta-content p{color:var(--text-dim);font-size:14px;margin-bottom:28px}
+
+
+
+
+
+
+
+
 
 
 
@@ -2840,7 +5666,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ── FOOTER ── */
+
+
+
+
+
+
+
+
 
 
 
@@ -2856,7 +5706,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .footer-logo{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+
+
+
+
+
+
+
+
 
 
 
@@ -2872,7 +5738,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .footer-logo span{font-size:14px;font-weight:600;color:#1a1a2e}
+
+
+
+
+
+
+
+
 
 
 
@@ -2888,7 +5770,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .footer-col h4{font-size:12px;font-weight:600;color:#555;margin-bottom:14px;letter-spacing:1px}
+
+
+
+
+
+
+
+
 
 
 
@@ -2904,7 +5802,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .footer-col a:hover{color:#333}
+
+
+
+
+
+
+
+
 
 
 
@@ -2920,7 +5834,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .footer-links{display:flex;gap:20px}
+
+
+
+
+
+
+
+
 
 
 
@@ -2936,7 +5866,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .footer-links a:hover{color:#666}
+
+
+
+
+
+
+
+
 
 
 
@@ -2952,7 +5898,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .copyright{font-size:10px;color:#bbb;text-align:center;width:100%;margin-top:8px}
+
+
+
+
+
+
+
+
 
 
 
@@ -2976,25 +5938,63 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media(max-width:768px){
+
+
+
+
 
 
 
 /* 移动端导航：单行排布，链接与logo同排 */
 
+
+
 .nav-links{display:flex;flex-wrap:nowrap;gap:4px 6px;margin-right:0;padding:0;order:0}
+
+
 
 .nav-inner{flex-wrap:nowrap;height:52px;padding:0 8px;gap:6px}
 
+
+
 .nav.scrolled .nav-inner{height:52px}
+
+
 
 .nav-links a{font-size:10.5px;white-space:nowrap;padding:2px 0}
 
+
+
 .nav-links a.nav-btn-new{padding:2px 6px;font-size:10.5px;white-space:nowrap}
+
+
 
 .nav .btn-primary{margin-left:auto;font-size:10.5px;padding:4px 8px;white-space:nowrap}
 
+
+
 .logo-text{font-size:12px}
+
+
+
+
 
 
 
@@ -3002,9 +6002,19 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 /* 移动端背景图：居中显示图片中间部分 */
 
+
+
 .hero .hero-bg-img{background-position:center}
+
+
+
+
 
 
 
@@ -3012,7 +6022,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 .hero-content h1{text-align:center!important;font-size:clamp(24px,7vw,34px)!important;margin-left:0!important}
+
+
+
+
 
 
 
@@ -3020,7 +6038,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 .hero-actions{justify-content:center!important;display:flex;gap:10px}
+
+
+
+
 
 
 
@@ -3028,7 +6054,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 .hero-stats .stat{text-align:center;padding:8px}
+
+
+
+
 
 
 
@@ -3036,7 +6070,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 .section{padding:30px 16px!important}
+
+
+
+
 
 
 
@@ -3044,7 +6086,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 .section-title{text-align:center!important}
+
+
+
+
 
 
 
@@ -3052,7 +6102,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 .beian{flex-direction:column;gap:4px}
+
+
+
+
 
 
 
@@ -3068,7 +6126,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 .project-card:hover{border-color:#3b82f6;background:#1e2a45;transform:translateY(-1px)}
+
+
+
+
 
 
 
@@ -3076,7 +6150,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 .project-card .nm{flex:1}
+
+
+
+
 
 
 
@@ -3092,7 +6174,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 .pcard{display:flex;align-items:center;gap:12px;padding:14px 16px;background:#ffffff;border:1px solid #e4e8ed;border-radius:10px;color:#1f2328;text-decoration:none;font-size:14px;transition:.25s;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+
+
+
+
 
 
 
@@ -3100,7 +6198,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 .pico{font-size:20px;flex-shrink:0;width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:9px;transition:.25s}
+
+
+
+
 
 
 
@@ -3108,7 +6214,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 .pnm{font-weight:500;color:#1f2328;font-size:14px;letter-spacing:.3px}
+
+
+
+
 
 
 
@@ -3116,7 +6230,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 .parr{color:#b0b8c4;font-size:13px;flex-shrink:0;opacity:.3;transition:.25s}
+
+
+
+
 
 
 
@@ -3124,7 +6246,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 .pico-to{background:#fff3e0;color:#e65100}
+
+
+
+
 
 
 
@@ -3132,7 +6262,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 .pico-fi{background:#fce4ec;color:#c62828}
+
+
+
+
 
 
 
@@ -3140,7 +6278,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 .pico-df{background:#e0f2f1;color:#00695c}
+
+
+
+
 
 
 
@@ -3148,11 +6294,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 .pcard:hover .parr{opacity:1;color:#3b82f6;transform:translateX(4px)}
 
 
 
+
+
+
+
 .footer-grid{display:flex;flex-direction:row;flex-wrap:wrap;gap:8px}
+
+
+
+
 
 
 
@@ -3160,7 +6318,21 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 .footer-grid{display:flex;flex-direction:row;flex-wrap:wrap;gap:8px}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3172,13 +6344,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 /* ── Back to Top ── */
 
+
+
 .back-to-top{position:fixed;bottom:30px;right:24px;z-index:999;width:44px;height:44px;border-radius:12px;background:rgba(37,99,235,.85);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s ease;opacity:0;pointer-events:none;box-shadow:0 4px 16px rgba(37,99,235,.2)}
+
+
 
 .back-to-top.show{opacity:1;pointer-events:auto}
 
+
+
 .back-to-top:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 6px 24px rgba(37,99,235,.3)}
 
+
+
 .back-to-top:active{transform:translateY(0)}
+
+
 
 </style>
 
@@ -3188,7 +6370,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </head>
+
+
+
+
+
+
+
+
 
 
 
@@ -3212,7 +6410,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="splash" id="splash"><div class="splash-scan"></div><div class="splash-inner">
+
+
+
+
+
+
+
+
 
 
 
@@ -3228,7 +6450,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
   <div class="splash-sub">Network Technology Co., Ltd.</div>
+
+
+
+
+
+
+
+
 
 
 
@@ -3252,7 +6490,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <nav class="nav" id="nav"><div class="nav-inner">
+
+
+
+
+
+
+
+
 
 
 
@@ -3268,6 +6530,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
   <div class="nav-links"><a href="#products">产品</a><a href="#services">服务</a><a href="#solutions">解决方案</a><a href="#opensource" class="nav-btn-new">免费开源<span class="badge-new">新</span></a><a href="#contact">关于我们</a></div>
 
 
@@ -3276,7 +6546,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
   <a href="javascript:void(0)" class="btn-primary" onclick="showEmail()">联系我们</a>
+
+
+
+
+
+
+
+
 
 
 
@@ -3300,7 +6586,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <section class="hero" id="hero">
+
+
+
+
+
+
+
+
 
 
 
@@ -3316,7 +6626,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="layer l1 active"></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -3332,7 +6658,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="layer l3"></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -3348,7 +6690,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -3364,7 +6722,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="hero-grid"></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -3380,7 +6754,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
   <h1>驱动数字世界的<br><span class="gradient-text">创新力量</span></h1>
+
+
+
+
+
+
+
+
 
 
 
@@ -3396,7 +6786,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
   <div class="hero-actions"><a href="javascript:void(0)" class="btn-hero" onclick="showDemo()">预约演示</a><a href="#services" class="btn-hero-outline">了解服务</a></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -3412,7 +6818,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -3436,7 +6858,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- ===== IMAGE GALLERY ===== -->
+
+
+
+
+
+
+
+
 
 
 
@@ -3452,7 +6898,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="position:absolute;inset:0;pointer-events:none;opacity:.04;background-image:radial-gradient(circle at 20% 30%,rgba(59,130,246,.3) 0%,transparent 50%),radial-gradient(circle at 80% 70%,rgba(6,182,212,.2) 0%,transparent 50%)"></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -3468,7 +6930,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="section-header" style="position:relative;z-index:1"><span class="section-tag">DESIGN SHOWCASE</span><h2>视觉展示</h2><p>科技与艺术的融合</p></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -3484,7 +6962,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="track">
+
+
+
+
+
+
+
+
 
 
 
@@ -3500,7 +6994,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="g-item" onclick="showFullImg('/toobey-network/images/deco/1688723246997789.png')"><img src="/toobey-network/images/deco/1688723246997789.png" alt=""></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -3516,7 +7026,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="g-item" onclick="showFullImg('/toobey-network/images/deco/1689302083474726.png')"><img src="/toobey-network/images/deco/1689302083474726.png" alt=""></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -3532,7 +7058,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="g-item" onclick="showFullImg('/toobey-network/images/deco/3373-8f3412f0258d4e76a7b39f171e73e44a.jpg')"><img src="/toobey-network/images/deco/3373-8f3412f0258d4e76a7b39f171e73e44a.jpg" alt=""></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -3548,6 +7090,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="g-item" onclick="showFullImg('/toobey-network/images/deco/1687678759422461.png')"><img src="/toobey-network/images/deco/1687678759422461.png" alt=""></div>
 
 
@@ -3556,7 +7106,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="g-item" onclick="showFullImg('/toobey-network/images/deco/f11d15e5d454398d96c47cc45987cc4f.jpg')"><img src="/toobey-network/images/deco/f11d15e5d454398d96c47cc45987cc4f.jpg" alt=""></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -3572,7 +7138,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="g-item" onclick="showFullImg('/toobey-network/images/deco/1687678760645846.png')"><img src="/toobey-network/images/deco/1687678760645846.png" alt=""></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -3588,7 +7170,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="g-item" onclick="showFullImg('/toobey-network/images/deco/1689302080501441.png')"><img src="/toobey-network/images/deco/1689302080501441.png" alt=""></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -3604,7 +7202,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="g-item" onclick="showFullImg('/toobey-network/images/deco/3373-8f3412f0258d4e76a7b39f171e73e44a.jpg')"><img src="/toobey-network/images/deco/3373-8f3412f0258d4e76a7b39f171e73e44a.jpg" alt=""></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -3620,7 +7234,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="g-item" onclick="showFullImg('/toobey-network/images/deco/1687678759422461.png')"><img src="/toobey-network/images/deco/1687678759422461.png" alt=""></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -3636,6 +7266,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 
@@ -3644,7 +7282,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3668,7 +7330,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 (function(){
+
+
+
+
+
+
+
+
 
 
 
@@ -3684,7 +7362,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
   if(!g||!t)return;
+
+
+
+
+
+
+
+
 
 
 
@@ -3700,7 +7394,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
   // auto scroll left to right
+
+
+
+
+
+
+
+
 
 
 
@@ -3716,7 +7426,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
   // wait until images loaded
+
+
+
+
+
+
+
+
 
 
 
@@ -3732,7 +7458,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
   // drag
+
+
+
+
+
+
+
+
 
 
 
@@ -3748,7 +7490,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
   document.addEventListener('mousemove',function(e){if(!d)return;g.scrollLeft=ss+(sx-e.clientX)});
+
+
+
+
+
+
+
+
 
 
 
@@ -3764,7 +7522,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
   // wheel
+
+
+
+
+
+
+
+
 
 
 
@@ -3780,7 +7554,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 })();
+
+
+
+
+
+
+
+
 
 
 
@@ -3804,7 +7594,39 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3828,7 +7650,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <section class="section section-img-bg section-img-products" id="products" style="position:relative;overflow:hidden">
+
+
+
+
+
+
+
+
 
 
 
@@ -3844,7 +7682,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="section-header reveal" style="position:relative;z-index:1"><span class="section-tag">PRODUCTS</span><h2>核心产品</h2><p>覆盖企业管理、数据分析、智能协同等多个领域</p></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -3868,7 +7722,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div onclick="openDetail('detail-cloud')" style="background:#fff;border-radius:14px;padding:20px;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.03);display:flex;gap:16px;align-items:center;transition:all .35s;border:1px solid rgba(59,130,246,.06)" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(59,130,246,.08)';this.style.borderColor='rgba(59,130,246,.15)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 3px rgba(0,0,0,.03)';this.style.borderColor='rgba(59,130,246,.06)'">
+
+
+
+
+
+
+
+
 
 
 
@@ -3884,7 +7762,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="flex:1;min-width:0">
+
+
+
+
+
+
+
+
 
 
 
@@ -3900,7 +7794,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <p style="font-size:12px;line-height:1.6;color:var(--text-dim);margin-top:4px">弹性计算 · 对象存储 · CDN加速</p>
+
+
+
+
+
+
+
+
 
 
 
@@ -3916,6 +7826,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 
@@ -3924,7 +7842,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3948,7 +7890,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#06b6d4,#22d3ee);display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;flex-shrink:0;box-shadow:0 4px 12px rgba(6,182,212,.2)">◈</div>
+
+
+
+
+
+
+
+
 
 
 
@@ -3964,7 +7922,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><h3 style="font-size:15px;font-weight:600;color:var(--text)">DataLens</h3><span style="font-size:9px;color:rgba(6,182,212,.4);border:1px solid rgba(6,182,212,.1);border-radius:4px;padding:1px 5px">v2.1</span></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -3980,6 +7954,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="font-size:11px;color:#06b6d4;font-weight:500;margin-top:6px">了解更多 →</div>
 
 
@@ -3988,6 +7970,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 
@@ -3996,7 +7986,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4020,7 +8034,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#ef4444,#f87171);display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;flex-shrink:0;box-shadow:0 4px 12px rgba(239,68,68,.2)">🛡</div>
+
+
+
+
+
+
+
+
 
 
 
@@ -4036,7 +8066,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><h3 style="font-size:15px;font-weight:600;color:var(--text)">SecureGate</h3><span style="font-size:9px;color:rgba(239,68,68,.4);border:1px solid rgba(239,68,68,.1);border-radius:4px;padding:1px 5px">v4.0</span></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -4052,6 +8098,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="font-size:11px;color:#ef4444;font-weight:500;margin-top:6px">了解更多 →</div>
 
 
@@ -4060,6 +8114,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 
@@ -4068,7 +8130,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4092,7 +8178,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#8b5cf6,#a78bfa);display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;flex-shrink:0;box-shadow:0 4px 12px rgba(139,92,246,.2)">✦</div>
+
+
+
+
+
+
+
+
 
 
 
@@ -4108,7 +8210,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><h3 style="font-size:15px;font-weight:600;color:var(--text)">AI Copilot</h3><span style="font-size:9px;color:rgba(139,92,246,.4);border:1px solid rgba(139,92,246,.1);border-radius:4px;padding:1px 5px">v1.5</span></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -4124,6 +8242,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="font-size:11px;color:#8b5cf6;font-weight:500;margin-top:6px">了解更多 →</div>
 
 
@@ -4132,6 +8258,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 
@@ -4140,7 +8274,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4164,7 +8322,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#f59e0b,#fbbf24);display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;flex-shrink:0;box-shadow:0 4px 12px rgba(245,158,11,.2)">⟨/⟩</div>
+
+
+
+
+
+
+
+
 
 
 
@@ -4180,7 +8354,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><h3 style="font-size:15px;font-weight:600;color:var(--text)">DevStudio</h3><span style="font-size:9px;color:rgba(245,158,11,.4);border:1px solid rgba(245,158,11,.1);border-radius:4px;padding:1px 5px">v2.3</span></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -4196,6 +8386,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="font-size:11px;color:#f59e0b;font-weight:500;margin-top:6px">了解更多 →</div>
 
 
@@ -4204,6 +8402,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 
@@ -4212,7 +8418,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4236,7 +8466,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#10b981,#34d399);display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;flex-shrink:0;box-shadow:0 4px 12px rgba(16,185,129,.2)">◎</div>
+
+
+
+
+
+
+
+
 
 
 
@@ -4252,7 +8498,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><h3 style="font-size:15px;font-weight:600;color:var(--text)">IoT Hub</h3><span style="font-size:9px;color:rgba(16,185,129,.4);border:1px solid rgba(16,185,129,.1);border-radius:4px;padding:1px 5px">v1.8</span></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -4268,6 +8530,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="font-size:11px;color:#10b981;font-weight:500;margin-top:6px">了解更多 →</div>
 
 
@@ -4276,6 +8546,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 
@@ -4284,7 +8562,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4301,6 +8603,38 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 </div></section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4340,7 +8674,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <section class="section section-alt section-img-bg section-img-services" id="services" style="position:relative;overflow:hidden">
+
+
+
+
+
+
+
+
 
 
 
@@ -4356,7 +8706,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="section-header reveal" style="position:relative;z-index:1"><span class="section-tag">SERVICES</span><h2>专业服务</h2><p>从咨询到交付，全程陪伴式技术服务</p></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -4380,7 +8746,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div onclick="openDetail('detail-svc-consult')" style="background:#fff;border-radius:16px;padding:0;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.03);display:flex;flex-direction:column;transition:all .35s;border:1px solid rgba(59,130,246,.06)" onmouseover="this.style.boxShadow='0 0 0 2px rgba(59,130,246,.12)';this.style.background='rgba(59,130,246,.02)'" onmouseout="this.style.boxShadow='0 1px 3px rgba(0,0,0,.03)';this.style.background='#fff'">
+
+
+
+
+
+
+
+
 
 
 
@@ -4396,7 +8786,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#3b82f6,#60a5fa);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;transition:transform .35s" onmouseover="this.style.transform='rotate(10deg)'" onmouseout="this.style.transform=''">01</div>
+
+
+
+
+
+
+
+
 
 
 
@@ -4412,7 +8818,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -4428,6 +8850,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <p style="font-size:12px;line-height:1.65;color:var(--text-dim)">架构设计评审、技术选型建议、数字化转型规划</p>
 
 
@@ -4436,7 +8866,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -4452,7 +8898,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4476,7 +8946,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="display:flex;align-items:center;gap:12px;padding:20px 20px 12px">
+
+
+
+
+
+
+
+
 
 
 
@@ -4492,6 +8978,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <h3 style="font-size:15px;font-weight:600;color:var(--text)">定制开发</h3>
 
 
@@ -4500,7 +8994,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -4516,6 +9026,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <p style="font-size:12px;line-height:1.65;color:var(--text-dim)">根据业务需求量身定制，敏捷开发快速迭代上线</p>
 
 
@@ -4524,7 +9042,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -4540,7 +9074,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4564,7 +9122,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="display:flex;align-items:center;gap:12px;padding:20px 20px 12px">
+
+
+
+
+
+
+
+
 
 
 
@@ -4580,6 +9154,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <h3 style="font-size:15px;font-weight:600;color:var(--text)">运维托管</h3>
 
 
@@ -4588,7 +9170,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -4604,6 +9202,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <p style="font-size:12px;line-height:1.65;color:var(--text-dim)">7×24小时监控，自动化运维平台，SLA保障</p>
 
 
@@ -4612,7 +9218,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -4628,7 +9250,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4652,7 +9298,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="display:flex;align-items:center;gap:12px;padding:20px 20px 12px">
+
+
+
+
+
+
+
+
 
 
 
@@ -4668,6 +9330,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <h3 style="font-size:15px;font-weight:600;color:var(--text)">培训赋能</h3>
 
 
@@ -4676,7 +9346,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -4692,6 +9378,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <p style="font-size:12px;line-height:1.65;color:var(--text-dim)">技术培训、认证体系、最佳实践，企业快速成长</p>
 
 
@@ -4700,7 +9394,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -4716,7 +9426,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4748,7 +9482,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- ===== SOLUTIONS ===== -->
+
+
+
+
+
+
+
+
 
 
 
@@ -4764,7 +9522,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="spotlight spotlight-purple" style="top:5%;right:-80px"></div><div class="spotlight spotlight-blue" style="bottom:-60px;left:30%"></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -4780,7 +9554,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;position:relative;z-index:1;margin-top:32px">
+
+
+
+
+
+
+
+
 
 
 
@@ -4796,7 +9586,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#6366f1,#818cf8)"></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -4812,7 +9618,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <h3 style="font-size:17px;font-weight:600;color:var(--text);margin-bottom:8px">智慧企业</h3>
+
+
+
+
+
+
+
+
 
 
 
@@ -4828,6 +9650,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#6366f1;font-weight:500">了解更多 <span style="font-size:14px">→</span></div>
 
 
@@ -4836,7 +9666,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -4852,7 +9698,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#06b6d4,#22d3ee)"></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -4868,7 +9730,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <h3 style="font-size:17px;font-weight:600;color:var(--text);margin-bottom:8px">医疗健康</h3>
+
+
+
+
+
+
+
+
 
 
 
@@ -4884,6 +9762,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#06b6d4;font-weight:500">了解更多 <span style="font-size:14px">→</span></div>
 
 
@@ -4892,7 +9778,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -4908,7 +9810,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#8b5cf6,#a78bfa)"></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -4924,7 +9842,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <h3 style="font-size:17px;font-weight:600;color:var(--text);margin-bottom:8px">教育科技</h3>
+
+
+
+
+
+
+
+
 
 
 
@@ -4940,6 +9874,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#8b5cf6;font-weight:500">了解更多 <span style="font-size:14px">→</span></div>
 
 
@@ -4948,7 +9890,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -4964,7 +9922,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#f472b6,#f9a8d4)"></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -4980,7 +9954,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <h3 style="font-size:17px;font-weight:600;color:var(--text);margin-bottom:8px">新零售</h3>
+
+
+
+
+
+
+
+
 
 
 
@@ -4996,6 +9986,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#f472b6;font-weight:500">了解更多 <span style="font-size:14px">→</span></div>
 
 
@@ -5004,6 +10002,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 
@@ -5012,7 +10018,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -5028,7 +10050,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 .solution-card-new:hover{transform:translateY(-6px)!important;box-shadow:0 16px 48px rgba(0,0,0,.08)!important}
+
+
+
+
+
+
+
+
 
 
 
@@ -5052,7 +10090,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- ===== TOOBEY ECOSYSTEM INFOGRAPHIC ===== -->
+
+
+
+
+
+
+
+
 
 
 
@@ -5068,6 +10130,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="position:absolute;inset:0;pointer-events:none;opacity:.06;background:radial-gradient(ellipse at 50% 30%,rgba(59,130,246,.3),transparent 60%),radial-gradient(ellipse at 30% 70%,rgba(6,182,212,.15),transparent 50%)"></div>
 
 
@@ -5076,7 +10146,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="section-header" style="text-align:center;margin-bottom:40px;position:relative;z-index:1"><span class="section-tag">TOOBEY ECOSYSTEM</span><h2>全栈技术生态</h2><p style="font-size:13px;margin-top:6px">从底层基础设施到行业应用，构建完整数字化闭环</p></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5108,7 +10202,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- TOP LAYER -->
+
+
+
+
+
+
+
+
 
 
 
@@ -5132,7 +10250,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div style="background:#fff;border:1px solid rgba(96,165,250,.12);border-radius:16px;padding:24px 20px;position:relative;transition:all .4s" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 12px 40px rgba(59,130,246,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+
+
+
+
+
+
+
+
 
 
 
@@ -5148,7 +10290,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <h3 style="font-size:15px;color:#3b82f6;font-weight:600;margin-bottom:16px">🏭 行业应用</h3>
+
+
+
+
+
+
+
+
 
 
 
@@ -5164,7 +10322,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:#3b82f6"></span><span style="font-size:12px;color:var(--text-dim)">智慧企业 · OA/ERP/CRM</span></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -5180,7 +10354,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:#8b5cf6"></span><span style="font-size:12px;color:var(--text-dim)">教育科技 · 在线课堂/测评</span></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -5196,6 +10386,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 
@@ -5204,7 +10402,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5236,7 +10458,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div style="background:#fff;border:1px solid rgba(6,182,212,.12);border-radius:16px;padding:24px 20px;position:relative;transition:all .4s" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 12px 40px rgba(6,182,212,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+
+
+
+
+
+
+
+
 
 
 
@@ -5252,7 +10498,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <h3 style="font-size:15px;color:#06b6d4;font-weight:600;margin-bottom:16px">⚙️ 技术底座</h3>
+
+
+
+
+
+
+
+
 
 
 
@@ -5268,7 +10530,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:#3b82f6"></span><span style="font-size:12px;color:var(--text-dim)">Toobey Cloud · 弹性云基础设施</span></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -5284,7 +10562,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:#8b5cf6"></span><span style="font-size:12px;color:var(--text-dim)">SecureGate · 企业安全防护体系</span></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -5300,6 +10594,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 
@@ -5308,7 +10610,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5340,7 +10666,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div style="background:#fff;border:1px solid rgba(139,92,246,.12);border-radius:16px;padding:24px 20px;position:relative;transition:all .4s" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 12px 40px rgba(139,92,246,.1)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+
+
+
+
+
+
+
+
 
 
 
@@ -5356,7 +10706,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <h3 style="font-size:15px;color:#8b5cf6;font-weight:600;margin-bottom:16px">📊 发展规模</h3>
+
+
+
+
+
+
+
+
 
 
 
@@ -5372,7 +10738,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:#3b82f6"></span><span style="font-size:12px;color:var(--text-dim)"><strong style="color:#3b82f6">99+</strong> 企业客户覆盖</span></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -5388,7 +10770,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="display:flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:#8b5cf6"></span><span style="font-size:12px;color:var(--text-dim)"><strong style="color:#8b5cf6">99.9%</strong> SLA 服务保障</span></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -5404,22 +10802,6 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
-</div>
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
 
 
 
@@ -5429,6 +10811,70 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5452,7 +10898,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="text-align:center;height:40px;margin:4px 0;display:flex;align-items:center;justify-content:center">
+
+
+
+
+
+
+
+
 
 
 
@@ -5468,7 +10930,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5492,7 +10978,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin:0 0 30px;animation:fadeUp 1s ease .2s both">
+
+
+
+
+
+
+
+
 
 
 
@@ -5508,7 +11010,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="font-size:28px;font-weight:700;background:linear-gradient(135deg,#3b82f6,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">99+</div>
+
+
+
+
+
+
+
+
 
 
 
@@ -5524,7 +11042,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -5540,7 +11074,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="font-size:28px;font-weight:700;background:linear-gradient(135deg,#06b6d4,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">4,500+</div>
+
+
+
+
+
+
+
+
 
 
 
@@ -5556,7 +11106,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -5572,7 +11138,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="font-size:28px;font-weight:700;background:linear-gradient(135deg,#8b5cf6,#f472b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">60+</div>
+
+
+
+
+
+
+
+
 
 
 
@@ -5588,6 +11170,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 
@@ -5596,7 +11186,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5620,6 +11234,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:10px;animation:fadeUp 1s ease .4s both">
 
 
@@ -5628,7 +11250,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="background:#fff;border:1px solid rgba(0,0,0,.04);border-radius:12px;padding:18px 16px;text-align:center;transition:all .4s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,.04)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+
+
+
+
+
+
+
+
 
 
 
@@ -5644,7 +11282,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="font-size:13px;color:var(--text);margin-top:4px;font-weight:500">算力生态</div>
+
+
+
+
+
+
+
+
 
 
 
@@ -5660,6 +11314,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 
@@ -5668,7 +11330,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="background:#fff;border:1px solid rgba(0,0,0,.04);border-radius:12px;padding:18px 16px;text-align:center;transition:all .4s" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,.04)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+
+
+
+
+
+
+
+
 
 
 
@@ -5684,7 +11362,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="font-size:13px;color:var(--text);margin-top:4px;font-weight:500">基础设施</div>
+
+
+
+
+
+
+
+
 
 
 
@@ -5700,7 +11394,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -5716,7 +11426,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="font-size:11px;color:rgba(139,92,246,.5);letter-spacing:1px">CHIP</div>
+
+
+
+
+
+
+
+
 
 
 
@@ -5732,6 +11458,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="font-size:11px;color:var(--text-dim)">跨平台兼容 · 协同设计</div>
 
 
@@ -5740,6 +11474,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 
@@ -5748,7 +11490,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5772,6 +11538,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <span style="font-size:11px;color:var(--text-dim);letter-spacing:2px">从咨询到交付 · 全程陪伴式技术服务 · 驱动数字世界的创新力量</span>
 
 
@@ -5780,15 +11554,7 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
-</div>
 
-
-
-
-
-
-
-</div>
 
 
 
@@ -5797,6 +11563,54 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5820,7 +11634,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-section" id="detail-cloud"><div class="detail-close" onclick="closeDetail('detail-cloud')">✕</div><div class="detail-inner">
+
+
+
+
+
+
+
+
 
 
 
@@ -5836,7 +11666,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-hero-visual"><div class="detail-grid-lines"></div><div class="detail-orbit"><div class="orbit-node n1"></div><div class="orbit-node n2"></div><div class="orbit-node n3"></div><div class="orbit-node n4"></div></div><div class="detail-center-icon">☁</div></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -5852,7 +11698,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-features"><div class="feature-item"><div class="feature-icon">⚡</div><div><strong>弹性计算 ECS</strong><p>秒级启动虚拟机，支持自动扩缩容。</p></div></div><div class="feature-item"><div class="feature-icon">💾</div><div><strong>对象存储 OSS</strong><p>EB 级可扩展存储空间，99.999999999% 持久性。</p></div></div><div class="feature-item"><div class="feature-icon">🌐</div><div><strong>CDN 全球加速</strong><p>2800+ 节点，智能路由调度。</p></div></div><div class="feature-item"><div class="feature-icon">🔄</div><div><strong>容器服务 ACK</strong><p>Kubernetes 容器管理平台。</p></div></div></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -5868,7 +11730,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -5884,7 +11762,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-tag">DATA INTELLIGENCE</div><h2>DataLens <span class="detail-version">v2.8</span></h2>
+
+
+
+
+
+
+
+
 
 
 
@@ -5900,7 +11794,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-desc"><p>DataLens 是新一代智能数据分析平台，融合 AI 驱动的自然语言查询与可视化 BI 能力。</p></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -5916,6 +11826,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-stats"><div class="d-stat"><span class="d-num">200+</span><span class="d-label">行业模板</span></div><div class="d-stat"><span class="d-num">PB级</span><span class="d-label">数据处理</span></div><div class="d-stat"><span class="d-num">秒级</span><span class="d-label">实时响应</span></div><div class="d-stat"><span class="d-num">96%</span><span class="d-label">洞察准确率</span></div></div>
 
 
@@ -5924,7 +11842,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -5940,7 +11874,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-tag">CYBER SECURITY</div><h2>SecureGate <span class="detail-version">v4.1</span></h2>
+
+
+
+
+
+
+
+
 
 
 
@@ -5956,7 +11906,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-desc"><p>SecureGate 是企业级一体化安全防护平台，整合 WAF、DDoS 防护、漏洞扫描等核心能力。</p></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -5972,6 +11938,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-stats"><div class="d-stat"><span class="d-num">T级</span><span class="d-label">抗 DDoS</span></div><div class="d-stat"><span class="d-num">0.1%</span><span class="d-label">误报率</span></div><div class="d-stat"><span class="d-num">50万+</span><span class="d-label">CVE 库</span></div><div class="d-stat"><span class="d-num">7×24</span><span class="d-label">安全运营</span></div></div>
 
 
@@ -5980,7 +11954,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -5996,7 +11986,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-tag">ARTIFICIAL INTELLIGENCE</div><h2>AI Copilot <span class="detail-version">v1.5</span></h2>
+
+
+
+
+
+
+
+
 
 
 
@@ -6012,7 +12018,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-desc"><p>AI Copilot 是基于大语言模型的企业智能助手，深度集成企业知识库与工作流引擎。</p></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6028,6 +12050,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-stats"><div class="d-stat"><span class="d-num">95%+</span><span class="d-label">回答准确率</span></div><div class="d-stat"><span class="d-num">300%</span><span class="d-label">效率提升</span></div><div class="d-stat"><span class="d-num">50+</span><span class="d-label">流程动作</span></div><div class="d-stat"><span class="d-num">10×</span><span class="d-label">文档处理</span></div></div>
 
 
@@ -6036,7 +12066,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6052,7 +12098,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-tag">DEVELOPMENT PLATFORM</div><h2>DevStudio <span class="detail-version">v5.0</span></h2>
+
+
+
+
+
+
+
+
 
 
 
@@ -6068,7 +12130,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-desc"><p>DevStudio 是面向现代软件团队的云端一体化开发平台。</p></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6084,6 +12162,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-stats"><div class="d-stat"><span class="d-num">5min</span><span class="d-label">发布周期</span></div><div class="d-stat"><span class="d-num">200+</span><span class="d-label">预装扩展</span></div><div class="d-stat"><span class="d-num">5×</span><span class="d-label">审查效率</span></div><div class="d-stat"><span class="d-num">K8s</span><span class="d-label">原生支持</span></div></div>
 
 
@@ -6092,7 +12178,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6108,7 +12210,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-tag">INTERNET OF THINGS</div><h2>IoT Hub <span class="detail-version">v2.3</span></h2>
+
+
+
+
+
+
+
+
 
 
 
@@ -6124,7 +12242,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-desc"><p>IoT Hub 是企业级物联网设备管理平台，支持百万级设备并发接入。</p></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6140,6 +12274,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-stats"><div class="d-stat"><span class="d-num">5000万+</span><span class="d-label">接入设备</span></div><div class="d-stat"><span class="d-num">10ms</span><span class="d-label">边缘延迟</span></div><div class="d-stat"><span class="d-num">千万级</span><span class="d-label">并发连接</span></div><div class="d-stat"><span class="d-num">30s</span><span class="d-label">告警触达</span></div></div>
 
 
@@ -6148,7 +12290,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6164,7 +12322,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-tag">CONSULTING SERVICES</div><h2>技术咨询 <span class="detail-version">专业顾问</span></h2>
+
+
+
+
+
+
+
+
 
 
 
@@ -6180,7 +12354,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-desc"><p>Toobey 技术咨询团队由来自头部科技企业的资深架构师与行业专家组成。</p></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6196,6 +12386,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-stats"><div class="d-stat"><span class="d-num">200+</span><span class="d-label">项目评审</span></div><div class="d-stat"><span class="d-num">15年+</span><span class="d-label">平均经验</span></div><div class="d-stat"><span class="d-num">98%</span><span class="d-label">客户满意度</span></div><div class="d-stat"><span class="d-num">7×12</span><span class="d-label">顾问响应</span></div></div>
 
 
@@ -6204,7 +12402,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6220,7 +12434,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-tag">CUSTOM DEVELOPMENT</div><h2>定制开发 <span class="detail-version">敏捷交付</span></h2>
+
+
+
+
+
+
+
+
 
 
 
@@ -6236,7 +12466,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-desc"><p>Scrum 敏捷方法论，两周迭代周期。</p></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6252,6 +12498,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-stats"><div class="d-stat"><span class="d-num">500+</span><span class="d-label">定制项目</span></div><div class="d-stat"><span class="d-num">2周</span><span class="d-label">迭代周期</span></div><div class="d-stat"><span class="d-num">80%+</span><span class="d-label">测试覆盖率</span></div><div class="d-stat"><span class="d-num">零停机</span><span class="d-label">发布策略</span></div></div>
 
 
@@ -6260,7 +12514,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6276,7 +12546,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-tag">OPS & MAINTENANCE</div><h2>运维托管 <span class="detail-version">SLA保障</span></h2>
+
+
+
+
+
+
+
+
 
 
 
@@ -6292,7 +12578,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-desc"><p>7×24 小时全天候监控与运维保障。</p></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6308,6 +12610,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-stats"><div class="d-stat"><span class="d-num">7×24</span><span class="d-label">全天候监控</span></div><div class="d-stat"><span class="d-num">30s</span><span class="d-label">故障发现</span></div><div class="d-stat"><span class="d-num">15min</span><span class="d-label">平均恢复</span></div><div class="d-stat"><span class="d-num">99.95%</span><span class="d-label">SLA 承诺</span></div></div>
 
 
@@ -6316,7 +12626,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6332,7 +12658,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-tag">TRAINING & ENABLEMENT</div><h2>培训赋能 <span class="detail-version">人才孵化</span></h2>
+
+
+
+
+
+
+
+
 
 
 
@@ -6348,7 +12690,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-desc"><p>覆盖从入门到精通的全职业周期培训体系。</p></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6364,6 +12722,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-stats"><div class="d-stat"><span class="d-num">50+</span><span class="d-label">专业课程</span></div><div class="d-stat"><span class="d-num">92%</span><span class="d-label">通过率</span></div><div class="d-stat"><span class="d-num">10000+</span><span class="d-label">培养人才</span></div><div class="d-stat"><span class="d-num">3级</span><span class="d-label">认证体系</span></div></div>
 
 
@@ -6372,7 +12738,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6388,7 +12770,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-tag">SMART ENTERPRISE</div><h2>智慧企业解决方案 <span class="detail-version">v2.0</span></h2>
+
+
+
+
+
+
+
+
 
 
 
@@ -6404,7 +12802,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-desc"><p>智慧企业解决方案以 Toobey Cloud 为底座，整合 OA 协同、ERP 集成、CRM 管理三大核心系统。</p></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6420,6 +12834,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-stats"><div class="d-stat"><span class="d-num">60%</span><span class="d-label">效率提升</span></div><div class="d-stat"><span class="d-num">45%</span><span class="d-label">成单增长</span></div><div class="d-stat"><span class="d-num">80%</span><span class="d-label">决策提速</span></div><div class="d-stat"><span class="d-num">100+</span><span class="d-label">企业客户</span></div></div>
 
 
@@ -6428,7 +12850,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6444,7 +12882,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-tag">HEALTHCARE</div><h2>医疗健康解决方案 <span class="detail-version">v3.1</span></h2>
+
+
+
+
+
+
+
+
 
 
 
@@ -6460,7 +12914,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-desc"><p>依托 SecureGate 安全体系与 IoT Hub 物联能力，构建 HIS 系统、远程会诊、健康档案三大核心模块。</p></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6476,6 +12946,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-stats"><div class="d-stat"><span class="d-num">300+</span><span class="d-label">合作机构</span></div><div class="d-stat"><span class="d-num">99.99%</span><span class="d-label">系统可用性</span></div><div class="d-stat"><span class="d-num">200ms</span><span class="d-label">影像延迟</span></div><div class="d-stat"><span class="d-num">等保3</span><span class="d-label">安全认证</span></div></div>
 
 
@@ -6484,7 +12962,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6500,7 +12994,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-tag">EDUCATION TECHNOLOGY</div><h2>教育科技解决方案 <span class="detail-version">v2.5</span></h2>
+
+
+
+
+
+
+
+
 
 
 
@@ -6516,7 +13026,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-desc"><p>基于 DevStudio 平台与 AI Copilot 引擎，打造在线课堂、智能测评、校园管理三大平台。</p></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6532,6 +13058,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-stats"><div class="d-stat"><span class="d-num">10000+</span><span class="d-label">并发直播</span></div><div class="d-stat"><span class="d-num">35%</span><span class="d-label">提分率</span></div><div class="d-stat"><span class="d-num">40%</span><span class="d-label">降本增效</span></div><div class="d-stat"><span class="d-num">500+</span><span class="d-label">合作院校</span></div></div>
 
 
@@ -6540,7 +13074,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6556,7 +13106,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-tag">NEW RETAIL</div><h2>新零售解决方案 <span class="detail-version">v3.0</span></h2>
+
+
+
+
+
+
+
+
 
 
 
@@ -6572,7 +13138,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-desc"><p>融合 IoT Hub、DataLens 与 AI Copilot，打通全渠道数据，实现精准营销与智能供应链。</p></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6588,6 +13170,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="detail-stats"><div class="d-stat"><span class="d-num">50%</span><span class="d-label">转化提升</span></div><div class="d-stat"><span class="d-num">92%</span><span class="d-label">预测准确率</span></div><div class="d-stat"><span class="d-num">40%</span><span class="d-label">复购增长</span></div><div class="d-stat"><span class="d-num">55%</span><span class="d-label">门店提效</span></div></div>
 
 
@@ -6596,7 +13186,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -6620,7 +13234,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <section class="cta-section" id="contact" style="position:relative;overflow:hidden;background:linear-gradient(135deg,#f8faff 0%,#eef2ff 50%,#e0e7ff 100%)">
+
+
+
+
+
+
+
+
 
 
 
@@ -6636,7 +13266,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.06),transparent 70%);top:-100px;right:-80px;animation:floatBg 8s ease-in-out infinite"></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6652,6 +13298,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(59,130,246,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.02) 1px,transparent 1px);background-size:40px 40px"></div>
 
 
@@ -6660,7 +13314,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6676,7 +13346,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="font-size:11px;color:rgba(59,130,246,.4);letter-spacing:3px;margin-bottom:12px;animation:fadeUp .6s ease">GET STARTED</div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6692,7 +13378,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <p style="color:var(--text-dim);font-size:14px;max-width:440px;margin:0 auto 28px;line-height:1.6;animation:fadeUp .6s ease .2s both">联系我们的专家团队，获取专属解决方案</p>
+
+
+
+
+
+
+
+
 
 
 
@@ -6708,7 +13410,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div onclick="showDemo()" style="display:inline-flex;padding:14px 32px;border-radius:10px;font-size:14px;font-weight:600;text-decoration:none;background:linear-gradient(135deg,#3b82f6,#2563eb);color:#fff;cursor:pointer;transition:all .35s;box-shadow:0 4px 16px rgba(59,130,246,.2);position:relative;overflow:hidden" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 28px rgba(59,130,246,.3)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 16px rgba(59,130,246,.2)'">
+
+
+
+
+
+
+
+
 
 
 
@@ -6724,7 +13442,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6740,6 +13474,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 联系我们 →
 
 
@@ -6748,15 +13490,7 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
-</div>
 
-
-
-
-
-
-
-</div>
 
 
 
@@ -6765,6 +13499,46 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6780,7 +13554,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -6804,7 +13602,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <section style="padding:60px 28px;background:#fff;border-bottom:1px solid rgba(0,0,0,.04)">
+
+
+
+
+
+
+
+
 
 
 
@@ -6820,7 +13634,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6836,7 +13666,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <span style="font-size:20px;color:#2563eb;font-weight:700">◆</span>
+
+
+
+
+
+
+
+
 
 
 
@@ -6852,7 +13698,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6868,6 +13730,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 
@@ -6876,7 +13746,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6892,7 +13778,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="display:flex;flex-direction:column;gap:8px">
+
+
+
+
+
+
+
+
 
 
 
@@ -6908,7 +13810,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <a href="javascript:void(0)" onclick="openDetail('detail-data')" style="font-size:12px;color:var(--text-dim);text-decoration:none;transition:color.2s">DataLens</a>
+
+
+
+
+
+
+
+
 
 
 
@@ -6924,6 +13842,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <a href="javascript:void(0)" onclick="openDetail('detail-ai')" style="font-size:12px;color:var(--text-dim);text-decoration:none;transition:color.2s">AI Copilot</a>
 
 
@@ -6932,6 +13858,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 
@@ -6940,7 +13874,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6949,6 +13899,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 <div>
+
+
+
+
+
+
+
+
 
 
 
@@ -6964,7 +13922,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div style="display:flex;flex-direction:column;gap:8px">
+
+
+
+
+
+
+
+
 
 
 
@@ -6980,7 +13954,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <a href="javascript:void(0)" onclick="openDetail('detail-svc-custom')" style="font-size:12px;color:var(--text-dim);text-decoration:none;transition:color.2s">定制开发</a>
+
+
+
+
+
+
+
+
 
 
 
@@ -6996,6 +13986,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <a href="javascript:void(0)" onclick="openDetail('detail-svc-training')" style="font-size:12px;color:var(--text-dim);text-decoration:none;transition:color.2s">培训赋能</a>
 
 
@@ -7004,6 +14002,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 
@@ -7012,7 +14018,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -7028,7 +14050,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <h4 style="font-size:12px;font-weight:600;color:var(--text);margin-bottom:14px;letter-spacing:1px">公司</h4>
+
+
+
+
+
+
+
+
 
 
 
@@ -7044,7 +14082,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <a href="#" style="font-size:12px;color:var(--text-dim);text-decoration:none">关于我们</a>
+
+
+
+
+
+
+
+
 
 
 
@@ -7060,7 +14114,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <a href="#" style="font-size:12px;color:var(--text-dim);text-decoration:none">加入我们</a>
+
+
+
+
+
+
+
+
 
 
 
@@ -7076,15 +14146,7 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
-</div>
 
-
-
-
-
-
-
-</div>
 
 
 
@@ -7093,6 +14155,46 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
 
 
 
@@ -7116,7 +14218,27 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div id="opensource" style="text-align:center;padding:30px 20px 12px">
+
+
+
+
 
 
 
@@ -7124,11 +14246,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
     <p style="font-size:13px;color:#4b5563;margin:0">所有项目均可在线直接使用或下载使用，全部为开源免费工具</p>
 
 
 
+
+
+
+
   </div>
+
+
+
+
 
 
 
@@ -7140,7 +14274,19 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <div class="footer-cat"><h4 style="font-size:14px;color:#3b82f6;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #30363d">🎮 游戏娱乐</h4><div class="footer-grid" style="display:flex;flex-direction:row;flex-wrap:wrap;gap:6px">
+
+
+
+
 
 
 
@@ -7148,7 +14294,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 <a href="https://toobey521.github.io/car/" target="_blank" class="pcard"><span class="pico pico-gm">🏎️</span><span class="pbody"><span class="pnm">解压赛车</span><span class="pdesc">赛车竞速小游戏</span></span><span class="parr">→</span></a>
+
+
+
+
 
 
 
@@ -7156,7 +14310,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 <a href="https://toobey521.github.io/maze-game/" target="_blank" class="pcard"><span class="pico pico-gm">🌀</span><span class="pbody"><span class="pnm">迷宫冒险</span><span class="pdesc">迷宫探索闯关</span></span><span class="parr">→</span></a>
+
+
+
+
 
 
 
@@ -7164,7 +14326,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 <a href="https://toobey521.github.io/sokoban/" target="_blank" class="pcard"><span class="pico pico-gm">📦</span><span class="pbody"><span class="pnm">推箱子</span><span class="pdesc">经典益智推箱子</span></span><span class="parr">→</span></a>
+
+
+
+
 
 
 
@@ -7176,7 +14346,19 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <a href="https://toobey521.github.io/international-chess/" target="_blank" class="pcard"><span class="pico pico-gm">♟️</span><span class="pbody"><span class="pnm">国际象棋</span><span class="pdesc">国际象棋AI对战</span></span><span class="parr">→</span></a>
+
+
+
+
 
 
 
@@ -7184,7 +14366,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 <a href="https://toobey521.github.io/chidouren/" target="_blank" class="pcard"><span class="pico pico-gm">👻</span><span class="pbody"><span class="pnm">吃豆人</span><span class="pdesc">经典吃豆小游戏</span></span><span class="parr">→</span></a>
+
+
+
+
 
 
 
@@ -7196,9 +14386,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <a href="https://toobey521.github.io/fireworks-show/" target="_blank" class="pcard"><span class="pico pico-to">🎆</span><span class="pbody"><span class="pnm">炫彩烟花</span><span class="pdesc">多彩几何烟花绽放</span></span><span class="parr">→</span></a>
 
+
+
 <a href="https://toobey521.github.io/sudoku-game/" target="_blank" class="pcard"><span class="pico pico-gm">🧩</span><span class="pbody"><span class="pnm">数独</span><span class="pdesc">5关难度 · 清新数独</span></span><span class="parr">→</span></a></div></div>
+
+
+
+
 
 
 
@@ -7206,7 +14410,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 <a href="https://toobey521.github.io/scientific-calculator/" target="_blank" class="pcard"><span class="pico pico-to">🔢</span><span class="pbody"><span class="pnm">科学计算器</span><span class="pdesc">多功能科学计算</span></span><span class="parr">→</span></a>
+
+
+
+
 
 
 
@@ -7214,7 +14426,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 <a href="https://toobey521.github.io/World-Clock/" target="_blank" class="pcard"><span class="pico pico-to">🕐</span><span class="pbody"><span class="pnm">世界时钟</span><span class="pdesc">多时区时钟查询</span></span><span class="parr">→</span></a>
+
+
+
+
 
 
 
@@ -7222,7 +14442,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 <a href="https://toobey521.github.io/token-usage-assistant/" target="_blank" class="pcard"><span class="pico pico-to">🔖</span><span class="pbody"><span class="pnm">Token助手</span><span class="pdesc">Token用量计算</span></span><span class="parr">→</span></a>
+
+
+
+
 
 
 
@@ -7230,11 +14458,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 <a href="https://toobey521.github.io/toobey-network/gufeng-naming.html" target="_blank" class="pcard" style="position:relative"><span class="badge-jing">精</span><span class="pico pico-to">📜</span><span class="pbody"><span class="pnm">古风取名</span><span class="pdesc">古风风格起名</span></span><span class="parr">→</span></a>
 
 
 
+
+
+
+
 <a href="https://toobey521.github.io/contract-eye/" target="_blank" class="pcard"><span class="pico pico-to">🔍</span><span class="pbody"><span class="pnm">
+
+
+
+
 
 
 
@@ -7246,7 +14486,19 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <a href="https://toobey521.github.io/lie-detector/" target="_blank" class="pcard"><span class="pico pico-md">🕵️</span><span class="pbody"><span class="pnm">多维测谎分析仪</span><span class="pdesc">多维度测谎测试</span></span><span class="parr">→</span></a>
+
+
+
+
 
 
 
@@ -7254,7 +14506,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 <div class="footer-cat"><h4 style="font-size:14px;color:#3b82f6;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid #30363d">📺 多媒体</h4><div class="footer-grid" style="display:flex;flex-direction:row;flex-wrap:wrap;gap:6px">
+
+
+
+
 
 
 
@@ -7262,7 +14522,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 <a href="https://toobey521.github.io/piano/" target="_blank" class="pcard"><span class="pico pico-md">🎹</span><span class="pbody"><span class="pnm">电钢琴</span><span class="pdesc">在线电钢琴弹奏</span></span><span class="parr">→</span></a>
+
+
+
+
 
 
 
@@ -7270,7 +14538,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 <a href="https://toobey521.github.io/toobey-audio-extractor/" target="_blank" class="pcard" style="position:relative"><span class="badge-jing">精</span><span class="pico pico-md">🎵</span><span class="pbody"><span class="pnm">音频提取器</span><span class="pdesc">视频转音频提取</span></span><span class="parr">→</span></a>
+
+
+
+
 
 
 
@@ -7278,11 +14554,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 <a href="https://toobey521.github.io/prompt-tool/" target="_blank" class="pcard"><span class="pico pico-md">💡</span><span class="pbody"><span class="pnm">提示词反推工具</span><span class="pdesc">AI提示词推导</span></span><span class="parr">→</span></a>
 
 
 
+
+
+
+
 <a href="https://toobey521.github.io/video-deconstruction-analyzer/" target="_blank" class="pcard" style="position:relative"><span class="badge-jing">精</span><span class="pico pico-md">🎬</span><span class="pbody"><span class="pnm">视频解构分析器</span><span class="pdesc">视频逐帧分析</span></span><span class="parr">→</span></a>
+
+
+
+
 
 
 
@@ -7294,7 +14582,19 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div></div>
+
+
+
+
 
 
 
@@ -7302,7 +14602,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 <a href="https://toobey521.github.io/fun-english-paradise/" target="_blank" class="pcard" style="position:relative"><span class="badge-jing">精</span><span class="pico pico-to">📚</span><span class="pbody"><span class="pnm">趣味英语乐园</span><span class="pdesc">英语学习小游戏</span></span><span class="parr">→</span></a>
+
+
+
+
 
 
 
@@ -7310,7 +14618,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 <a href="https://toobey521.github.io/math_hero/" target="_blank" class="pcard"><span class="pico pico-to">🦸</span><span class="pbody"><span class="pnm">数学小英雄</span><span class="pdesc">儿童数学练习</span></span><span class="parr">→</span></a>
+
+
+
+
 
 
 
@@ -7318,11 +14634,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 <a href="https://toobey521.github.io/classic-poetry-ebook/" target="_blank" class="pcard" style="position:relative"><span class="badge-jing">精</span><span class="pico pico-he">📖</span><span class="pbody"><span class="pnm">经典诗文</span><span class="pdesc">1-6年级442首诗词配图文</span></span><span class="parr">→</span></a>
 
 
 
+
+
+
+
 </div></div>
+
+
+
+
 
 
 
@@ -7334,7 +14662,19 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <a href="https://toobey521.github.io/hermes-100-ways/" target="_blank" class="pcard"><span class="pico pico-fi">🤖</span><span class="pbody"><span class="pnm">Hermes赚钱100</span><span class="pdesc">Hermes Agent 赚钱100法</span></span><span class="parr">→</span></a>
+
+
+
+
 
 
 
@@ -7342,7 +14682,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 <a href="https://toobey521.github.io/website-tutorial/" target="_blank" class="pcard" style="position:relative"><span class="badge-jing">精</span><span class="pico pico-to">🕸️</span><span class="pbody"><span class="pnm">网站全链路</span><span class="pdesc">网站搭建运营全教程</span></span><span class="parr">→</span></a>
+
+
+
+
 
 
 
@@ -7350,11 +14698,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 <a href="https://toobey521.github.io/ai-chat-kids/" target="_blank" class="pcard"><span class="pico pico-df">🤖</span><span class="pbody"><span class="pnm">小朋友AI入门</span><span class="pdesc">跟我一起和AI聊天 · 小学生AI教程</span></span><span class="parr">→</span></a>
 
 
 
+
+
+
+
 <a href="https://toobey521.github.io/ai-tools-encyclopedia/" target="_blank" class="pcard" style="position:relative"><span class="badge-jing">精</span><span class="pico pico-fi">🧠</span><span class="pbody"><span class="pnm">AI工具百科</span><span class="pdesc">中国AI工具百科全书 · 300款 · 17大行业</span></span><span class="parr">→</span></a>
+
+
+
+
 
 
 
@@ -7366,11 +14726,31 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <a href="https://toobey521.github.io/llm-knowledge-guide/" target="_blank" class="pcard" style="position:relative"><span class="badge-jing">精</span><span class="pico pico-fi">🧠</span><span class="pbody"><span class="pnm">大模型指南</span><span class="pdesc">大模型知识指南 · 49名词百科 · 23模型对比 · 国内选型</span></span><span class="parr">→</span></a>
 
 
 
+
+
+
+
 </div></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -7382,11 +14762,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 <a href="https://toobey521.github.io/A-share-Analysis-System/" target="_blank" class="pcard" style="position:relative"><span class="badge-jing">精</span><span class="pico pico-fi">📈</span><span class="pbody"><span class="pnm">A股分析系统</span><span class="pdesc">A股实时分析系统</span></span><span class="parr">→</span></a>
 
 
 
+
+
+
+
 <a href="https://toobey521.github.io/stock-picker-v16/" target="_blank" class="pcard"><span class="pico pico-fi">🎯</span><span class="pbody"><span class="pnm">趋势选股工具</span><span class="pdesc">智能趋势选股</span></span><span class="parr">→</span></a>
+
+
+
+
 
 
 
@@ -7398,7 +14790,19 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
-<a href="https://toobey521.github.io/bank-cnaps-query/" target="_blank" class="pcard"><span class="pico pico-to">🏦</span><span class="pbody"><span class="pnm">银行行号查询</span><span class="pdesc">银行网点行号</span></span><span class="parr">→</span></a></div></div>
+
+
+
+
+
+
+
+
+<a href="https://toobey521.github.io/bank-cnaps-query/" target="_blank" class="pcard"><span class="pico pico-to">🏦</span><span class="pbody"><span class="pnm">银行行号查询</span><span class="pdesc">银行网点行号</span></span><span class="parr">→</span></a><a href="https://toobey521.github.io/financial-audit-tool/" target="_blank" class="pcard" style="position:relative"><span class="badge-jing">精</span><span class="pico pico-fi">🩺</span><span class="pbody"><span class="pnm">财务漏洞检测</span><span class="pdesc">上传报表自动识别28类财务风险</span></span><span class="parr">→</span></a></div></div>
+
+
+
+
 
 
 
@@ -7406,11 +14810,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 <a href="https://toobey521.github.io/toobey-food-app/" target="_blank" class="pcard"><span class="pico pico-he">🥗</span><span class="pbody"><span class="pnm">本草食蔬下载</span><span class="pdesc">本草食物查询</span></span><span class="parr">→</span></a>
 
 
 
+
+
+
+
 <a href="https://toobey521.github.io/toobey-herbal-ebook/" target="_blank" class="pcard" style="position:relative"><span class="badge-jing">精</span><span class="pico pico-he">📖</span><span class="pbody"><span class="pnm">本草电子书</span><span class="pdesc">本草在线阅读</span></span><span class="parr">→</span></a>
+
+
+
+
 
 
 
@@ -7422,7 +14838,19 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 </div></div>
+
+
+
+
 
 
 
@@ -7434,7 +14862,19 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <a href="https://toobey521.github.io/daodejing/" target="_blank" class="pcard"><span class="pico pico-he">📜</span><span class="pbody"><span class="pnm">道德经解读</span><span class="pdesc">老子全文81章逐章详解</span></span><span class="parr">→</span></a>
+
+
+
+
 
 
 
@@ -7442,7 +14882,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 <a href="https://toobey521.github.io/classic-poetry-ebook/" target="_blank" class="pcard" style="position:relative"><span class="badge-jing">精</span><span class="pico pico-he">📖</span><span class="pbody"><span class="pnm">经典诗文</span><span class="pdesc">1-6年级442首诗词配图文</span></span><span class="parr">→</span></a>
+
+
+
+
 
 
 
@@ -7450,7 +14898,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 <a href="https://toobey521.github.io/idiom-stories/" target="_blank" class="pcard" style="position:relative"><span class="badge-jing">精</span><span class="pico pico-he">📕</span><span class="pbody"><span class="pnm">成语故事</span><span class="pdesc">经典成语故事大全</span></span><span class="parr">→</span></a></div></div>
+
+
+
+
 
 
 
@@ -7462,11 +14918,27 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 <a href="https://toobey521.github.io/cute-pets/" target="_blank" class="pcard"><span class="pico pico-df">🐾</span><span class="pbody"><span class="pnm">萌宠合集</span><span class="pdesc">30张可爱动物图片</span></span>
 
 
 
+
+
+
+
 <span class="parr">→</span></a>
+
+
+
+
 
 
 
@@ -7474,9 +14946,19 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 <span class="parr">→</span></a>
 
+
+
 <a href="https://toobey521.github.io/airpower-atlas/" target="_blank" class="pcard" style="position:relative"><span class="badge-jing">精</span><span class="pico" style="background:#e0f2fe;color:#0284c7">✈️</span><span class="pbody"><span class="pnm">空军图鉴</span><span class="pdesc">504架机型 · 88国军机百科</span></span>
+
+
+
+
 
 
 
@@ -7484,7 +14966,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 <div style="text-align:center;margin-top:12px;padding-top:10px">
+
+
+
+
 
 
 
@@ -7492,11 +14982,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 </div>
 
 
 
+
+
+
+
 </div>
+
+
+
+
 
 
 
@@ -7504,7 +15006,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 <div style="display:flex;gap:24px;margin-bottom:10px;font-size:12px">
+
+
+
+
 
 
 
@@ -7512,7 +15022,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 <a href="#" style="color:#999;text-decoration:none">服务条款</a>
+
+
+
+
 
 
 
@@ -7520,7 +15038,15 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 </div>
+
+
+
+
 
 
 
@@ -7528,11 +15054,35 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
 <div style="font-size:11px;color:#888">© 2025 Toobey Network Technology Co., Ltd.  京ICP备XXXXXXXXXX号-1</div>
 
 
 
+
+
+
+
 </div></footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -7556,7 +15106,23 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+
+
+
+
+
+
+
 // Splash — 立即开始，不等图片加载
+
+
+
+
+
+
+
+
 
 
 
@@ -7580,7 +15146,31 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Scroll reveal
+
+
+
+
+
+
+
+
 
 
 
@@ -7596,7 +15186,23 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
   var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.12});
+
+
+
+
+
+
+
+
 
 
 
@@ -7612,7 +15218,31 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
 })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -7636,7 +15266,23 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
 (function(){
+
+
+
+
+
+
+
+
 
 
 
@@ -7652,6 +15298,14 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
   window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>80)});
 
 
@@ -7660,7 +15314,31 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
 })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -7684,7 +15362,23 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
 (function(){
+
+
+
+
+
+
+
+
 
 
 
@@ -7700,7 +15394,23 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
   if(!layers.length)return;
+
+
+
+
+
+
+
+
 
 
 
@@ -7716,7 +15426,23 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
   setInterval(function(){
+
+
+
+
+
+
+
+
 
 
 
@@ -7732,7 +15458,23 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
     cur=(cur+1)%layers.length;
+
+
+
+
+
+
+
+
 
 
 
@@ -7748,6 +15490,14 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
   },5000);
 
 
@@ -7756,7 +15506,31 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
 })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -7780,7 +15554,23 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
 (function(){
+
+
+
+
+
+
+
+
 
 
 
@@ -7796,7 +15586,23 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
   var obs=new IntersectionObserver(function(es){
+
+
+
+
+
+
+
+
 
 
 
@@ -7812,7 +15618,23 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
       if(e.isIntersecting&&!done){
+
+
+
+
+
+
+
+
 
 
 
@@ -7828,7 +15650,23 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
         document.querySelectorAll('.count-up').forEach(function(el){
+
+
+
+
+
+
+
+
 
 
 
@@ -7844,7 +15682,23 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
           var suffix=el.getAttribute('data-suffix')||'+';
+
+
+
+
+
+
+
+
 
 
 
@@ -7860,7 +15714,23 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
           var TOTAL_STEPS=40; // 统一步数，同时完成
+
+
+
+
+
+
+
+
 
 
 
@@ -7876,7 +15746,23 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
           var i=0;
+
+
+
+
+
+
+
+
 
 
 
@@ -7892,7 +15778,23 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
             i++;var c=s*i;
+
+
+
+
+
+
+
+
 
 
 
@@ -7908,7 +15810,23 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
             el.textContent=isDecimal?c.toFixed(1):Math.floor(c);
+
+
+
+
+
+
+
+
 
 
 
@@ -7924,7 +15842,23 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
           },30);
+
+
+
+
+
+
+
+
 
 
 
@@ -7940,7 +15874,23 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
         obs.unobserve(e.target);
+
+
+
+
+
+
+
+
 
 
 
@@ -7956,7 +15906,23 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
     });
+
+
+
+
+
+
+
+
 
 
 
@@ -7972,6 +15938,14 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
   var st=document.querySelector('.hero-stats');
 
 
@@ -7980,7 +15954,23 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
   if(st)obs.observe(st);
+
+
+
+
+
+
+
+
 
 
 
@@ -8004,7 +15994,31 @@ setTimeout(function(){var s=document.getElementById('splash');if(s){s.classList.
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Detail
+
+
+
+
+
+
+
+
 
 
 
@@ -8020,6 +16034,14 @@ document.querySelectorAll('.card-link').forEach(function(l){l.addEventListener('
 
 
 
+
+
+
+
+
+
+
+
 function openDetail(id){var e=document.getElementById(id);if(e){e.style.display='block';e.scrollTop=0}}
 
 
@@ -8028,7 +16050,23 @@ function openDetail(id){var e=document.getElementById(id);if(e){e.style.display=
 
 
 
+
+
+
+
+
+
+
+
 function closeDetail(id){var e=document.getElementById(id);if(e)e.style.display='none'}
+
+
+
+
+
+
+
+
 
 
 
@@ -8052,7 +16090,31 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.qu
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Demo canvas particle animation
+
+
+
+
+
+
+
+
 
 
 
@@ -8068,6 +16130,14 @@ function showDemo(){
 
 
 
+
+
+
+
+
+
+
+
   var m=document.getElementById('demoModal');if(m){m.style.display='flex';startDemoCanvas()}
 
 
@@ -8076,7 +16146,23 @@ function showDemo(){
 
 
 
+
+
+
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -8092,6 +16178,14 @@ function hideDemo(){
 
 
 
+
+
+
+
+
+
+
+
   var m=document.getElementById('demoModal');if(m)m.style.display='none'
 
 
@@ -8100,7 +16194,23 @@ function hideDemo(){
 
 
 
+
+
+
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -8116,6 +16226,14 @@ function hideDemo(){
 
 
 
+
+
+
+
+
+
+
+
 function showFullImg(src){
 
 
@@ -8124,7 +16242,23 @@ function showFullImg(src){
 
 
 
+
+
+
+
+
+
+
+
   var m=document.getElementById('fullImgModal');
+
+
+
+
+
+
+
+
 
 
 
@@ -8140,6 +16274,14 @@ function showFullImg(src){
 
 
 
+
+
+
+
+
+
+
+
   if(m&&img){m.style.display='flex';img.src=src;img.style.opacity='0';setTimeout(function(){img.style.opacity='1'},50)}
 
 
@@ -8148,7 +16290,23 @@ function showFullImg(src){
 
 
 
+
+
+
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -8164,7 +16322,23 @@ function hideFullImg(){
 
 
 
+
+
+
+
+
+
+
+
   var m=document.getElementById('fullImgModal');
+
+
+
+
+
+
+
+
 
 
 
@@ -8180,7 +16354,23 @@ function hideFullImg(){
 
 
 
+
+
+
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -8196,7 +16386,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
   var c=document.getElementById('demoCanvas');if(!c)return;
+
+
+
+
+
+
+
+
 
 
 
@@ -8212,7 +16418,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
   setTimeout(function(){
+
+
+
+
+
+
+
+
 
 
 
@@ -8228,7 +16450,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
   var w=c.width,h=c.height;
+
+
+
+
+
+
+
+
 
 
 
@@ -8244,7 +16482,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
   for(var i=0;i<100;i++){
+
+
+
+
+
+
+
+
 
 
 
@@ -8260,7 +16514,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
       x:Math.random()*w,y:Math.random()*h,
+
+
+
+
+
+
+
+
 
 
 
@@ -8276,7 +16546,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
       r:Math.random()*2.5+1,phase:Math.random()*Math.PI*2,
+
+
+
+
+
+
+
+
 
 
 
@@ -8292,6 +16578,14 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
     });
 
 
@@ -8300,7 +16594,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
   }
+
+
+
+
+
+
+
+
 
 
 
@@ -8316,7 +16626,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
   function anim(t){
+
+
+
+
+
+
+
+
 
 
 
@@ -8332,7 +16658,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
     // background like hero section
+
+
+
+
+
+
+
+
 
 
 
@@ -8348,7 +16690,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
     // radial glow
+
+
+
+
+
+
+
+
 
 
 
@@ -8364,7 +16722,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
     bg.addColorStop(0,'rgba(59,130,246,.05)');bg.addColorStop(.5,'rgba(6,182,212,.025)');bg.addColorStop(1,'transparent');
+
+
+
+
+
+
+
+
 
 
 
@@ -8380,7 +16754,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
     // grid
+
+
+
+
+
+
+
+
 
 
 
@@ -8396,7 +16786,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
     var gs=Math.min(w,h)/12;
+
+
+
+
+
+
+
+
 
 
 
@@ -8412,7 +16818,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
     for(var y=0;y<h;y+=gs){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();}
+
+
+
+
+
+
+
+
 
 
 
@@ -8428,7 +16850,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
     for(var i=0;i<pts.length;i++){
+
+
+
+
+
+
+
+
 
 
 
@@ -8444,6 +16882,14 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
       if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;
 
 
@@ -8452,7 +16898,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
     }
+
+
+
+
+
+
+
+
 
 
 
@@ -8468,7 +16930,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
     for(var i=0;i<pts.length;i++){
+
+
+
+
+
+
+
+
 
 
 
@@ -8484,7 +16962,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
         var a=pts[i],b=pts[j];
+
+
+
+
+
+
+
+
 
 
 
@@ -8500,7 +16994,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
         if(dist<maxConnDist){
+
+
+
+
+
+
+
+
 
 
 
@@ -8516,7 +17026,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
           var pulse=.6+Math.sin(t/1000+i+j)*.4;
+
+
+
+
+
+
+
+
 
 
 
@@ -8532,7 +17058,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
           ctx.strokeStyle='rgba(148,163,184,'+alpha*.35*pulse+')';
+
+
+
+
+
+
+
+
 
 
 
@@ -8548,7 +17090,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
         }
+
+
+
+
+
+
+
+
 
 
 
@@ -8564,7 +17122,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
     }
+
+
+
+
+
+
+
+
 
 
 
@@ -8580,7 +17154,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
     for(var i=0;i<pts.length;i++){
+
+
+
+
+
+
+
+
 
 
 
@@ -8596,7 +17186,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
       var glow=.4+.6*Math.sin(t/600+p.phase);
+
+
+
+
+
+
+
+
 
 
 
@@ -8612,7 +17218,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
       var g=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,sz*6);
+
+
+
+
+
+
+
+
 
 
 
@@ -8628,7 +17250,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
       ctx.fillStyle=g;ctx.fillRect(p.x-sz*6,p.y-sz*6,sz*12,sz*12);
+
+
+
+
+
+
+
+
 
 
 
@@ -8644,7 +17282,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
       ctx.fillStyle=p.c;ctx.fill();
+
+
+
+
+
+
+
+
 
 
 
@@ -8660,7 +17314,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
     // light sweep
+
+
+
+
+
+
+
+
 
 
 
@@ -8676,7 +17346,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
     var sg=ctx.createLinearGradient(sw-80,0,sw+80,0);
+
+
+
+
+
+
+
+
 
 
 
@@ -8692,7 +17378,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
     ctx.fillStyle=sg;ctx.fillRect(sw-80,0,160,h);
+
+
+
+
+
+
+
+
 
 
 
@@ -8708,7 +17410,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
       requestAnimationFrame(anim);
+
+
+
+
+
+
+
+
 
 
 
@@ -8724,7 +17442,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
   anim(0);
+
+
+
+
+
+
+
+
 
 
 
@@ -8740,7 +17474,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -8756,7 +17506,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
 <!-- ===== DEMO VIDEO MODAL ===== -->
+
+
+
+
+
+
+
+
 
 
 
@@ -8772,7 +17538,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
 <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:16px;overflow:hidden;max-width:800px;width:90%;position:relative">
+
+
+
+
+
+
+
+
 
 
 
@@ -8788,7 +17570,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
 <canvas id="demoCanvas" style="position:absolute;inset:0;width:100%;height:100%"></canvas>
+
+
+
+
+
+
+
+
 
 
 
@@ -8804,7 +17602,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
 <div style="font-size:42px;margin-bottom:10px;opacity:.6">✦</div>
+
+
+
+
+
+
+
+
 
 
 
@@ -8820,6 +17634,14 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
 <p style="color:rgba(255,255,255,.4);font-size:13px">驱动数字世界的创新力量</p>
 
 
@@ -8828,6 +17650,14 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 
@@ -8836,7 +17666,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -8852,6 +17698,14 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 
@@ -8860,7 +17714,31 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -8884,7 +17762,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
 <div id="fullImgModal" style="display:none;position:fixed;inset:0;z-index:4000;background:rgba(0,0,0,.92);backdrop-filter:blur(20px);align-items:center;justify-content:center;padding:20px" onclick="if(event.target===this)hideFullImg()">
+
+
+
+
+
+
+
+
 
 
 
@@ -8900,6 +17794,14 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
 <img id="fullImgView" src="" alt="" style="max-width:90vw;max-height:85vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.4);object-fit:contain;opacity:0;transition:opacity .4s">
 
 
@@ -8908,7 +17810,31 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -8932,7 +17858,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
 <div id="emailPopup" style="display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.3);backdrop-filter:blur(8px);align-items:center;justify-content:center" onclick="if(event.target===this)hideEmail()">
+
+
+
+
+
+
+
+
 
 
 
@@ -8948,7 +17890,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
 <div style="font-size:36px;margin-bottom:12px">📧</div>
+
+
+
+
+
+
+
+
 
 
 
@@ -8964,7 +17922,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
 <p style="font-size:13px;color:#666;margin-bottom:20px">点击下方按钮复制邮箱地址</p>
+
+
+
+
+
+
+
+
 
 
 
@@ -8980,7 +17954,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
 <button onclick="copyEmail()" id="copyBtn" style="width:100%;padding:12px;border:none;border-radius:10px;background:linear-gradient(135deg,#2d8a4e,#3cb371);color:#fff;font-size:14px;font-weight:600;cursor:pointer">📋 复制邮箱</button>
+
+
+
+
+
+
+
+
 
 
 
@@ -8996,6 +17986,14 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
 </div>
 
 
@@ -9004,7 +18002,23 @@ function startDemoCanvas(){
 
 
 
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -9013,6 +18027,14 @@ function startDemoCanvas(){
 
 
 <script>
+
+
+
+
+
+
+
+
 
 
 
@@ -9028,7 +18050,23 @@ function showEmail(){document.getElementById('emailPopup').style.display='flex'}
 
 
 
+
+
+
+
+
+
+
+
 function hideEmail(){document.getElementById('emailPopup').style.display='none'}
+
+
+
+
+
+
+
+
 
 
 
@@ -9044,7 +18082,23 @@ function copyEmail(){
 
 
 
+
+
+
+
+
+
+
+
   navigator.clipboard.writeText('guoyunning@qq.com').then(function(){
+
+
+
+
+
+
+
+
 
 
 
@@ -9060,7 +18114,23 @@ function copyEmail(){
 
 
 
+
+
+
+
+
+
+
+
     btn.textContent='✅ 已复制！';btn.style.background='#43a047';
+
+
+
+
+
+
+
+
 
 
 
@@ -9076,7 +18146,23 @@ function copyEmail(){
 
 
 
+
+
+
+
+
+
+
+
   });
+
+
+
+
+
+
+
+
 
 
 
@@ -9092,7 +18178,25 @@ function copyEmail(){
 
 
 
+
+
+
+
+
+
+
+
 </script>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -9104,13 +18208,29 @@ function copyEmail(){
 
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
 
+
+
 <script>
+
+
 
 (function(){var b=document.getElementById('backToTop');if(!b)return;window.addEventListener('scroll',function(){b.classList.toggle('show',window.scrollY>300)});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();
 
+
+
 </script>
 
+
+
 </body>
+
+
+
+
+
+
+
+
 
 
 
