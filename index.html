@@ -10074,6 +10074,16 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+/* 收款码打赏区 */
+.donate-section{text-align:center;padding:36px 16px 14px}
+.donate-title{font-size:15px;color:#e8e8f0;font-weight:600;margin-bottom:18px}
+.donate-codes{display:flex;justify-content:center;gap:30px;flex-wrap:wrap}
+.donate-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:14px 16px;width:210px}
+.donate-card img{width:170px;height:auto;border-radius:8px;display:block;margin:0 auto;background:#fff}
+.donate-label{color:#cbd5e1;font-size:13px;margin-top:10px;font-weight:600;text-align:center}
+.donate-note{color:#94a3b8;font-size:13.5px;margin-top:18px;letter-spacing:2px}
+
 </style></section>
 
 
@@ -18222,6 +18232,24 @@ function copyEmail(){
 
 
 
+
+
+
+<!-- 收款码打赏区 -->
+<div class="donate-section">
+  <div class="donate-title">🎁 如果这些工具对你有帮助，欢迎支持</div>
+  <div class="donate-codes">
+    <div class="donate-card">
+      <img src="/toobey-network/images/alipay.jpg" alt="支付宝收款码" loading="lazy">
+      <div class="donate-label">支付宝</div>
+    </div>
+    <div class="donate-card">
+      <img src="/toobey-network/images/wechat.png" alt="微信收款码" loading="lazy">
+      <div class="donate-label">微信</div>
+    </div>
+  </div>
+  <div class="donate-note">制作不易，善意随心</div>
+</div>
 
 
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到顶部">↑</button>
