@@ -10122,18 +10122,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 .donate-title .gift{background:none;-webkit-text-fill-color:initial;font-style:normal}
 .donate-codes{display:flex;justify-content:center;gap:26px;flex-wrap:wrap;margin-bottom:18px}
 .donate-card{
-  width:170px;height:230px;border-radius:16px;padding:12px 12px 8px;
-  background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.14);
+  width:170px;height:230px;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
-  box-shadow:0 8px 22px rgba(0,0,0,.24);
-  transition:transform .3s ease,box-shadow .3s ease;
   animation:donateFloat 3.6s ease-in-out infinite;
 }
 .donate-card:nth-child(2){animation-delay:1.6s}
-.donate-card:hover{transform:scale(1.06);box-shadow:0 14px 32px rgba(56,189,248,.35)}
 @keyframes donateFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-.donate-card img{width:146px;height:190px;object-fit:contain;border-radius:8px;display:block;background:#fff;box-shadow:0 3px 10px rgba(0,0,0,.2)}
+.donate-card img{width:146px;height:190px;object-fit:contain;border-radius:8px;display:block;background:#fff;box-shadow:0 3px 10px rgba(0,0,0,.2);transition:transform .3s ease,box-shadow .3s ease}
+.donate-card img:hover{transform:scale(1.06);box-shadow:0 14px 32px rgba(56,189,248,.35)}
 .donate-label{color:#cbd5e1;font-size:12.5px;font-weight:600;text-align:center}
 .donate-note{color:#7fc9c2;font-size:13.5px;letter-spacing:3px;margin-top:2px}
 
@@ -15101,7 +15097,7 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 <!-- 收款码打赏区 -->
 <div class="donate-section">
   <div class="donate-card-glass">
-    <div class="donate-title"><span class="gift">🎁</span> 如果这些工具对你有帮助，欢迎支持</div>
+    <div class="donate-title"><span class="gift">🎁</span> 如果这些工具对您有帮助，欢迎支持</div>
     <div class="donate-codes">
       <div class="donate-card">
         <img src="/toobey-network/images/alipay.jpg" alt="支付宝收款码" loading="lazy">
