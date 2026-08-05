@@ -6914,7 +6914,7 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
   <div class="graph-box" id="graphBox">
     <canvas id="graphCanvas"></canvas>
     <div class="graph-legend" id="graphLegend"></div>
-    <div class="graph-hint">✦ 拖拽节点 · 滚轮缩放 · 点击查看项目详情 · F 全屏</div>
+    <div class="graph-hint">✦ 拖拽节点 · 滚轮缩放（放大显示全部名称）· 点击查看详情 · F 全屏</div>
     <div class="graph-modal" id="graphModal"></div>
   </div>
 </div>
@@ -17826,9 +17826,10 @@ function draw(){
       ctx.textAlign='center'; ctx.textBaseline='middle';
       ctx.fillText('To', n.x, n.y+1);
     }
-    // 标签
-    if(n.type==='cat' || n===hover || n===dragNode){
-      ctx.fillStyle = n===hover?'#ffffff':'rgba(226,232,240,0.92)';
+    // 标签：分类常显；放大到 LABEL_SCALE 以上全部显示；hover/拖拽高亮
+    var showLabel = n.type==='cat' || view.s > 1.4 || n===hover || n===dragNode;
+    if(showLabel){
+      ctx.fillStyle = n===hover?'#ffffff':'rgba(226,232,240,0.88)';
       ctx.font = (n.type==='cat'?'600 ':'') + Math.round((n.type==='cat'?13:11)/view.s)+'px sans-serif';
       ctx.textAlign='center'; ctx.textBaseline='top';
       var label = n.type==='proj' ? n.label : n.label;
@@ -17836,7 +17837,7 @@ function draw(){
       var ly = n.y + n.r + 6/view.s;
       ctx.fillStyle = 'rgba(2,6,23,0.72)';
       ctx.fillRect(n.x-lw/2-4, ly-2, lw+8, 16/view.s);
-      ctx.fillStyle = n===hover?'#ffffff':'rgba(226,232,240,0.92)';
+      ctx.fillStyle = n===hover?'#ffffff':'rgba(226,232,240,0.88)';
       ctx.fillText(label, n.x, ly);
     }
   });
