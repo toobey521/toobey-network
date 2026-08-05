@@ -17703,10 +17703,6 @@ function step(){
   // 积分 + 阻尼 + 速度钳制（防乱飞）+ 随机微晃动（布朗式,强阻尼控幅）
   NODES.forEach(function(n){
     if(n===dragNode) return;
-    // 缓慢游走：漂移速度低频随机变化（OU过程, 平滑不震颤）
-    n.dvx=(n.dvx||0)*0.994+(Math.random()-0.5)*0.0035;
-    n.dvy=(n.dvy||0)*0.994+(Math.random()-0.5)*0.0035;
-    n.x+=n.dvx; n.y+=n.dvy;
     n.vx=(n.vx+n.fx)*DAMP; n.vy=(n.vy+n.fy)*DAMP;
     var sp=Math.sqrt(n.vx*n.vx+n.vy*n.vy);
     if(sp>22){ n.vx*=22/sp; n.vy*=22/sp; }
@@ -17738,7 +17734,8 @@ function toWorld(sx,sy){ return {x:(sx-view.x)/view.s, y:(sy-view.y)/view.s}; }
 function hitNode(wx,wy){
   var best=null,bd=1e9;
   NODES.forEach(function(n){
-    var dx=n.x-wx, dy=n.y-wy;
+    var nx=n.x+(n===dragNode?0:(n.wx||0)), ny=n.y+(n===dragNode?0:(n.wy||0));
+    var dx=nx-wx, dy=ny-wy;
     var d=Math.sqrt(dx*dx+dy*dy);
     if(d < Math.max(n.r+6, 14) && d<bd){ bd=d; best=n; }
   });
@@ -17761,70 +17758,59 @@ function draw(){
   ctx.translate(view.x, view.y);
   ctx.scale(view.s, view.s);
 
-  // 边
+  // 边（用游走后的显示位置）
   for(var e=0;e<EDGES.length;e++){
     var a=NODES[EDGES[e][0]], b=NODES[EDGES[e][1]];
+    var ax=a.x+(a===dragNode?0:(a.wx||0)), ay=a.y+(a===dragNode?0:(a.wy||0));
+    var bx=b.x+(b===dragNode?0:(b.wx||0)), by=b.y+(b===dragNode?0:(b.wy||0));
     var active = (hover && (a===hover||b===hover)) || (dragNode && (a===dragNode||b===dragNode));
     ctx.strokeStyle = active ? rgba(nodeColor(a),0.75) : 'rgba(148,163,184,0.16)';
     ctx.lineWidth = active ? 1.6/view.s : 1/view.s;
-    ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(bx,by); ctx.stroke();
   }
 
-  // 节点（星光闪烁 + 十字光芒）
+  // 节点（晶莹脉冲闪烁：点本身一亮一暗, 无星芒）
   NODES.forEach(function(n){
     var c = nodeColor(n);
     var r = n.r;
+    var px = n.x + (n===dragNode?0:(n.wx||0));
+    var py = n.y + (n===dragNode?0:(n.wy||0));
     var active = (n===hover)||(n===dragNode);
     var ph = n._ph || (n._ph = Math.random()*6.283);
-    var tw = 0.72 + 0.28*Math.sin(G*0.05 + ph);
-    // 光晕（柔和呼吸）
-    var glowR = r*(active?3:2.4)*tw;
-    var g = ctx.createRadialGradient(n.x,n.y,0,n.x,n.y,glowR);
-    g.addColorStop(0, rgba(c, active?0.4:0.16*tw));
-    g.addColorStop(0.6, rgba(c, active?0.14:0.06*tw));
+    // 一闪一闪脉冲（sin4 尖锐峰: 大部分时间莹润, 周期性闪亮）
+    var tw = 0.55 + 0.45*Math.pow(Math.sin(G*0.045 + ph), 4);
+    // 光晕（随脉冲呼吸, 柔和）
+    var glowR = r*(active?3.2:2.3)*(0.85+0.3*tw);
+    var g = ctx.createRadialGradient(px,py,0,px,py,glowR);
+    g.addColorStop(0, rgba(c, (active?0.5:0.2)*(0.5+0.5*tw)));
+    g.addColorStop(0.6, rgba(c, (active?0.16:0.06)*(0.5+0.5*tw)));
     g.addColorStop(1, 'rgba(0,0,0,0)');
-    ctx.fillStyle=g; ctx.beginPath(); ctx.arc(n.x,n.y,glowR,0,Math.PI*2); ctx.fill();
-    // 十字星芒（星星放光）
-    if(r >= 4.5){
-      var rayLen = r*(2.4 + 1.8*tw);
-      ctx.strokeStyle = rgba(c, (active?0.7:0.3)*tw);
-      ctx.lineWidth = active?1.1:0.7;
-      ctx.beginPath();
-      ctx.moveTo(n.x-rayLen,n.y); ctx.lineTo(n.x+rayLen,n.y);
-      ctx.moveTo(n.x,n.y-rayLen); ctx.lineTo(n.x,n.y+rayLen);
-      ctx.stroke();
-      var dL = rayLen*0.55;
-      ctx.strokeStyle = rgba(c, (active?0.5:0.22)*tw);
-      ctx.lineWidth = active?1:0.7;
-      ctx.beginPath();
-      ctx.moveTo(n.x-dL*0.7,n.y-dL*0.7); ctx.lineTo(n.x+dL*0.7,n.y+dL*0.7);
-      ctx.moveTo(n.x-dL*0.7,n.y+dL*0.7); ctx.lineTo(n.x+dL*0.7,n.y-dL*0.7);
-      ctx.stroke();
-    }
+    ctx.fillStyle=g; ctx.beginPath(); ctx.arc(px,py,glowR,0,Math.PI*2); ctx.fill();
     // 本体（晶莹水晶球：白亮高光核心 → 通透彩色 → 暗边缘）
-    var hx = n.x - r*0.3, hy = n.y - r*0.34;
-    var g2 = ctx.createRadialGradient(hx, hy, r*0.04, n.x, n.y, r*1.15);
-    g2.addColorStop(0, 'rgba(255,255,255,0.98)');
-    g2.addColorStop(0.22, shade(c, 1.35));
+    var hx = px - r*0.3, hy = py - r*0.34;
+    var hi = 0.55 + 0.45*tw; // 高光核心强度（随脉冲闪亮）
+    var g2 = ctx.createRadialGradient(hx, hy, r*0.04, px, py, r*1.15);
+    g2.addColorStop(0, 'rgba(255,255,255,'+hi.toFixed(3)+')');
+    g2.addColorStop(0.22, shade(c, 1.1+0.45*tw));
     g2.addColorStop(0.55, c);
     g2.addColorStop(1, shade(c, 0.38));
     ctx.fillStyle = g2;
-    ctx.beginPath(); ctx.arc(n.x,n.y,r,0,Math.PI*2); ctx.fill();
-    // 晶莹亮环（玻璃折射边缘）
-    ctx.strokeStyle = 'rgba(255,255,255,'+(active?0.9:0.5)+')';
+    ctx.beginPath(); ctx.arc(px,py,r,0,Math.PI*2); ctx.fill();
+    // 晶莹亮环（玻璃折射边缘, 亮度随闪）
+    ctx.strokeStyle = 'rgba(255,255,255,'+((active?0.95:0.55)*(0.5+0.5*tw)).toFixed(3)+')';
     ctx.lineWidth = active?1.4:0.8;
-    ctx.beginPath(); ctx.arc(n.x,n.y,r,0,Math.PI*2); ctx.stroke();
-    // 明亮镜面高光点
-    ctx.fillStyle = 'rgba(255,255,255,'+(active?0.95:0.6)+')';
-    ctx.beginPath(); ctx.arc(hx, hy, r*0.16, 0, Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.arc(px,py,r,0,Math.PI*2); ctx.stroke();
+    // 镜面高光点（大小亮度随闪）
+    ctx.fillStyle = 'rgba(255,255,255,'+(0.45+0.5*tw).toFixed(3)+')';
+    ctx.beginPath(); ctx.arc(hx, hy, r*(0.13+0.05*tw), 0, Math.PI*2); ctx.fill();
     // 底部透光微点
-    ctx.fillStyle = 'rgba(255,255,255,'+(active?0.5:0.25)+')';
-    ctx.beginPath(); ctx.arc(n.x + r*0.35, n.y + r*0.42, r*0.09, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,'+(0.2+0.3*tw).toFixed(3)+')';
+    ctx.beginPath(); ctx.arc(px + r*0.35, py + r*0.42, r*0.09, 0, Math.PI*2); ctx.fill();
     // 中心图标
     if(n.type==='hub'){
       ctx.fillStyle='#082f49'; ctx.font='bold '+Math.round(20/view.s)+'px sans-serif';
       ctx.textAlign='center'; ctx.textBaseline='middle';
-      ctx.fillText('To', n.x, n.y+1);
+      ctx.fillText('To', px, py+1);
     }
     // 标签：分类常显；放大到 LABEL_SCALE 以上全部显示；hover/拖拽高亮
     var showLabel = n.type==='cat' || view.s > 1.4 || n===hover || n===dragNode;
@@ -17834,11 +17820,11 @@ function draw(){
       ctx.textAlign='center'; ctx.textBaseline='top';
       var label = n.type==='proj' ? n.label : n.label;
       var lw = ctx.measureText(label).width;
-      var ly = n.y + n.r + 6/view.s;
+      var ly = py + r + 6/view.s;
       ctx.fillStyle = 'rgba(2,6,23,0.72)';
-      ctx.fillRect(n.x-lw/2-4, ly-2, lw+8, 16/view.s);
+      ctx.fillRect(px-lw/2-4, ly-2, lw+8, 16/view.s);
       ctx.fillStyle = n===hover?'#ffffff':'rgba(226,232,240,0.88)';
-      ctx.fillText(label, n.x, ly);
+      ctx.fillText(label, px, ly);
     }
   });
   ctx.restore();
@@ -17850,7 +17836,7 @@ function draw(){
       var other = a===hover?b:(b===hover?a:null);
       if(other && other.type==='proj' && other!==hover){
         // 关联项目名（屏幕坐标）
-        var sx=other.x*view.s+view.x, sy=other.y*view.s+view.y;
+        var sx=(other.x+(other.wx||0))*view.s+view.x, sy=(other.y+(other.wy||0))*view.s+view.y;
         ctx.save(); ctx.translate(sx,sy);
         ctx.font='10px sans-serif'; ctx.textAlign='center'; ctx.textBaseline='bottom';
         var lw=ctx.measureText(other.label).width;
@@ -17871,6 +17857,13 @@ function tick(){
   if(!running) return;
   G++;
   for(var i=0;i<3;i++) step();
+  // 微风游走（显示层偏移, 正弦叠加永不衰减; 拖拽中的节点跟随鼠标不走偏）
+  NODES.forEach(function(n){
+    if(n===dragNode) return;
+    var ph2 = n._ph2 || (n._ph2 = Math.random()*6.283);
+    n.wx = Math.sin(G*0.021 + ph2)*1.5 + Math.sin(G*0.0067 + ph2*2.13)*0.9;
+    n.wy = Math.cos(G*0.017 + ph2*1.31)*1.4 + Math.cos(G*0.0051 + ph2*0.71)*0.7;
+  });
   draw();
   requestAnimationFrame(tick);
 }
