@@ -17665,7 +17665,7 @@ function init(){
 init();
 
 // 力导向参数
-var REPULSE = 3400, SPRING = 0.006, CENTER = 0.0032, DAMP = 0.86;
+var REPULSE = 3400, SPRING = 0.0035, CENTER = 0.0026, DAMP = 0.91;
 
 function step(){
   NODES.forEach(function(n){ n.fx=0; n.fy=0; });
@@ -17700,9 +17700,10 @@ function step(){
     if(n===dragNode) return;
     n.fx -= n.x*CENTER; n.fy -= n.y*CENTER;
   });
-  // 积分 + 阻尼 + 速度钳制（防乱飞）
+  // 积分 + 阻尼 + 速度钳制（防乱飞）+ 随机微晃动（布朗式,强阻尼控幅）
   NODES.forEach(function(n){
     if(n===dragNode) return;
+    n.vx+=(Math.random()-0.5)*0.09; n.vy+=(Math.random()-0.5)*0.09;
     n.vx=(n.vx+n.fx)*DAMP; n.vy=(n.vy+n.fy)*DAMP;
     var sp=Math.sqrt(n.vx*n.vx+n.vy*n.vy);
     if(sp>22){ n.vx*=22/sp; n.vy*=22/sp; }
