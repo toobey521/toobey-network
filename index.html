@@ -17643,7 +17643,7 @@ function init(){
   catNodes.forEach(function(c,i){
     var a = -Math.PI/2 + i * 2*Math.PI / catNodes.length;
     c.x = Math.cos(a)*R; c.y = Math.sin(a)*R;
-    c.r = 20;
+    c.r = 16;
   });
   // 项目节点：围绕分类，随机角度
   NODES.forEach(function(n){
@@ -17658,7 +17658,7 @@ function init(){
   });
   // 中心
   var hub = NODES[0];
-  hub.x = 0; hub.y = 0; hub.r = 36;
+  hub.x = 0; hub.y = 0; hub.r = 30;
   // 速度
   NODES.forEach(function(n){ n.vx=0; n.vy=0; n.fx=0; n.fy=0; });
 }
@@ -17808,7 +17808,7 @@ function draw(){
     ctx.beginPath(); ctx.arc(px + r*0.35, py + r*0.42, r*0.09, 0, Math.PI*2); ctx.fill();
     // 中心图标
     if(n.type==='hub'){
-      ctx.fillStyle='#082f49'; ctx.font='bold '+Math.round(20/view.s)+'px sans-serif';
+      ctx.fillStyle='#082f49'; ctx.font='bold '+Math.round(17/view.s)+'px sans-serif';
       ctx.textAlign='center'; ctx.textBaseline='middle';
       ctx.fillText('To', px, py+1);
     }
