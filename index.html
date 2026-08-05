@@ -17672,6 +17672,7 @@ function step(){
   for(var i=0;i<NODES.length;i++){
     for(var j=i+1;j<NODES.length;j++){
       var a=NODES[i], b=NODES[j];
+      if(a===dragNode||b===dragNode) continue;
       var dx=a.x-b.x, dy=a.y-b.y;
       var d2=dx*dx+dy*dy+1e-4;
       var d=Math.sqrt(d2);
@@ -17685,6 +17686,7 @@ function step(){
   // 弹簧（边）
   for(var e=0;e<EDGES.length;e++){
     var a=NODES[EDGES[e][0]], b=NODES[EDGES[e][1]];
+    if(a===dragNode||b===dragNode) continue;
     var dx=b.x-a.x, dy=b.y-a.y;
     var d=Math.sqrt(dx*dx+dy*dy+1e-4);
     var target=(a.type==='hub'||b.type==='hub')?200:(a.type==='cat'||b.type==='cat')?175:145;
@@ -17692,13 +17694,17 @@ function step(){
     var fx=dx/d*f, fy=dy/d*f;
     a.fx+=fx; a.fy+=fy; b.fx-=fx; b.fy-=fy;
   }
-  // 中心引力
+  // 中心引力（拖拽节点跳过）
   NODES.forEach(function(n){
+    if(n===dragNode) return;
     n.fx -= n.x*CENTER; n.fy -= n.y*CENTER;
   });
-  // 积分 + 阻尼
+  // 积分 + 阻尼 + 速度钳制（防乱飞）
   NODES.forEach(function(n){
+    if(n===dragNode) return;
     n.vx=(n.vx+n.fx)*DAMP; n.vy=(n.vy+n.fy)*DAMP;
+    var sp=Math.sqrt(n.vx*n.vx+n.vy*n.vy);
+    if(sp>22){ n.vx*=22/sp; n.vy*=22/sp; }
     n.x+=n.vx; n.y+=n.vy;
   });
 }
@@ -17872,9 +17878,10 @@ window.addEventListener('mousemove', function(ev){
     var p = getPos(ev);
     var nx = (p.x - dragNode.ox - view.x)/view.s;
     var ny = (p.y - dragNode.oy - view.y)/view.s;
-    dragNode.vx = (nx - dragNode.x)*0.9;
-    dragNode.vy = (ny - dragNode.y)*0.9;
+    nx = Math.max(-1600, Math.min(1600, nx));
+    ny = Math.max(-1600, Math.min(1600, ny));
     dragNode.x = nx; dragNode.y = ny;
+    dragNode.vx = 0; dragNode.vy = 0;
     if(Math.abs(nx - dragNode._lx) + Math.abs(ny - dragNode._ly) > 0.01) moved = true;
     dragNode._lx = nx; dragNode._ly = ny;
     return;
@@ -17885,6 +17892,7 @@ window.addEventListener('mousemove', function(ev){
 });
 window.addEventListener('mouseup', function(ev){
   if(dragNode){
+    dragNode.vx = 0; dragNode.vy = 0;
     if(!moved) openModal(dragNode);
     dragNode = null;
   }
@@ -17932,9 +17940,10 @@ cv.addEventListener('touchmove', function(ev){
     var p=getPos(ev);
     var nx=(p.x-dragNode.ox-view.x)/view.s;
     var ny=(p.y-dragNode.oy-view.y)/view.s;
-    dragNode.vx=(nx-dragNode.x)*0.9;
-    dragNode.vy=(ny-dragNode.y)*0.9;
+    nx=Math.max(-1600,Math.min(1600,nx));
+    ny=Math.max(-1600,Math.min(1600,ny));
     dragNode.x=nx; dragNode.y=ny;
+    dragNode.vx=0; dragNode.vy=0;
     if(Math.abs(nx-dragNode._lx)+Math.abs(ny-dragNode._ly)>0.01) moved=true;
     dragNode._lx=nx; dragNode._ly=ny;
   } else if(down){
@@ -17945,7 +17954,7 @@ cv.addEventListener('touchmove', function(ev){
 }, {passive:false});
 cv.addEventListener('touchend', function(ev){
   if(ev.touches.length===0){
-    if(dragNode && !moved) openModal(dragNode);
+    if(dragNode){ dragNode.vx=0; dragNode.vy=0; if(!moved) openModal(dragNode); }
     dragNode=null; down=null; pinching=null;
   } else if(ev.touches.length===1){
     pinching=null;
