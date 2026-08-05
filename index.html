@@ -17777,18 +17777,18 @@ function draw(){
     var py = n.y + (n===dragNode?0:(n.wy||0));
     var active = (n===hover)||(n===dragNode);
     var ph = n._ph || (n._ph = Math.random()*6.283);
-    // 一闪一闪脉冲（sin4 尖锐峰: 大部分时间莹润, 周期性闪亮）
-    var tw = 0.55 + 0.45*Math.pow(Math.sin(G*0.045 + ph), 4);
-    // 光晕（随脉冲呼吸, 柔和）
-    var glowR = r*(active?3.2:2.3)*(0.85+0.3*tw);
+    // 平滑正弦呼吸（参考预约演示粒子: 柔和亮暗起伏, 周期约3秒）
+    var tw = 0.5 + 0.5*Math.sin(G*0.035 + ph);
+    // 柔和色雾光晕（demo 风格: 颜色半透明雾 + 大小随呼吸微变）
+    var glowR = r*(active?3.4:2.5)*(0.85+0.2*tw);
     var g = ctx.createRadialGradient(px,py,0,px,py,glowR);
-    g.addColorStop(0, rgba(c, (active?0.5:0.2)*(0.5+0.5*tw)));
-    g.addColorStop(0.6, rgba(c, (active?0.16:0.06)*(0.5+0.5*tw)));
+    g.addColorStop(0, rgba(c, (active?0.32:0.16)*(0.55+0.45*tw)));
+    g.addColorStop(0.5, rgba(c, (active?0.14:0.07)*(0.55+0.45*tw)));
     g.addColorStop(1, 'rgba(0,0,0,0)');
     ctx.fillStyle=g; ctx.beginPath(); ctx.arc(px,py,glowR,0,Math.PI*2); ctx.fill();
     // 本体（晶莹水晶球：白亮高光核心 → 通透彩色 → 暗边缘）
     var hx = px - r*0.3, hy = py - r*0.34;
-    var hi = 0.55 + 0.45*tw; // 高光核心强度（随脉冲闪亮）
+    var hi = 0.5 + 0.5*tw; // 高光核心强度（平滑呼吸）
     var g2 = ctx.createRadialGradient(hx, hy, r*0.04, px, py, r*1.15);
     g2.addColorStop(0, 'rgba(255,255,255,'+hi.toFixed(3)+')');
     g2.addColorStop(0.22, shade(c, 1.1+0.45*tw));
@@ -17797,14 +17797,14 @@ function draw(){
     ctx.fillStyle = g2;
     ctx.beginPath(); ctx.arc(px,py,r,0,Math.PI*2); ctx.fill();
     // 晶莹亮环（玻璃折射边缘, 亮度随闪）
-    ctx.strokeStyle = 'rgba(255,255,255,'+((active?0.95:0.55)*(0.5+0.5*tw)).toFixed(3)+')';
+    ctx.strokeStyle = 'rgba(255,255,255,'+((active?0.85:0.45)*(0.45+0.55*tw)).toFixed(3)+')';
     ctx.lineWidth = active?1.4:0.8;
     ctx.beginPath(); ctx.arc(px,py,r,0,Math.PI*2); ctx.stroke();
     // 镜面高光点（大小亮度随闪）
-    ctx.fillStyle = 'rgba(255,255,255,'+(0.45+0.5*tw).toFixed(3)+')';
+    ctx.fillStyle = 'rgba(255,255,255,'+(0.4+0.5*tw).toFixed(3)+')';
     ctx.beginPath(); ctx.arc(hx, hy, r*(0.13+0.05*tw), 0, Math.PI*2); ctx.fill();
     // 底部透光微点
-    ctx.fillStyle = 'rgba(255,255,255,'+(0.2+0.3*tw).toFixed(3)+')';
+    ctx.fillStyle = 'rgba(255,255,255,'+(0.18+0.3*tw).toFixed(3)+')';
     ctx.beginPath(); ctx.arc(px + r*0.35, py + r*0.42, r*0.09, 0, Math.PI*2); ctx.fill();
     // 中心图标
     if(n.type==='hub'){
