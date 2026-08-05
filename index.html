@@ -6909,7 +6909,7 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 <div class="section section-alt" style="padding:40px 28px;position:relative;overflow:hidden;background:linear-gradient(135deg,#f8faff 0%,#eef2ff 40%,#f0f7fe 70%,#e8f4f8 100%)">
 <div style="position:absolute;inset:0;pointer-events:none;opacity:.04;background-image:radial-gradient(circle at 20% 30%,rgba(59,130,246,.3) 0%,transparent 50%),radial-gradient(circle at 80% 70%,rgba(6,182,212,.2) 0%,transparent 50%)"></div>
 <div style="position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(59,130,246,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.03) 1px,transparent 1px);background-size:50px 50px"></div>
-<div class="section-header" style="position:relative;z-index:1"><span class="section-tag">PROJECT GRAPH</span><h2>免费开源项目图谱</h2><p>68 个开源项目 · 9 大分类 · 可拖拽 · 可缩放 · 点击节点查看详情</p></div>
+<div class="section-header" style="position:relative;z-index:1"><span class="section-tag">PROJECT GRAPH</span><h2>免费开源项目图谱</h2><p>免费开源项目 · 点击节点查看详情</p></div>
 <div class="graph-wrap" style="position:relative;z-index:1">
   <div class="graph-box" id="graphBox">
     <canvas id="graphCanvas"></canvas>
@@ -9382,7 +9382,7 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 /* ── 免费开源项目图谱 (Obsidian 风格) ── */
 .graph-wrap{position:relative;z-index:1}
-.graph-box{position:relative;width:100%;height:580px;border-radius:18px;overflow:hidden;background:radial-gradient(1200px 600px at 30% 20%,#16203a 0%,#0b1226 45%,#070d1f 100%);border:1px solid rgba(59,130,246,.15);box-shadow:0 18px 50px rgba(15,23,42,.22)}
+.graph-box{position:relative;width:100%;height:0;padding-bottom:75%;border-radius:18px;overflow:hidden;background:radial-gradient(1200px 600px at 30% 20%,#16203a 0%,#0b1226 45%,#070d1f 100%);border:1px solid rgba(59,130,246,.15);box-shadow:0 18px 50px rgba(15,23,42,.22)}
 #graphCanvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:none}
 .graph-hint{position:absolute;left:14px;bottom:12px;color:rgba(226,232,240,.6);font-size:11.5px;pointer-events:none;letter-spacing:.02em}
 .graph-legend{position:absolute;right:14px;top:12px;display:flex;flex-wrap:wrap;gap:6px;max-width:330px;pointer-events:none}
@@ -9402,7 +9402,7 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 .gm-mini:hover{background:rgba(148,163,184,.25)}
 .gm-x{position:absolute;top:10px;right:12px;background:none;border:none;color:rgba(226,232,240,.6);font-size:20px;cursor:pointer;line-height:1}
 .gm-x:hover{color:#fff}
-@media(max-width:768px){.graph-box{height:460px}.graph-legend{max-width:240px}.graph-legend .gl-item{font-size:9.5px}}
+@media(max-width:768px){.graph-box{height:0;padding-bottom:75%}.graph-legend{max-width:240px}.graph-legend .gl-item{font-size:9.5px}}
 </style></section>
 
 
@@ -17773,18 +17773,18 @@ function draw(){
     var active = (n===hover)||(n===dragNode);
     var ph = n._ph || (n._ph = Math.random()*6.283);
     var tw = 0.72 + 0.28*Math.sin(G*0.05 + ph);
-    // 光晕（随闪烁呼吸）
-    var glowR = r*(active?3.4:2.9)*tw;
+    // 光晕（柔和呼吸）
+    var glowR = r*(active?3:2.4)*tw;
     var g = ctx.createRadialGradient(n.x,n.y,0,n.x,n.y,glowR);
-    g.addColorStop(0, rgba(c, active?0.55:0.28*tw));
-    g.addColorStop(0.6, rgba(c, active?0.2:0.1*tw));
+    g.addColorStop(0, rgba(c, active?0.4:0.16*tw));
+    g.addColorStop(0.6, rgba(c, active?0.14:0.06*tw));
     g.addColorStop(1, 'rgba(0,0,0,0)');
     ctx.fillStyle=g; ctx.beginPath(); ctx.arc(n.x,n.y,glowR,0,Math.PI*2); ctx.fill();
     // 十字星芒（星星放光）
     if(r >= 4.5){
       var rayLen = r*(2.4 + 1.8*tw);
-      ctx.strokeStyle = rgba(c, (active?0.85:0.4)*tw);
-      ctx.lineWidth = active?1.4:0.9;
+      ctx.strokeStyle = rgba(c, (active?0.7:0.3)*tw);
+      ctx.lineWidth = active?1.1:0.7;
       ctx.beginPath();
       ctx.moveTo(n.x-rayLen,n.y); ctx.lineTo(n.x+rayLen,n.y);
       ctx.moveTo(n.x,n.y-rayLen); ctx.lineTo(n.x,n.y+rayLen);
@@ -17797,19 +17797,25 @@ function draw(){
       ctx.moveTo(n.x-dL*0.7,n.y+dL*0.7); ctx.lineTo(n.x+dL*0.7,n.y-dL*0.7);
       ctx.stroke();
     }
-    // 本体（3D 球体：左上高光 → 右下暗部）
-    var hx = n.x - r*0.35, hy = n.y - r*0.38;
-    var g2 = ctx.createRadialGradient(hx, hy, r*0.12, n.x, n.y, r*1.2);
-    g2.addColorStop(0, shade(c, 1.55));
-    g2.addColorStop(0.4, c);
-    g2.addColorStop(1, shade(c, 0.55));
+    // 本体（晶莹水晶球：白亮高光核心 → 通透彩色 → 暗边缘）
+    var hx = n.x - r*0.3, hy = n.y - r*0.34;
+    var g2 = ctx.createRadialGradient(hx, hy, r*0.04, n.x, n.y, r*1.15);
+    g2.addColorStop(0, 'rgba(255,255,255,0.98)');
+    g2.addColorStop(0.22, shade(c, 1.35));
+    g2.addColorStop(0.55, c);
+    g2.addColorStop(1, shade(c, 0.38));
     ctx.fillStyle = g2;
-    ctx.strokeStyle = 'rgba(255,255,255,'+(active?0.85:0.28)+')';
-    ctx.lineWidth = active?1.8:1;
-    ctx.beginPath(); ctx.arc(n.x,n.y,r,0,Math.PI*2); ctx.fill(); ctx.stroke();
-    // 镜面高光点
-    ctx.fillStyle = 'rgba(255,255,255,'+(active?0.75:0.4)+')';
-    ctx.beginPath(); ctx.arc(hx, hy, r*0.24, 0, Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.arc(n.x,n.y,r,0,Math.PI*2); ctx.fill();
+    // 晶莹亮环（玻璃折射边缘）
+    ctx.strokeStyle = 'rgba(255,255,255,'+(active?0.9:0.5)+')';
+    ctx.lineWidth = active?1.4:0.8;
+    ctx.beginPath(); ctx.arc(n.x,n.y,r,0,Math.PI*2); ctx.stroke();
+    // 明亮镜面高光点
+    ctx.fillStyle = 'rgba(255,255,255,'+(active?0.95:0.6)+')';
+    ctx.beginPath(); ctx.arc(hx, hy, r*0.16, 0, Math.PI*2); ctx.fill();
+    // 底部透光微点
+    ctx.fillStyle = 'rgba(255,255,255,'+(active?0.5:0.25)+')';
+    ctx.beginPath(); ctx.arc(n.x + r*0.35, n.y + r*0.42, r*0.09, 0, Math.PI*2); ctx.fill();
     // 中心图标
     if(n.type==='hub'){
       ctx.fillStyle='#082f49'; ctx.font='bold '+Math.round(20/view.s)+'px sans-serif';
