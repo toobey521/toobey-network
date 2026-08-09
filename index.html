@@ -6393,6 +6393,17 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
+
+/* ===== 语言切换 ===== */
+.lang-wrap{position:relative;flex-shrink:0;margin-left:auto}
+.lang-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:20px;border:1px solid rgba(0,0,0,.1);background:#fff;color:#1a1a2e;font-size:13px;font-weight:600;cursor:pointer;transition:all .3s;white-space:nowrap;font-family:inherit}
+.lang-btn:hover{border-color:#3b82f6;color:#2563eb;box-shadow:0 4px 14px rgba(59,130,246,.18)}
+.lang-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:130px;background:#fff;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.14);padding:6px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:all .25s cubic-bezier(.22,1,.36,1);z-index:1100}
+.lang-menu.open{opacity:1;visibility:visible;transform:translateY(0)}
+.lang-opt{display:block;padding:9px 16px;border-radius:8px;font-size:13px;color:#333;text-decoration:none;transition:background .2s,color .2s;cursor:pointer}
+.lang-opt:hover{background:#eff6ff;color:#2563eb}
+.lang-opt.active{background:#e0edff;color:#1d4ed8;font-weight:600}
+
 </style>
 
 
@@ -6586,6 +6597,14 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
   <a href="javascript:void(0)" class="btn-primary" onclick="showEmail()">联系我们</a>
+  <div class="lang-wrap" id="langWrap">
+    <button class="lang-btn" id="langBtn" onclick="toggleLangMenu()">🌐 中文</button>
+    <div class="lang-menu" id="langMenu">
+      <a class="lang-opt" data-lang="zh" onclick="setLang('zh')">中文</a>
+      <a class="lang-opt" data-lang="en" onclick="setLang('en')">English</a>
+    </div>
+  </div>
+
 
 
 
@@ -17507,7 +17526,7 @@ function copyEmail(){
 
 
 
-    btn.textContent='✅ 已复制！';btn.style.background='#43a047';
+    btn.textContent=window.__TN_TR__('✅ 已复制！');btn.style.background='#43a047';
 
 
 
@@ -17523,7 +17542,7 @@ function copyEmail(){
 
 
 
-    setTimeout(function(){btn.textContent='📋 复制邮箱';btn.style.background='linear-gradient(135deg,#2d8a4e,#3cb371)'},2000);
+    setTimeout(function(){btn.textContent=window.__TN_TR__('📋 复制邮箱');btn.style.background='linear-gradient(135deg,#2d8a4e,#3cb371)'},2000);
 
 
 
@@ -17617,6 +17636,9 @@ function copyEmail(){
 
 /* ═══ 免费开源项目图谱 (Obsidian 风格) — Toobey 作品集 ═══ */
 (function(){
+
+/* ===== 双语支持 (by Hermes) ===== */
+function TR(s){ if(!s) return s; if(window.__TN_LANG__==='en' && window.__TN_DICT__ && window.__TN_DICT__[s]) return window.__TN_DICT__[s]; return s; }
 var NODES = [{"id": 0, "type": "hub", "label": "Toobey", "sub": "开源作品集"}, {"id": 1, "type": "cat", "label": "游戏娱乐", "full": "🎮 游戏娱乐", "color": "#22d3ee"}, {"id": 2, "type": "cat", "label": "实用工具", "full": "🛠 实用工具", "color": "#a78bfa"}, {"id": 3, "type": "cat", "label": "多媒体", "full": "📺 多媒体", "color": "#f472b6"}, {"id": 4, "type": "cat", "label": "教育", "full": "📚 教育", "color": "#34d399"}, {"id": 5, "type": "cat", "label": "AI智体", "full": "🤖 AI智体", "color": "#60a5fa"}, {"id": 6, "type": "cat", "label": "金融/财务", "full": "📊 金融/财务", "color": "#fbbf24"}, {"id": 7, "type": "cat", "label": "养生", "full": "🌿 养生", "color": "#86efac"}, {"id": 8, "type": "cat", "label": "文化", "full": "📚 文化", "color": "#f87171"}, {"id": 9, "type": "cat", "label": "其他", "full": "📦 其他", "color": "#94a3b8"}, {"id": 10, "type": "proj", "label": "太空大战", "url": "https://toobey521.github.io/star-wars-game/", "desc": "射击躲避小游戏", "icon": "🚀", "cat": "🎮 游戏娱乐", "jing": false}, {"id": 11, "type": "proj", "label": "解压赛车", "url": "https://toobey521.github.io/car/", "desc": "赛车竞速小游戏", "icon": "🏎️", "cat": "🎮 游戏娱乐", "jing": false}, {"id": 12, "type": "proj", "label": "俄罗斯方块", "url": "https://toobey521.github.io/tetris-game/", "desc": "经典方块消除", "icon": "🧱", "cat": "🎮 游戏娱乐", "jing": false}, {"id": 13, "type": "proj", "label": "迷宫冒险", "url": "https://toobey521.github.io/maze-game/", "desc": "迷宫探索闯关", "icon": "🌀", "cat": "🎮 游戏娱乐", "jing": false}, {"id": 14, "type": "proj", "label": "迷宫冒险2", "url": "https://toobey521.github.io/maze-adventure/", "desc": "迷宫探索增强版", "icon": "🌀", "cat": "🎮 游戏娱乐", "jing": false}, {"id": 15, "type": "proj", "label": "推箱子", "url": "https://toobey521.github.io/sokoban/", "desc": "经典益智推箱子", "icon": "📦", "cat": "🎮 游戏娱乐", "jing": false}, {"id": 16, "type": "proj", "label": "贪吃蛇", "url": "https://toobey521.github.io/snake-game/", "desc": "经典贪吃蛇", "icon": "🐍", "cat": "🎮 游戏娱乐", "jing": false}, {"id": 17, "type": "proj", "label": "国际象棋", "url": "https://toobey521.github.io/international-chess/", "desc": "国际象棋AI对战", "icon": "♟️", "cat": "🎮 游戏娱乐", "jing": false}, {"id": 18, "type": "proj", "label": "五子棋", "url": "https://toobey521.github.io/Five-in-a-row/", "desc": "五子棋人机对战", "icon": "⚫", "cat": "🎮 游戏娱乐", "jing": false}, {"id": 19, "type": "proj", "label": "吃豆人", "url": "https://toobey521.github.io/chidouren/", "desc": "经典吃豆小游戏", "icon": "👻", "cat": "🎮 游戏娱乐", "jing": false}, {"id": 20, "type": "proj", "label": "吃豆迷宫", "url": "https://toobey521.github.io/pacman_maze/", "desc": "吃豆迷宫版", "icon": "👻", "cat": "🎮 游戏娱乐", "jing": false}, {"id": 21, "type": "proj", "label": "炫彩烟花", "url": "https://toobey521.github.io/fireworks-show/", "desc": "多彩几何烟花绽放", "icon": "🎆", "cat": "🎮 游戏娱乐", "jing": false}, {"id": 22, "type": "proj", "label": "数独", "url": "https://toobey521.github.io/sudoku-game/", "desc": "5关难度 · 清新数独", "icon": "🧩", "cat": "🎮 游戏娱乐", "jing": false}, {"id": 23, "type": "proj", "label": "科学计算器", "url": "https://toobey521.github.io/scientific-calculator/", "desc": "多功能科学计算", "icon": "🔢", "cat": "🛠 实用工具", "jing": false}, {"id": 24, "type": "proj", "label": "打字战争", "url": "https://toobey521.github.io/Star-Typing-War/", "desc": "打字练习游戏", "icon": "⌨️", "cat": "🛠 实用工具", "jing": false}, {"id": 25, "type": "proj", "label": "世界时钟", "url": "https://toobey521.github.io/World-Clock/", "desc": "多时区时钟查询", "icon": "🕐", "cat": "🛠 实用工具", "jing": false}, {"id": 26, "type": "proj", "label": "天气穿搭助手", "url": "https://toobey521.github.io/weather-dress-v8/", "desc": "天气+穿搭建议", "icon": "🌤️", "cat": "🛠 实用工具", "jing": true}, {"id": 27, "type": "proj", "label": "Token助手", "url": "https://toobey521.github.io/token-usage-assistant/", "desc": "Token用量计算", "icon": "🔖", "cat": "🛠 实用工具", "jing": false}, {"id": 28, "type": "proj", "label": "油耗管家", "url": "https://toobey521.github.io/Fuel-Consumption-Manager/", "desc": "车辆油耗记录", "icon": "⛽", "cat": "🛠 实用工具", "jing": false}, {"id": 29, "type": "proj", "label": "古风取名", "url": "https://toobey521.github.io/toobey-network/gufeng-naming.html", "desc": "古风风格起名", "icon": "📜", "cat": "🛠 实用工具", "jing": true}, {"id": 30, "type": "proj", "label": "法眼识契-测试版", "url": "https://toobey521.github.io/contract-eye/", "desc": "合同智能审查", "icon": "🔍", "cat": "🛠 实用工具", "jing": false}, {"id": 31, "type": "proj", "label": "多维测谎分析仪", "url": "https://toobey521.github.io/lie-detector/", "desc": "多维度测谎测试", "icon": "🕵️", "cat": "🛠 实用工具", "jing": false}, {"id": 32, "type": "proj", "label": "发型设计助手", "url": "https://toobey521.github.io/hairstyle-tool/", "desc": "AI发型设计与生成", "icon": "✂️", "cat": "🛠 实用工具", "jing": true}, {"id": 33, "type": "proj", "label": "万能二维码生成器", "url": "https://toobey-qrcode.pages.dev", "desc": "网址图片音视频转二维码", "icon": "🔳", "cat": "🛠 实用工具", "jing": true}, {"id": 34, "type": "proj", "label": "水印清除", "url": "https://toobey-watermark.pages.dev", "desc": "照片视频去水印 · 本地处理", "icon": "🧹", "cat": "🛠 实用工具", "jing": true}, {"id": 35, "type": "proj", "label": "钢琴音乐可视化", "url": "https://toobey521.github.io/piano-music-visualizer/", "desc": "音乐频谱可视化", "icon": "🎹", "cat": "📺 多媒体", "jing": true}, {"id": 36, "type": "proj", "label": "电钢琴", "url": "https://toobey521.github.io/piano/", "desc": "在线电钢琴弹奏", "icon": "🎹", "cat": "📺 多媒体", "jing": false}, {"id": 37, "type": "proj", "label": "韵律波动", "url": "https://toobey521.github.io/rhythm-waves/", "desc": "音乐律动效果", "icon": "🌊", "cat": "📺 多媒体", "jing": false}, {"id": 38, "type": "proj", "label": "音频提取器", "url": "https://toobey521.github.io/toobey-audio-extractor/", "desc": "视频转音频提取", "icon": "🎵", "cat": "📺 多媒体", "jing": true}, {"id": 39, "type": "proj", "label": "歌词提取器", "url": "https://toobey521.github.io/toobey-lyrics-extractor/", "desc": "音乐歌词提取", "icon": "📝", "cat": "📺 多媒体", "jing": true}, {"id": 40, "type": "proj", "label": "提示词反推工具", "url": "https://toobey521.github.io/prompt-tool/", "desc": "AI提示词推导", "icon": "💡", "cat": "📺 多媒体", "jing": false}, {"id": 41, "type": "proj", "label": "视频解构分析器", "url": "https://toobey521.github.io/video-deconstruction-analyzer/", "desc": "视频逐帧分析", "icon": "🎬", "cat": "📺 多媒体", "jing": true}, {"id": 42, "type": "proj", "label": "颜色图谱", "url": "https://toobey521.github.io/color-atlas/", "desc": "颜色科学·搭配·应用·300+色样", "icon": "🌈", "cat": "📺 多媒体", "jing": false}, {"id": 43, "type": "proj", "label": "趣味英语乐园", "url": "https://toobey521.github.io/fun-english-paradise/", "desc": "英语学习小游戏", "icon": "📚", "cat": "📚 教育", "jing": true}, {"id": 44, "type": "proj", "label": "星空数学大战", "url": "https://toobey521.github.io/math/", "desc": "数学答题闯关", "icon": "✨", "cat": "📚 教育", "jing": false}, {"id": 45, "type": "proj", "label": "数学小英雄", "url": "https://toobey521.github.io/math_hero/", "desc": "儿童数学练习", "icon": "🦸", "cat": "📚 教育", "jing": false}, {"id": 46, "type": "proj", "label": "数学知识大全", "url": "https://toobey521.github.io/math-knowledge/", "desc": "中小学数学知识图谱·SVG图解", "icon": "📐", "cat": "📚 教育", "jing": false}, {"id": 47, "type": "proj", "label": "经典诗文", "url": "https://toobey521.github.io/classic-poetry-ebook/", "desc": "1-6年级442首诗词配图文", "icon": "📖", "cat": "📚 教育", "jing": true}, {"id": 48, "type": "proj", "label": "古诗星云", "url": "https://gushi-xingkong.pages.dev/", "desc": "唐宋诗词三维星云漫游", "icon": "🌟", "cat": "📚 教育", "jing": true}, {"id": 49, "type": "proj", "label": "Hermes赚钱100", "url": "https://toobey521.github.io/hermes-100-ways/", "desc": "Hermes Agent 赚钱100法", "icon": "🤖", "cat": "🤖 AI智体", "jing": false}, {"id": 50, "type": "proj", "label": "Hermes完全手册", "url": "https://toobey521.github.io/hermes-manual/", "desc": "HERMES Agent 32章完全操作手册", "icon": "📘", "cat": "🤖 AI智体", "jing": true}, {"id": 51, "type": "proj", "label": "网站全链路", "url": "https://toobey521.github.io/website-tutorial/", "desc": "网站搭建运营全教程", "icon": "🕸️", "cat": "🤖 AI智体", "jing": true}, {"id": 52, "type": "proj", "label": "小朋友Codex入门", "url": "https://toobey521.github.io/codex-intro/", "desc": "Codex AI编程入手指南", "icon": "🤖", "cat": "🤖 AI智体", "jing": false}, {"id": 53, "type": "proj", "label": "小朋友AI入门", "url": "https://toobey521.github.io/ai-chat-kids/", "desc": "跟我一起和AI聊天 · 小学生AI教程", "icon": "🤖", "cat": "🤖 AI智体", "jing": false}, {"id": 54, "type": "proj", "label": "AI工具百科", "url": "https://toobey521.github.io/ai-tools-encyclopedia/", "desc": "中国AI工具百科全书 · 300款 · 17大行业", "icon": "🧠", "cat": "🤖 AI智体", "jing": true}, {"id": 55, "type": "proj", "label": "GitHub拆解指南", "url": "https://toobey521.github.io/github-guide-toobey/", "desc": "GitHub完全拆解 · 306知识点 · AI小白入门", "icon": "📘", "cat": "🤖 AI智体", "jing": true}, {"id": 56, "type": "proj", "label": "大模型指南", "url": "https://toobey521.github.io/llm-knowledge-guide/", "desc": "大模型知识指南 · 49名词百科 · 23模型对比 · 国内选型", "icon": "🧠", "cat": "🤖 AI智体", "jing": true}, {"id": 57, "type": "proj", "label": "AI灵感补给站", "url": "https://toobey521.github.io/ai-web-gallery/", "desc": "39个AI智能体作品 · 炫酷/实用/灵感导航", "icon": "✨", "cat": "🤖 AI智体", "jing": true}, {"id": 78, "type": "proj", "label": "开源宇宙", "url": "https://osu-toobey.pages.dev/", "desc": "63,707个GitHub开源项目三维星云", "icon": "🌌", "cat": "🤖 AI智体", "jing": true}, {"id": 58, "type": "proj", "label": "A股分析系统", "url": "https://toobey521.github.io/A-share-Analysis-System/", "desc": "A股实时分析系统", "icon": "📈", "cat": "📊 金融/财务", "jing": true}, {"id": 59, "type": "proj", "label": "趋势选股工具", "url": "https://toobey521.github.io/stock-picker-v16/", "desc": "智能趋势选股", "icon": "🎯", "cat": "📊 金融/财务", "jing": false}, {"id": 60, "type": "proj", "label": "财会痛点100项", "url": "https://toobey521.github.io/accounting-pain-points/", "desc": "财会人员痛点深度解析", "icon": "📋", "cat": "📊 金融/财务", "jing": false}, {"id": 61, "type": "proj", "label": "银行行号查询", "url": "https://toobey521.github.io/bank-cnaps-query/", "desc": "银行网点行号", "icon": "🏦", "cat": "📊 金融/财务", "jing": false}, {"id": 62, "type": "proj", "label": "财务漏洞检测", "url": "https://toobey521.github.io/financial-audit-tool/", "desc": "上传报表自动识别28类财务风险", "icon": "🩺", "cat": "📊 金融/财务", "jing": true}, {"id": 63, "type": "proj", "label": "税负体检", "url": "https://toobey521.github.io/tax-health-checker/", "desc": "企业税负风险一键体检", "icon": "🧾", "cat": "📊 金融/财务", "jing": true}, {"id": 64, "type": "proj", "label": "本草食蔬下载", "url": "https://toobey521.github.io/toobey-food-app/", "desc": "本草食物查询", "icon": "🥗", "cat": "🌿 养生", "jing": false}, {"id": 65, "type": "proj", "label": "本草电子书", "url": "https://toobey521.github.io/toobey-herbal-ebook/", "desc": "本草在线阅读", "icon": "📖", "cat": "🌿 养生", "jing": true}, {"id": 66, "type": "proj", "label": "掌上医观", "url": "https://toobey521.github.io/palm-health-analyzer/", "desc": "掌纹健康分析", "icon": "🖐️", "cat": "🌿 养生", "jing": true}, {"id": 67, "type": "proj", "label": "道德经解读", "url": "https://toobey521.github.io/daodejing/", "desc": "老子全文81章逐章详解", "icon": "📜", "cat": "📚 文化", "jing": false}, {"id": 68, "type": "proj", "label": "中国古代神话", "url": "https://toobey521.github.io/chinese-mythology/", "desc": "中国古代神话故事大全", "icon": "📜", "cat": "📚 文化", "jing": false}, {"id": 69, "type": "proj", "label": "经典诗文", "url": "https://toobey521.github.io/classic-poetry-ebook/", "desc": "1-6年级442首诗词配图文", "icon": "📖", "cat": "📚 文化", "jing": true}, {"id": 70, "type": "proj", "label": "古诗星云", "url": "https://gushi-xingkong.pages.dev/", "desc": "唐宋诗词三维星云漫游", "icon": "🌌", "cat": "📚 文化", "jing": true}, {"id": 71, "type": "proj", "label": "古风雅集", "url": "https://toobey521.github.io/gufeng-yaji/", "desc": "花间竹韵 · 花竹古风素材展示", "icon": "🌸", "cat": "📚 文化", "jing": true}, {"id": 72, "type": "proj", "label": "成语故事", "url": "https://toobey521.github.io/idiom-stories/", "desc": "经典成语故事大全", "icon": "📕", "cat": "📚 文化", "jing": true}, {"id": 73, "type": "proj", "label": "世界国旗图鉴", "url": "https://flag-encyclopedia.pages.dev/", "desc": "201国国旗百科+世界地图", "icon": "🌏", "cat": "📦 其他", "jing": false}, {"id": 74, "type": "proj", "label": "萌宠合集", "url": "https://toobey521.github.io/cute-pets/", "desc": "30张可爱动物图片", "icon": "🐾", "cat": "📦 其他", "jing": false}, {"id": 75, "type": "proj", "label": "动物世界", "url": "https://toobey521.github.io/animal-world-mini-program/", "desc": "1000种动物实景百科", "icon": "🦁", "cat": "📦 其他", "jing": false}, {"id": 76, "type": "proj", "label": "空军图鉴", "url": "https://toobey521.github.io/airpower-atlas/", "desc": "504架机型 · 88国军机百科", "icon": "✈️", "cat": "📦 其他", "jing": true}, {"id": 77, "type": "proj", "label": "谐音梗大观", "url": "https://toobey521.github.io/xieyin-riddles/", "desc": "400个谐音梗脑筋急转弯", "icon": "😂", "cat": "📦 其他", "jing": false}, {"id": 79, "type": "proj", "label": "出口退税一本通", "url": "https://toobey521.github.io/export-tax-rebate/", "desc": "外贸知识学习工具", "icon": "🌏", "cat": "📊 金融/财务", "jing": false}, {"id": 80, "type": "proj", "label": "外贸大全", "url": "https://toobey521.github.io/foreign-trade-guide/", "desc": "外贸从0到1 · 知识学习工具", "icon": "🚢", "cat": "📊 金融/财务", "jing": false},
     {"id": 81, "type": "proj", "label": "A股看板精选", "url": "https://toobey521.github.io/a-share-dashboards/", "desc": "GitHub 星数较多的 A股看板/盯盘/选股开源项目合集", "icon": "📈", "cat": "📊 金融/财务", "jing": false}];
 var EDGES = [[0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [0, 6], [0, 7], [0, 8], [0, 9], [1, 10], [1, 11], [1, 12], [1, 13], [1, 14], [1, 15], [1, 16], [1, 17], [1, 18], [1, 19], [1, 20], [1, 21], [1, 22], [2, 23], [2, 24], [2, 25], [2, 26], [2, 27], [2, 28], [2, 29], [2, 30], [2, 31], [2, 32], [2, 33], [2, 34], [3, 35], [3, 36], [3, 37], [3, 38], [3, 39], [3, 40], [3, 41], [3, 42], [4, 43], [4, 44], [4, 45], [4, 46], [4, 47], [4, 48], [5, 49], [5, 50], [5, 51], [5, 52], [5, 53], [5, 54], [5, 55], [5, 56], [5, 57], [5, 78], [6, 58], [6, 59], [6, 60], [6, 61], [6, 62], [6, 63], [6, 79], [6, 80], [6, 81], [7, 64], [7, 65], [7, 66], [8, 67], [8, 68], [8, 69], [8, 70], [8, 71], [8, 72], [9, 73], [9, 74], [9, 75], [9, 76], [9, 77], [48, 47], [44, 45], [44, 46], [45, 46], [49, 50], [50, 54], [54, 56], [56, 57], [52, 53], [51, 55], [35, 36], [35, 37], [38, 39], [36, 37], [58, 59], [62, 63], [58, 62], [61, 62], [64, 65], [65, 66], [12, 15], [16, 12], [22, 15], [10, 19], [19, 20], [13, 14]];
@@ -17816,7 +17838,7 @@ function draw(){
       ctx.fillStyle = n===hover?'#ffffff':'rgba(226,232,240,0.88)';
       ctx.font = (n.type==='cat'?'600 ':'') + Math.round((n.type==='cat'?13:11)/view.s)+'px sans-serif';
       ctx.textAlign='center'; ctx.textBaseline='top';
-      var label = n.type==='proj' ? n.label : n.label;
+      var label = TR(n.type==='proj' ? n.label : n.label);
       var lw = ctx.measureText(label).width;
       var ly = py + r + 6/view.s;
       ctx.fillStyle = 'rgba(2,6,23,0.72)';
@@ -17841,7 +17863,7 @@ function draw(){
         ctx.fillStyle='rgba(2,6,23,0.66)';
         ctx.fillRect(-lw/2-3,-16,lw+6,14);
         ctx.fillStyle=rgba(nodeColor(other),0.95);
-        ctx.fillText(other.label,0,-4);
+        ctx.fillText(TR(other.label),0,-4);
         ctx.restore();
       }
     });
@@ -17984,26 +18006,26 @@ function openModal(n){
   var html = '';
   if(n.type==='hub'){
     html = '<div class="gm-icon" style="background:rgba(125,211,252,.15)">🚀</div>'
-      + '<div class="gm-name">Toobey 开源作品集</div>'
-      + '<div class="gm-cat"><span class="gm-badge" style="background:rgba(125,211,252,.18);color:#7dd3fc">作品集主页</span></div>'
-      + '<div class="gm-desc">68 个免费开源项目 · 9 大分类。从游戏娱乐到 AI 智体，全部开源免费。</div>'
-      + '<a class="gm-btn" href="https://toobey521.github.io/toobey-network/" target="_blank">打开作品集 →</a>';
+      + '<div class="gm-name">Toobey '+TR('开源作品集')+'</div>'
+      + '<div class="gm-cat"><span class="gm-badge" style="background:rgba(125,211,252,.18);color:#7dd3fc">'+TR('作品集主页')+'</span></div>'
+      + '<div class="gm-desc">'+TR('68 个免费开源项目 · 9 大分类。从游戏娱乐到 AI 智体，全部开源免费。')+'</div>'
+      + '<a class="gm-btn" href="https://toobey521.github.io/toobey-network/" target="_blank">'+TR('打开作品集 →')+'</a>';
   } else if(n.type==='cat'){
     var cnt = 0;
     NODES.forEach(function(x){ if(x.type==='proj' && x.cat===n.full) cnt++; });
     var list = [];
-    NODES.forEach(function(x){ if(x.type==='proj' && x.cat===n.full) list.push('<a class="gm-mini" href="'+x.url+'" target="_blank">'+x.icon+' '+x.label+'</a>'); });
+    NODES.forEach(function(x){ if(x.type==='proj' && x.cat===n.full) list.push('<a class="gm-mini" href="'+x.url+'" target="_blank">'+x.icon+' '+TR(x.label)+'</a>'); });
     html = '<div class="gm-icon" style="background:'+rgba(n.color,.15)+'">'+(n.label==='游戏娱乐'?'🎮':n.label==='实用工具'?'🛠':n.label==='多媒体'?'📺':n.label==='教育'?'📚':n.label==='AI智体'?'🤖':n.label==='金融/财务'?'📊':n.label==='养生'?'🌿':n.label==='文化'?'📚':'📦')+'</div>'
-      + '<div class="gm-name" style="color:'+n.color+'">'+n.label+'</div>'
-      + '<div class="gm-cat"><span class="gm-badge" style="background:'+rgba(n.color,.18)+';color:'+n.color+'">'+cnt+' 个项目</span></div>'
+      + '<div class="gm-name" style="color:'+n.color+'">'+TR(n.label)+'</div>'
+      + '<div class="gm-cat"><span class="gm-badge" style="background:'+rgba(n.color,.18)+';color:'+n.color+'">'+cnt+' '+TR('个项目')+'</span></div>'
       + '<div class="gm-desc">'+list.join('')+'</div>';
   } else {
     var c = nodeColor(n);
     html = '<div class="gm-icon" style="background:'+rgba(c,.15)+'">'+(n.icon||'📦')+'</div>'
-      + '<div class="gm-name">'+n.label+(n.jing?' <span class="gm-jing">精</span>':'')+'</div>'
-      + '<div class="gm-cat"><span class="gm-badge" style="background:'+rgba(c,.18)+';color:'+c+'">'+n.cat+'</span></div>'
-      + '<div class="gm-desc">'+(n.desc||'开源免费项目')+'</div>'
-      + '<a class="gm-btn" href="'+n.url+'" target="_blank">打开项目 →</a>';
+      + '<div class="gm-name">'+TR(n.label)+(n.jing?' <span class="gm-jing">'+TR('精')+'</span>':'')+'</div>'
+      + '<div class="gm-cat"><span class="gm-badge" style="background:'+rgba(c,.18)+';color:'+c+'">'+TR(n.cat)+'</span></div>'
+      + '<div class="gm-desc">'+TR(n.desc||'开源免费项目')+'</div>'
+      + '<a class="gm-btn" href="'+n.url+'" target="_blank">'+TR('打开项目 →')+'</a>';
   }
   modal.innerHTML = '<div class="gm-card">'+html+'<button class="gm-x" id="graphModalClose">×</button></div>';
   modal.style.display = 'flex';
@@ -18019,7 +18041,7 @@ var legend = document.getElementById('graphLegend');
 if(legend){
   var lh = '';
   Object.keys(CATS).forEach(function(k){
-    lh += '<span class="gl-item"><i style="background:'+CATS[k]+'"></i>'+k.split(' ')[1]+'</span>';
+    lh += '<span class="gl-item"><i style="background:'+CATS[k]+'"></i>'+TR(k.split(' ')[1])+'</span>';
   });
   legend.innerHTML = lh;
 }
@@ -18049,9 +18071,139 @@ window.addEventListener('resize', resize);
 resize();
 requestAnimationFrame(tick);
 setTimeout(resize, 300);
+
+// ===== 语言切换刷新 (by Hermes) =====
+var __lastNode = null;
+var __oM = openModal;
+openModal = function(n){ __lastNode = n; __oM(n); };
+window.__TN_GRAPH_REFRESH__ = function(){
+  var lg = document.getElementById('graphLegend');
+  if(lg){ var lh2=''; Object.keys(CATS).forEach(function(k){ lh2+='<span class="gl-item"><i style="background:'+CATS[k]+'"></i>'+TR(k.split(' ')[1])+'</span>'; }); lg.innerHTML = lh2; }
+  if(__lastNode && modal && modal.style.display==='flex'){ __oM(__lastNode); }
+};
 })();
 
 </script>
+
+<script>
+/* ===== Toobey Network 语言切换 (zh/en) — by Hermes ===== */
+(function(){
+var DICT = {"© 2025 Toobey Network Technology Co., Ltd.  京ICP备XXXXXXXXXX号-1": "© 2025 Toobey Network Technology Co., Ltd.  ICP Filing No. XXXXXXXXXX-1", "依托 SecureGate 安全体系与 IoT Hub 物联能力，构建 HIS 系统、远程会诊、健康档案三大核心模块。": "Built on the SecureGate security system and IoT Hub connectivity, this solution delivers three core modules: HIS, telemedicine and electronic health records.", "智慧企业解决方案以 Toobey Cloud 为底座，整合 OA 协同、ERP 集成、CRM 管理三大核心系统。": "The Smart Enterprise solution, powered by Toobey Cloud, integrates three core systems: OA collaboration, ERP integration and CRM management.", "融合 IoT Hub、DataLens 与 AI Copilot，打通全渠道数据，实现精准营销与智能供应链。": "Combining IoT Hub, DataLens and AI Copilot, it unifies omnichannel data for precision marketing and an intelligent supply chain.", "Toobey Cloud 是基于自研分布式架构的企业级云计算平台，提供从基础设施到应用托管的全栈云服务。": "Toobey Cloud is an enterprise-grade cloud computing platform built on our self-developed distributed architecture, offering full-stack cloud services from infrastructure to application hosting.", "基于 DevStudio 平台与 AI Copilot 引擎，打造在线课堂、智能测评、校园管理三大平台。": "Powered by the DevStudio platform and AI Copilot engine, it builds three platforms: online classrooms, intelligent assessment and campus management.", "SecureGate 是企业级一体化安全防护平台，整合 WAF、DDoS 防护、漏洞扫描等核心能力。": "SecureGate is an enterprise-grade integrated security platform combining WAF, DDoS protection and vulnerability scanning.", "DataLens 是新一代智能数据分析平台，融合 AI 驱动的自然语言查询与可视化 BI 能力。": "DataLens is a next-generation intelligent data analytics platform that blends AI-powered natural-language queries with visual BI capabilities.", "Toobey Network Technology — 为企业提供全方位软件产品与技术服务": "Toobey Network Technology — providing enterprises with comprehensive software products and technical services", "AI Copilot 是基于大语言模型的企业智能助手，深度集成企业知识库与工作流引擎。": "AI Copilot is an enterprise intelligent assistant built on large language models, deeply integrated with corporate knowledge bases and workflow engines.", "企业级安全防护体系，DDoS防护、WAF防火墙、漏洞扫描一体化解决方案。": "An enterprise-grade security system — an all-in-one solution for DDoS protection, WAF firewall and vulnerability scanning.", "Toobey 技术咨询团队由来自头部科技企业的资深架构师与行业专家组成。": "The Toobey consulting team is made up of senior architects and industry experts from leading technology companies.", "7×24小时全天候监控，自动化运维平台，SLA保障，让您专注核心业务。": "7×24 all-day monitoring, an automated operations platform and SLA guarantees let you focus on your core business.", "一站式企业云平台，提供弹性计算、对象存储、CDN加速等基础设施服务。": "A one-stop enterprise cloud platform providing infrastructure services such as elastic computing, object storage and CDN acceleration.", "架构设计评审、技术选型建议、数字化转型规划，资深顾问团队一对一服务。": "Architecture design reviews, technology selection advice and digital transformation planning, with one-on-one service from senior consultants.", "IoT Hub 是企业级物联网设备管理平台，支持百万级设备并发接入。": "IoT Hub is an enterprise-grade IoT device management platform supporting concurrent access for millions of devices.", "云端开发环境，CI/CD流水线、代码审查、容器化部署全流程工具链。": "A cloud development environment with a full toolchain: CI/CD pipelines, code review and containerized deployment.", "智能数据分析平台，可视化报表、实时BI看板、AI驱动的洞察发现。": "An intelligent data analytics platform with visual reports, real-time BI dashboards and AI-driven insight discovery.", "技术培训课程、认证体系、最佳实践分享，帮助企业团队快速成长。": "Technical training courses, certification systems and best-practice sharing help enterprise teams grow fast.", "EB 级可扩展存储空间，99.999999999% 持久性。": "EB-scale expandable storage with 99.999999999% durability.", "DevStudio 是面向现代软件团队的云端一体化开发平台。": "DevStudio is a cloud-based integrated development platform for modern software teams.", "根据业务需求量身定制软件系统，敏捷开发模式，快速迭代上线。": "Software systems tailored to your business needs, with agile development and rapid iterative releases.", "企业智能助手，自然语言交互、自动化流程编排、知识管理。": "An enterprise intelligent assistant with natural-language interaction, automated workflow orchestration and knowledge management.", "物联网设备管理平台，海量接入、实时监控、边缘计算协同。": "An IoT device management platform with massive-scale access, real-time monitoring and edge-computing collaboration.", "OA协同、ERP集成、CRM客户管理，打造高效运营体系": "OA collaboration, ERP integration and CRM customer management build an efficient operating system", "HIS系统、远程会诊、健康档案，助力医疗数字化升级": "HIS, telemedicine and health records power healthcare digital transformation", "覆盖 OWASP Top 10 及 CVE 库。": "Covers the OWASP Top 10 and the CVE database.", "在线课堂、智能测评、校园管理，构建智慧教育生态": "Online classrooms, intelligent assessment and campus management build a smart education ecosystem", "全渠道营销、供应链优化、会员运营，驱动零售增长": "Omnichannel marketing, supply-chain optimization and membership operations drive retail growth", "支持 MQTT、CoAP、HTTP 等协议。": "Supports MQTT, CoAP, HTTP and more protocols.", "覆盖企业管理、数据分析、智能协同等多个领域": "Covering enterprise management, data analytics, intelligent collaboration and more", "京公网安备 110XXXXXXXXXXX号": "Beijing Public Security Filing No. 110XXXXXXXXXXX", "深耕多个垂直领域，提供端到端的数字化方案": "Deep roots in multiple verticals, delivering end-to-end digital solutions", "审批自动化、文档协作，效率提升 60%。": "Approval automation and document collaboration lift efficiency by 60%.", "AI 驱动客户评分，成单率提升 45%。": "AI-driven customer scoring raises the win rate by 45%.", "Scrum 敏捷方法论，两周迭代周期。": "Scrum agile methodology with a two-week iteration cycle.", "覆盖从入门到精通的全职业周期培训体系。": "A full career-cycle training system from beginner to expert.", "CEO 驾驶舱，决策响应缩短 80%。": "CEO dashboard cuts decision response time by 80%.", "4K 视频会诊，连接 300+ 机构。": "4K video consultations connecting 300+ institutions.", "AI 客流分析，运营效率提升 55%。": "AI foot-traffic analysis improves operational efficiency by 55%.", "Kubernetes 容器管理平台。": "A Kubernetes container management platform.", "深度学习驱动，误报率低于 0.1%。": "Deep-learning driven, with a false-positive rate below 0.1%.", "7×24 小时全天候监控与运维保障。": "7×24 around-the-clock monitoring and operations support.", "AI 推荐引擎，转化率提升 50%。": "AI recommendation engine boosts conversion by 50%.", "联系我们的专家团队，获取专属解决方案": "Contact our expert team for a tailored solution", "Axure/Figma 快速验证。": "Rapid validation with Axure/Figma.", "日均处理 10000+ 患者数据。": "Processes 10,000+ patient records daily.", "AI 自适应出题，提分率 35%。": "AI adaptive testing improves scores by 35%.", "RFM 模型，复购率提升 40%。": "RFM model lifts repurchase rate by 40%.", "从咨询到交付，全程陪伴式技术服务": "From consulting to delivery — end-to-end technical services", "秒级启动虚拟机，支持自动扩缩容。": "VMs boot in seconds with automatic scaling.", "2800+ 节点，智能路由调度。": "2,800+ nodes with intelligent routing.", "50+ 图表类型，多维下钻分析。": "50+ chart types with multi-dimensional drill-down analysis.", "与 SAP、用友等系统无缝对接。": "Seamless integration with SAP, Yonyou and other systems.", "T 级抗 DDoS 防护能力。": "Terabit-scale DDoS protection.", "AI 辅助，效率提升 5 倍。": "AI-assisted, 5× efficiency gain.", "万人并发直播，4K 超清画质。": "Live streaming for 10,000 concurrent viewers in 4K.", "一卡通，运营成本降低 40%。": "All-in-one card cuts operating costs by 40%.", "文档处理效率提升 10 倍。": "Document processing is 10× more efficient.", "支持 50+ 自动化动作。": "Supports 50+ automation actions.", "发布周期缩短至 5 分钟。": "Release cycles shortened to 5 minutes.", "异常 30 秒内告警触达。": "Alerts reach you within 30 seconds of an anomaly.", "X.509 双向认证加密。": "X.509 mutual-authentication encryption.", "全面体检，输出优化路线图。": "Full assessment with an optimization roadmap.", "五位一体监控，自定义告警。": "Five-in-one monitoring with custom alerts.", "99.95% 可用性承诺。": "A 99.95% availability commitment.", "区块链技术，患者自主授权。": "Blockchain technology with patient-controlled authorization.", "准备好开启数字化转型了吗？": "Ready to start your digital transformation?", "回答准确率超过 95%。": "Answer accuracy over 95%.", "内置 K8s 集群管理。": "Built-in K8s cluster management.", "响应延迟低至 10ms。": "Response latency as low as 10ms.", "减少 80% 无效告警。": "Reduces ineffective alerts by 80%.", "三级认证，对标国际标准。": "Three-level certification aligned with international standards.", "需求预测准确率 92%。": "Demand forecasting accuracy of 92%.", "点击下方按钮复制邮箱地址": "Click the button below to copy the email address", "或打开邮件客户端手动发送": "or open your mail client to send manually", "自然语言生成数据看板。": "Natural-language generation of data dashboards.", "元数据管理与血缘追踪。": "Metadata management and data lineage tracking.", "RAG 架构知识引擎。": "A RAG-architecture knowledge engine.", "预装 200+ 扩展。": "200+ pre-installed extensions.", "50+ 门系统化课程。": "50+ systematic courses.", "定制化方案，讲师驻场。": "Customized programs with on-site instructors.", "驱动数字世界的创新力量": "The innovative force driving the digital world", "持续验证、最小权限。": "Continuous validation and least privilege.", "四维度制定转型蓝图。": "A four-dimensional transformation blueprint.", "7×12 小时响应。": "7×12-hour response.", "智能运维 AIOps": "Intelligent operations with AIOps", "技术沙龙与案例研讨。": "Tech salons and case-study workshops.", "学情预警与师资评估。": "Learning alerts and teacher evaluation.", "亿级数据秒级响应。": "Billion-level data with second-level response.", "CI/CD 流水线": "CI/CD pipelines", "精准提炼核心需求。": "Precisely extract core requirements.", "等保三级合规设计。": "MLPS Level-3 compliant design.", "弹性计算 ECS": "Elastic Compute ECS", "对象存储 OSS": "Object Storage OSS", "CDN 全球加速": "CDN Global Acceleration", "容器服务 ACK": "Container Service ACK", "对比主流技术栈。": "Benchmarked against mainstream tech stacks.", "配置管理全自动。": "Fully automated configuration management.", "智慧企业解决方案": "Smart Enterprise Solution", "ERP 深度集成": "Deep ERP Integration", "CRM 客户管理": "CRM Customer Management", "医疗健康解决方案": "Healthcare Solution", "HIS 智能系统": "HIS Intelligent System", "教育科技解决方案": "EdTech Solution", "📦 全部仓库 →": "📦 All Repositories →", "Cookie设置": "Cookie Settings", "驱动数字世界的": "The Innovative Force", "AI 洞察引擎": "AI Insight Engine", "DDoS 清洗": "DDoS Scrubbing", "数字化转型规划": "Digital Transformation Planning", "零停机可回滚。": "Zero-downtime rollback.", "OA 智能协同": "OA Intelligent Collaboration", "BI 决策看板": "BI Decision Dashboard", "新零售解决方案": "New Retail Solution", "Token助手": "Token Assistant", "钢琴音乐可视化": "Piano Music Visualizer", "提示词反推工具": "Prompt Reverse-Engineering Tool", "视频解构分析器": "Video Deconstruction Analyzer", "了解更多 →": "Learn More →", "行业解决方案": "Industry Solutions", "🏢 智慧企业": "🏢 Smart Enterprise", "🏥 医疗健康": "🏥 Healthcare", "🎓 教育科技": "🎓 EdTech", "智能 WAF": "Intelligent WAF", "抗 DDoS": "Anti-DDoS", "自然语言交互": "Natural-Language Interaction", "云端 IDE": "Cloud IDE", "5000万+": "50M+", "架构设计评审": "Architecture Design Review", "技术选型建议": "Technology Selection Advice", "需求调研分析": "Requirements Research & Analysis", "SLA 保障": "SLA Guarantee", "SLA 承诺": "SLA Commitment", "技术培训课程": "Technical Training Courses", "最佳实践分享": "Best-Practice Sharing", "远程会诊平台": "Telemedicine Platform", "电子健康档案": "Electronic Health Records", "医疗数据安全": "Healthcare Data Security", "在线课堂平台": "Online Classroom Platform", "智能测评系统": "Intelligent Assessment System", "智慧校园管理": "Smart Campus Management", "会员运营平台": "Membership Operations Platform", "🎮 游戏娱乐": "🎮 Games & Fun", "🛠 实用工具": "🛠 Utilities", "趣味英语乐园": "Fun English Paradise", "星空数学大战": "Star Math Battle", "天气穿搭助手": "Weather & Outfit Assistant", "银行行号查询": "Bank CNAPS Code Lookup", "A股分析系统": "A-Share Analysis System", "趋势选股工具": "Trend Stock Picker", "本草食蔬下载": "Herbal Food Guide Download", "📋 复制邮箱": "📋 Copy Email", "服务可用性": "Service Availability", "🛒 新零售": "🛒 New Retail", "洞察准确率": "Insight Accuracy", "零信任架构": "Zero-Trust Architecture", "CVE 库": "CVE Database", "流程自动化": "Process Automation", "企业知识库": "Enterprise Knowledge Base", "回答准确率": "Answer Accuracy", "容器化部署": "Containerized Deployment", "一对一顾问": "One-on-One Consultant", "客户满意度": "Customer Satisfaction", "原型与设计": "Prototype & Design", "测试覆盖率": "Test Coverage", "SLA保障": "SLA Guarantee", "自动化运维": "Automated Operations", "全天候监控": "24/7 Monitoring", "系统可用性": "System Availability", "教育大数据": "Education Big Data", "全渠道营销": "Omnichannel Marketing", "智能供应链": "Intelligent Supply Chain", "预测准确率": "Forecast Accuracy", "俄罗斯方块": "Tetris", "迷宫冒险2": "Maze Adventure 2", "数学小英雄": "Math Hero", "科学计算器": "Scientific Calculator", "📺 多媒体": "📺 Media", "音频提取器": "Audio Extractor", "歌词提取器": "Lyrics Extractor", "本草电子书": "Herbal E-Book", "解决方案": "Solutions", "关于我们": "About Us", "联系我们": "Contact Us", "创新力量": "Driving the Digital World", "探索产品": "Explore Products", "了解服务": "Our Services", "企业客户": "Enterprise Clients", "软件产品": "Software Products", "核心产品": "Core Products", "专业服务": "Professional Services", "技术咨询": "Technology Consulting", "定制开发": "Custom Development", "运维托管": "Managed Operations", "培训赋能": "Training & Enablement", "全球节点": "Global Nodes", "数据存储": "Data Storage", "全球延迟": "Global Latency", "智能报表": "Smart Reports", "实时计算": "Real-Time Computing", "数据治理": "Data Governance", "行业模板": "Industry Templates", "数据处理": "Data Processing", "实时响应": "Real-Time Response", "漏洞扫描": "Vulnerability Scanning", "50万+": "500K+", "安全运营": "Security Operations", "智能文档": "Smart Documents", "效率提升": "Efficiency Gain", "流程动作": "Automation Actions", "文档处理": "Document Processing", "代码审查": "Code Review", "发布周期": "Release Cycle", "预装扩展": "Pre-installed Extensions", "审查效率": "Review Efficiency", "原生支持": "Native Support", "海量接入": "Massive-Scale Access", "实时监控": "Real-Time Monitoring", "边缘计算": "Edge Computing", "设备安全": "Device Security", "接入设备": "Connected Devices", "边缘延迟": "Edge Latency", "并发连接": "Concurrent Connections", "告警触达": "Alert Delivery", "专业顾问": "Professional Consultants", "项目评审": "Project Review", "15年+": "15+ Years", "平均经验": "Avg. Experience", "顾问响应": "Consultant Response", "敏捷交付": "Agile Delivery", "编码实现": "Coding & Implementation", "快速上线": "Rapid Launch", "定制项目": "Custom Projects", "迭代周期": "Iteration Cycle", "发布策略": "Release Strategy", "全栈监控": "Full-Stack Monitoring", "故障发现": "Fault Detection", "平均恢复": "Avg. Recovery", "人才孵化": "Talent Incubation", "认证体系": "Certification System", "企业内训": "Corporate Training", "专业课程": "Professional Courses", "培养人才": "Talent Development", "成单增长": "Deal Growth", "决策提速": "Faster Decisions", "合作机构": "Partner Institutions", "影像延迟": "Imaging Latency", "安全认证": "Security Certification", "并发直播": "Concurrent Streaming", "降本增效": "Cost Reduction", "合作院校": "Partner Schools", "智慧门店": "Smart Stores", "转化提升": "Conversion Uplift", "复购增长": "Repurchase Growth", "门店提效": "Store Efficiency", "预约演示": "Book a Demo", "发送邮件": "Send an Email", "新闻动态": "News", "加入我们": "Join Us", "联系方式": "Contact", "太空大战": "Space War", "解压赛车": "Relax Racing", "迷宫冒险": "Maze Adventure", "国际象棋": "International Chess", "吃豆迷宫": "Pac-Man Maze", "打字战争": "Typing War", "世界时钟": "World Clock", "油耗管家": "Fuel Manager", "古风取名": "Classic Name Generator", "韵律波动": "Rhythm Waves", "📊 金融": "📊 Finance", "🌿 养生": "🌿 Wellness", "隐私政策": "Privacy Policy", "服务条款": "Terms of Service", "联系邮箱": "Contact Email", "可用性": "Availability", "PB级": "PB-Scale", "误报率": "False-Positive Rate", "千万级": "Tens of Millions", "零停机": "Zero Downtime", "通过率": "Pass Rate", "等保3": "MLPS L3", "提分率": "Score Gain", "推箱子": "Sokoban", "贪吃蛇": "Snake", "五子棋": "Gomoku", "吃豆人": "Pac-Man", "电钢琴": "Digital Piano", "产品": "Products", "服务": "Services", "秒级": "Seconds", "T级": "T-Scale", "需求": "Requirements", "设计": "Design", "开发": "Development", "测试": "Testing", "上线": "Launch", "2周": "2 Weeks", "3级": "L3", "公司": "Company", "测试覆盖率 > 80%。": "Test coverage > 80%.", "1-6年级442首诗词配图文": "442 classic poems with illustrations (Grades 1-6)", "1000种动物实景百科": "Encyclopedia of 1,000 real animals", "201国国旗百科+世界地图": "Flags of 201 countries + world map", "30张可爱动物图片": "30 adorable animal pictures", "39个AI智能体作品 · 炫酷/实用/灵感导航": "39 AI agent works - cool, practical & inspirational", "400个谐音梗脑筋急转弯": "400 homophone puns & brain teasers", "504架机型 · 88国军机百科": "504 aircraft models - military aircraft of 88 countries", "5关难度 · 清新数独": "5 difficulty levels - fresh Sudoku", "63,707个GitHub开源项目三维星云": "3D nebula of 63,707 GitHub open-source projects", "63,707个GitHub开源项目三维星云可视化": "Visualization of 63,707 GitHub projects in a 3D nebula", "7×24小时监控，自动化运维平台，SLA保障": "7×24 monitoring, automated operations platform, SLA guarantee", "AI Copilot · 智能助手与自动化": "AI Copilot - intelligent assistant & automation", "AI发型设计与生成": "AI hairstyle design & generation", "AI工具百科": "AI Tools Encyclopedia", "AI提示词推导": "AI prompt reverse-engineering", "AI智体": "AI Agents", "AI灵感补给站": "AI Inspiration Station", "A股实时分析系统": "A-Share Real-Time Analysis System", "A股看板精选": "Curated A-Share Dashboards", "Cloud Center · 弹性计算": "Cloud Center - elastic computing", "Codex AI编程入手指南": "Codex AI Coding Beginner's Guide", "DDoS防护 · WAF · 漏洞扫描": "DDoS protection - WAF - vulnerability scanning", "DataLens · 智能数据分析引擎": "DataLens - intelligent data analytics engine", "GitHub 星数较多的 A股看板/盯盘/选股开源项目合集": "A collection of popular A-share dashboards/monitors/screeners on GitHub", "GitHub完全拆解 · 306知识点 · AI小白入门": "Complete GitHub Guide - 306 knowledge points - beginner friendly", "GitHub拆解指南": "GitHub Guide", "HERMES Agent 32章完全操作手册": "HERMES Agent - 32-Chapter Complete Manual", "Hermes Agent 赚钱100法": "100 Ways to Make Money with Hermes Agent", "Hermes完全手册": "Hermes Complete Manual", "Hermes赚钱100": "Hermes Money-Making 100", "SLA 服务保障": "SLA Service Guarantee", "SecureGate · 企业安全防护体系": "SecureGate - enterprise security system", "Token用量计算": "Token usage calculator", "Toobey Cloud · 弹性云基础设施": "Toobey Cloud - elastic cloud infrastructure", "Toobey Network Technology — 全方位软件与技术服务": "Toobey Network Technology - comprehensive software & technical services", "Toobey Network 图北网络科技 - 免费开源工具集合": "Toobey Network - Free & Open-Source Tools Collection", "Toobey 技术演示": "Toobey Tech Demo", "⚙️ 技术底座": "⚙️ Tech Foundation", "✅ 已复制！": "✅ Copied!", "✦ 拖拽节点 · 滚轮缩放（放大显示全部名称）· 点击查看详情 · F 全屏": "✦ Drag nodes - Scroll to zoom (zoom in to see all names) - Click for details - F for fullscreen", "万能二维码生成器": "Universal QR Code Generator", "上传报表自动识别28类财务风险": "Auto-detects 28 types of financial risks from uploaded reports", "世界国旗图鉴": "World Flags Guide", "中国AI工具百科全书 · 300款 · 17大行业": "China AI Tools Encyclopedia - 300 tools - 17 industries", "中国古代神话": "Ancient Chinese Mythology", "中国古代神话故事大全": "Complete Collection of Ancient Chinese Myths", "中小学数学知识图谱·SVG图解": "K-12 Math Knowledge Graph - SVG Illustrated", "了吗？": "?", "了解更多": "Learn More", "了解详情 →": "Details →", "云端开发 · CI/CD · 容器部署": "Cloud development - CI/CD - container deployment", "五子棋人机对战": "Gomoku vs AI", "从咨询到交付 · 全程陪伴式技术服务 · 驱动数字世界的创新力量": "From consulting to delivery - end-to-end technical services - the innovation force driving the digital world", "从底层基础设施到行业应用，构建完整数字化闭环": "From underlying infrastructure to industry applications, a complete digital loop", "企业客户覆盖": "Enterprise Clients Served", "企业税负风险一键体检": "One-click tax risk check for enterprises", "儿童数学练习": "Kids Math Practice", "免费开源": "Open Source", "免费开源项目": "Open-Source Projects", "免费开源项目 · 点击节点查看详情": "Open-source projects - click a node for details", "免费开源项目图谱": "Open-Source Project Graph", "全栈技术生态": "Full-Stack Tech Ecosystem", "其他": "Others", "养生": "Wellness", "准备好开启": "Ready to start", "出口退税一本通": "Export Tax Rebate Guide", "制作不易，善意随心": "Made with care - support if you like", "动物世界": "Animal World", "医疗健康": "Healthcare", "医疗健康 · HIS/远程会诊": "Healthcare - HIS/telemedicine", "发型设计助手": "Hairstyle Assistant", "古诗星云": "Poetry Nebula", "古风雅集": "Classical Elegance", "古风风格起名": "Classical-style name generator", "可视化报表 · 实时BI · AI洞察": "Visual reports - real-time BI - AI insights", "吃豆迷宫版": "Pac-Man Maze version", "合同智能审查": "Smart contract review", "唐宋诗词三维星云漫游": "3D nebula tour of Tang & Song poetry", "国际象棋AI对战": "Chess vs AI", "在线电钢琴弹奏": "Online digital piano", "垂直行业覆盖": "Vertical Industries Covered", "基础设施": "Infrastructure", "外贸从0到1 · 知识学习工具": "Foreign trade from 0 to 1 - learning tool", "外贸大全": "Foreign Trade Guide", "外贸知识学习工具": "Foreign trade knowledge learning tool", "多功能科学计算": "Multi-function scientific calculator", "多媒体": "Media", "多彩几何烟花绽放": "Colorful geometric fireworks", "多时区时钟查询": "Multi-timezone clock", "多维度测谎测试": "Multi-dimensional lie-detection test", "多维测谎分析仪": "Lie-Detection Analyzer", "大模型指南": "LLM Guide", "大模型知识指南 · 49名词百科 · 23模型对比 · 国内选型": "LLM Knowledge Guide - 49 terms - 23 model comparisons - China selection", "天气+穿搭建议": "Weather + outfit suggestions", "如果这些工具对您有帮助，欢迎支持": "If these tools help you, your support is welcome", "实用工具": "Utilities", "射击躲避小游戏": "Shooting & dodge mini-game", "小朋友AI入门": "Kids' AI Introduction", "小朋友Codex入门": "Kids' Codex Introduction", "开发者生态": "Developer Ecosystem", "开源作品集": "Open-Source Portfolio", "开源宇宙": "Open-Source Universe", "弹性计算 · 对象存储 · CDN加速": "Elastic computing - object storage - CDN acceleration", "微信": "WeChat", "成语故事": "Idiom Stories", "所有项目均可在线直接使用或下载使用，全部为开源免费工具": "All projects can be used online or downloaded - all are free open-source tools", "打字练习游戏": "Typing practice game", "技术培训、认证体系、最佳实践，企业快速成长": "Technical training, certification, best practices - rapid enterprise growth", "掌上医观": "Palm Health Reader", "掌纹健康分析": "Palm-print health analysis", "支付宝": "Alipay", "教育": "Education", "教育科技": "EdTech", "教育科技 · 在线课堂/测评": "EdTech - online classrooms/assessments", "数字化转型": "Digital Transformation", "数学知识大全": "Math Knowledge Complete", "数学答题闯关": "Math quiz levels", "数据中台 · 微服务架构": "Data middle platform - microservices architecture", "数独": "Sudoku", "文化": "Culture", "新": "New", "新零售": "New Retail", "新零售 · 全渠道营销/供应链": "New Retail - omnichannel marketing/supply chain", "智慧企业": "Smart Enterprise", "智慧企业 · OA/ERP/CRM": "Smart Enterprise - OA/ERP/CRM", "智能助手 · 流程自动化 · 知识库": "Intelligent assistant - process automation - knowledge base", "智能趋势选股": "Smart Trend Stock Picker", "本草在线阅读": "Herbal Medicine Online Reading", "本草食物查询": "Herbal Food Lookup", "架构设计评审、技术选型建议、数字化转型规划": "Architecture design review, technology selection, digital transformation planning", "根据业务需求量身定制，敏捷开发快速迭代上线": "Tailored to your business needs, agile development with rapid iterations", "楼盘可视化": "Real Estate Visualization", "楼盘销控 · 3D巡航选房": "Sales control - 3D cruise house selection", "水印清除": "Watermark Remover", "法眼识契-测试版": "Legal Contract Eye - Beta", "测试覆盖率 &gt; 80%。": "Test coverage > 80%.", "游戏娱乐": "Games & Fun", "炫彩烟花": "Colorful Fireworks", "照片视频去水印 · 本地处理": "Remove watermarks from photos/videos - processed locally", "税负体检": "Tax Burden Checkup", "空军图鉴": "Air Force Guide", "算力生态": "Computing Ecosystem", "精": "★", "经典吃豆小游戏": "Classic Pac-Man game", "经典成语故事大全": "Complete Classic Idiom Stories", "经典方块消除": "Classic block puzzle", "经典益智推箱子": "Classic puzzle Sokoban", "经典诗文": "Classic Poems", "经典贪吃蛇": "Classic Snake", "网址图片音视频转二维码": "Convert URLs/images/audio/video to QR codes", "网站全链路": "Full-Stack Website Guide", "网站搭建运营全教程": "Complete website building & operations tutorial", "老子全文81章逐章详解": "All 81 chapters of Laozi explained in detail", "联系我们 →": "Contact Us →", "芯片生态": "Chip Ecosystem", "花间竹韵 · 花竹古风素材展示": "Bamboo & Flower Classical Gallery", "英语学习小游戏": "English learning mini-game", "萌宠合集": "Cute Pets Collection", "行业覆盖": "Industries Covered", "视频转音频提取": "Video to audio extraction", "视频逐帧分析": "Frame-by-frame video analysis", "设备管理 · 实时监控 · 边缘计算": "Device management - real-time monitoring - edge computing", "谐音梗大观": "Homophone Puns Collection", "财会人员痛点深度解析": "In-depth analysis of finance pain points", "财会痛点100项": "100 Finance Pain Points", "财务漏洞检测": "Financial Fraud Detection", "赛车竞速小游戏": "Racing mini-game", "跟我一起和AI聊天 · 小学生AI教程": "Chat with AI together - AI tutorial for primary school students", "跨平台兼容 · 协同设计": "Cross-platform compatibility - collaborative design", "车辆油耗记录": "Vehicle fuel consumption records", "软件产品矩阵": "Software Product Matrix", "迷宫探索增强版": "Maze Adventure Enhanced", "迷宫探索闯关": "Maze exploration levels", "道德经解读": "Tao Te Ching Explained", "金融/财务": "Finance / Accounting", "银行网点行号": "Bank CNAPS Code Lookup", "音乐律动效果": "Music rhythm effects", "音乐歌词提取": "Music lyrics extractor", "音乐频谱可视化": "Music spectrum visualization", "颜色图谱": "Color Atlas", "颜色科学·搭配·应用·300+色样": "Color science, matching, application - 300+ swatches", "🏭 行业应用": "🏭 Industry Applications", "📊 发展规模": "📊 Scale", "📊 金融/财务": "📊 Finance / Accounting", "📚 教育": "📚 Education", "📚 文化": "📚 Culture", "📦 其他": "📦 Others", "🤖 AI智体": "🤖 AI Agents", "68 个免费开源项目 · 9 大分类。从游戏娱乐到 AI 智体，全部开源免费。": "68 free open-source projects in 9 categories. From games to AI agents - all free and open source.", "个项目": "projects", "作品集主页": "Portfolio Homepage", "打开作品集 →": "Open Portfolio →", "打开项目 →": "Open Project →"};
+var LANG_KEY = 'toobey_network_lang';
+window.__TN_DICT__ = DICT;
+window.__TN_LANG__ = 'zh';
+window.__TN_TR__ = function(s){ if(!s) return s; if(window.__TN_LANG__==='en' && DICT[s]) return DICT[s]; return s; };
+
+var TITLE_DICT = {
+  'zh': "Toobey Network 图北网络科技 - 免费开源工具集合",
+  'en': "Toobey Network - Free & Open-Source Tools Collection"
+};
+var META_DICT = {
+  'description': {
+    'zh': "Toobey Network 图北网络科技 —— 免费开源工具集合：A股分析、股票选股、财税工具、成语故事、诗词文库、AI教程、儿童学习等 60+ 在线工具与网页应用，全部免费使用。",
+    'en': "Toobey Network Technology - Free & open-source tool collection: A-share analysis, stock picking, finance tools, idiom stories, poetry library, AI tutorials, kids learning, and 60+ online tools & web apps, all free to use."
+  },
+  'keywords': {
+    'zh': "Toobey Network,图北网络,免费工具,开源工具,A股分析,股票工具,财税工具,成语故事,古风,AI教程,在线工具,网页应用",
+    'en': "Toobey Network, free tools, open-source tools, A-share analysis, stock tools, finance tools, idiom stories, AI tutorials, online tools, web apps"
+  }
+};
+
+// 反向字典 (en -> zh)
+var REV = {};
+(function(){
+  for (var k in DICT) {
+    var v = DICT[k];
+    if (v === k) continue;
+    if (REV[v] === undefined) REV[v] = k;
+  }
+})();
+// 特殊整体标题 (hero h1 两行 / CTA)
+var HERO_ZH = '驱动数字世界的<br><span class="gradient-text">创新力量</span>';
+var HERO_EN = 'The Innovative Force<br><span class="gradient-text">Driving the Digital World</span>';
+var CTA_ZH = null, CTA_EN = null;
+(function(){
+  var h = document.querySelector('.cta-section h2');
+  if (h) {
+    var spanHtml = '<span style="background:linear-gradient(135deg,#3b82f6,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">';
+    CTA_ZH = '准备好开启' + spanHtml + '数字化转型</span>了吗？';
+    CTA_EN = 'Ready to start ' + spanHtml + 'Digital Transformation</span>?';
+  }
+})();
+function applyLang(lang){
+  var en = (lang === 'en');
+  window.__TN_LANG__ = lang;
+  var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+  var n, batch = [];
+  while (n = walker.nextNode()) {
+    var t = n.nodeValue;
+    if (!t) continue;
+    var key = t.trim();
+    var map = en ? DICT : REV;
+    if (key && map[key] !== undefined && map[key] !== key) {
+      batch.push([n, key]);
+    }
+  }
+  for (var i = 0; i < batch.length; i++) {
+    var node = batch[i][0], key = batch[i][1];
+    var map = en ? DICT : REV;
+    node.nodeValue = node.nodeValue.replace(key, map[key]);
+  }
+  // 特殊整体标题
+  var h1 = document.querySelector('.hero h1');
+  if (h1) h1.innerHTML = en ? HERO_EN : HERO_ZH;
+  var ct = document.querySelector('.cta-section h2');
+  if (ct) ct.innerHTML = en ? CTA_EN : CTA_ZH;
+  var md = document.querySelector('meta[name="description"]');
+  if (md) md.setAttribute('content', en ? META_DICT.description.en : META_DICT.description.zh);
+  var mk = document.querySelector('meta[name="keywords"]');
+  if (mk) mk.setAttribute('content', en ? META_DICT.keywords.en : META_DICT.keywords.zh);
+  var od = document.querySelector('meta[property="og:description"]');
+  if (od) od.setAttribute('content', en ? META_DICT.description.en : META_DICT.description.zh);
+  var td = document.querySelector('meta[name="twitter:description"]');
+  if (td) td.setAttribute('content', en ? META_DICT.description.en : META_DICT.description.zh);
+  var ot = document.querySelector('meta[property="og:title"]');
+  if (ot) ot.setAttribute('content', en ? TITLE_DICT.en : TITLE_DICT.zh);
+  var tt = document.querySelector('meta[name="twitter:title"]');
+  if (tt) tt.setAttribute('content', en ? TITLE_DICT.en : TITLE_DICT.zh);
+  document.title = en ? TITLE_DICT.en : TITLE_DICT.zh;
+  document.documentElement.setAttribute('lang', en ? 'en' : 'zh-CN');
+  var btn = document.getElementById('langBtn');
+  if (btn) btn.textContent = en ? '🌐 English' : '🌐 中文';
+  var opts = document.querySelectorAll('.lang-opt');
+  for (var j = 0; j < opts.length; j++) {
+    opts[j].classList.toggle('active', (opts[j].getAttribute('data-lang') === lang));
+  }
+  if (window.__TN_GRAPH_REFRESH__) { try { window.__TN_GRAPH_REFRESH__(); } catch(e){} }
+  var cb = document.getElementById('copyBtn');
+  if (cb && cb.style.background !== 'rgb(67, 160, 71)' && cb.style.background !== '#43a047') {
+    cb.textContent = window.__TN_TR__('📋 复制邮箱');
+  }
+  try { localStorage.setItem(LANG_KEY, lang); } catch(e){}
+}
+function toggleLangMenu(){
+  var m = document.getElementById('langMenu');
+  if (m) m.classList.toggle('open');
+}
+function setLang(lang){
+  applyLang(lang);
+  var m = document.getElementById('langMenu');
+  if (m) m.classList.remove('open');
+}
+document.addEventListener('DOMContentLoaded', function(){
+  var saved = null;
+  try { saved = localStorage.getItem(LANG_KEY); } catch(e){}
+  applyLang(saved === 'en' ? 'en' : 'zh');
+});
+document.addEventListener('click', function(e){
+  var wrap = document.getElementById('langWrap');
+  var menu = document.getElementById('langMenu');
+  if (wrap && menu && !wrap.contains(e.target)) menu.classList.remove('open');
+});
+window.applyLang = applyLang; window.setLang = setLang; window.toggleLangMenu = toggleLangMenu;
+})();
+</script>
+
 </body>
 
 
