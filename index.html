@@ -6395,7 +6395,7 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 /* ===== 语言切换 ===== */
-.lang-wrap{position:relative;flex-shrink:0;margin-left:auto}
+.lang-wrap{position:relative;flex-shrink:0}
 .lang-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:20px;border:1px solid rgba(0,0,0,.1);background:#fff;color:#1a1a2e;font-size:13px;font-weight:600;cursor:pointer;transition:all .3s;white-space:nowrap;font-family:inherit}
 .lang-btn:hover{border-color:#3b82f6;color:#2563eb;box-shadow:0 4px 14px rgba(59,130,246,.18)}
 .lang-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:130px;background:#fff;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.14);padding:6px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:all .25s cubic-bezier(.22,1,.36,1);z-index:1100}
@@ -6596,7 +6596,7 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
 
 
 
-  <a href="javascript:void(0)" class="btn-primary" onclick="showEmail()">联系我们</a>
+  
   <div class="lang-wrap" id="langWrap">
     <button class="lang-btn" id="langBtn" onclick="toggleLangMenu()">🌐 中文</button>
     <div class="lang-menu" id="langMenu">
@@ -6604,7 +6604,7 @@ div[onclick*="detail-sol"]:hover{transform:translateY(-8px)!important;box-shadow
       <a class="lang-opt" data-lang="en" onclick="setLang('en')">English</a>
     </div>
   </div>
-
+<a href="javascript:void(0)" class="btn-primary" onclick="showEmail()">联系我们</a>
 
 
 
